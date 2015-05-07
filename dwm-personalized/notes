@@ -26,6 +26,7 @@ dwm-personalized-1:6.0.43.g14343e6-1-x86_64.pkg.tar.xz
 	added hide empty tags patch, is weird, probably remove later
 	tried dwm fifo patch, compiles but doesn't run
 	added class.patch to give the statusbar a classname, can now exclude from compton more accurately
+	removed media tag and associated programs- it's just never intuitive
 	Learned about makepkg --allsource to preserve git version.
 		--------> This does not prevent a git pull when building, use makepkg -e to build from existing source.
 ##############################################

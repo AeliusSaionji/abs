@@ -31,7 +31,7 @@ static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color",
 
 /* tagging */
 #define MAX_TAGLEN 16
-static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc", "media", "*" };
+static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc", "***" };
 
 static const Rule rules[] = {
 	/* xprop(1):
