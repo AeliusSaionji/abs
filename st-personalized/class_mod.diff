@@ -1,0 +1,11 @@
+--- a/st.c	2015-05-02 22:27:23.583136352 -0400
++++ b/st.c	2014-11-19 12:53:17.000000000 -0500
+@@ -2902,7 +2902,7 @@
+ 
+ void
+ xhints(void) {
+-	XClassHint class = {opt_class ? opt_class : termname, termname};
++	XClassHint class = {opt_class ? opt_class : opt_class, opt_class};
+ 	XWMHints wm = {.flags = InputHint, .input = 1};
+ 	XSizeHints *sizeh = NULL;
+ 

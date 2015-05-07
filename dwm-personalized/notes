@@ -1,0 +1,31 @@
+dwm-git-1:6.0.38.gcdec978-1-x86_64.pkg.tar.xz
+	Built 2014 April 3rd
+##############################################
+
+dwm-personalized-1:6.0.43.g14343e6-1-x86_64.pkg.tar.xz
+	Built 2015 April 30th
+
+	Had to remove the following patches (no attempt was made to merge them, really):
+		dwm-6.1-float_border_color2.diff
+		dwm-master_2013-08-27_cdec978-tab-v2a.diff
+	config.h change: var "font" to "*fonts", which is a different type. Added var dmenufont.
+	Made the statusbar font smaller
+	Changed window border from 1px to 0, because I figured out transparency for inactive windows.
+	Set background with feh, not qiv (because qiv doesn't work for transparency)
+	Added dwb to the list of browsers
+	Removed any direct reference to a browser, everything points to browser.sh, except run or raise
+	Added 'modkey u' to send the selected text to browser.sh
+	Added a * tag, so cmd can be exclusive to terminals
+	modified termcmd so it launches with a class, due to removing the class by default in my st
+	xprop returns wm(class)=instance,class. run or raise needs instance to exist, but matches against class. run or raise also wants st -t title to match :?
+		Not possible to correctly alter class of an existing window. Should probably learn c and fix run or raise to match against instance
+	removed swapfocus patch
+	removed nametag patch
+	removed other patches
+		consider removing the different layouts I never use
+	added hide empty tags patch, is weird, probably remove later
+	tried dwm fifo patch, compiles but doesn't run
+	added class.patch to give the statusbar a classname, can now exclude from compton more accurately
+	Learned about makepkg --allsource to preserve git version.
+		--------> This does not prevent a git pull when building, use makepkg -e to build from existing source.
+##############################################
