@@ -3,8 +3,7 @@
 
 pkgname=st-personalized
 _pkgname=st
-epoch=1
-pkgver=20150502.52bd5fb
+pkgver=20141119
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 #url='http://git.suckless.org/st/'
@@ -24,10 +23,10 @@ md5sums=('af982bd05f5411d0b6225d7461f129b6'
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 
-pkgver() {
-	cd "${srcdir}/${_pkgname}"
-	git log -1 --format='%cd.%h' --date=short | tr -d -
-}
+#pkgver() {
+#	cd "${srcdir}/${_pkgname}"
+#	git log -1 --format='%cd.%h' --date=short | tr -d -
+#}
 
 prepare() {
 	cd "${srcdir}/${_pkgname}"

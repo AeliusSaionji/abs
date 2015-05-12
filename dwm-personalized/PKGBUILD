@@ -18,7 +18,6 @@ makedepends=('git')
 install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
-epoch=1
 source=(config.h
 	class.patch
 	dwm.desktop

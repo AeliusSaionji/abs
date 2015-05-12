@@ -1,8 +1,4 @@
-dwm-git-1:6.0.38.gcdec978-1-x86_64.pkg.tar.xz
-	Built 2014 April 3rd
-##############################################
-
-dwm-personalized-1:6.0.43.g14343e6-1-x86_64.pkg.tar.xz
+dwm-personalized-6.0.43.g14343e6-1-x86_64.pkg.tar.xz
 	Built 2015 April 30th
 
 	Had to remove the following patches (no attempt was made to merge them, really):

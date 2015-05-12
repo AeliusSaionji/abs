@@ -1,6 +1,6 @@
-st-personalized-1:20150501.8118123-1.src.tar.gz
+st-personalized-20141119-1-x86_64.pkg.tar.xz
 Built 2015 April 30th
-This mouthfull is the git version that the latest transparency patch was made for.
+This is the git version that the latest transparency patch was made for.
 http://git.suckless.org/st/commit/?id=09f5d98251469070b76f3911cc6a83d977871656
 Transparency is the only patch applied.
 I've opted to rely on launching urls by having dwm process xsel
