@@ -89,9 +89,9 @@ static const char *winswitch[]  = { "windowswitch.sh", NULL };
 static const char *clipmenu[]   = { "clipmenu", NULL };
 static const char *lightdown[]  = { "xbacklight", "-dec", "10", NULL };
 static const char *lightup[]    = { "xbacklight", "-inc", "10", NULL };
-static const char *voldown[]    = { "amixer", "sset", "Master", "playback", "2dB-", NULL };
-static const char *volup[]      = { "amixer", "sset", "Master", "playback", "2dB+", NULL };
-static const char *mute[]       = { "amixer", "sset", "Master", "playback", "toggle", NULL };
+static const char *voldown[]    = { "amixer", "set", "Master", "5%-", NULL };
+static const char *volup[]      = { "amixer", "set", "Master", "5%+", NULL };
+static const char *mute[]       = { "amixer", "set", "Master", "toggle", NULL };
 static const char *newbg[]      = { "feh", "--bg-max", "--no-fehbg", "-z", "/home/Link/pictures/bg", NULL };
 
 static Key keys[] = {
