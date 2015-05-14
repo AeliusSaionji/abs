@@ -19,10 +19,12 @@ provides=('dmenu')
 conflicts=('dmenu')
 source=(git://git.suckless.org/dmenu#commit=5ed5e90bf
 	class.patch
-	shift-insert.patch)
+	shift-insert.patch
+	better-shift-insert.patch)
 md5sums=('SKIP'
 	 'dfa9eecdf73879fcfd8b04ff336bcb30'
-	 'ae45c6bf23d69f138a6618c7389ef72c')
+	 'ae45c6bf23d69f138a6618c7389ef72c'
+	 'dffce7fafd759df1185d98c7f79b2bd4')
 
 pkgver() {
   cd $_pkgname
@@ -32,7 +34,7 @@ pkgver() {
 prepare() {
   cd $_pkgname
   patch -i $srcdir/class.patch
-  patch -i $srcdir/shift-insert.patch
+  patch -i $srcdir/better-shift-insert.patch
 }
 
 build(){
