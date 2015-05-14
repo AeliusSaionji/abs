@@ -25,13 +25,14 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-static const char *browser[] = { "xombrero", NULL, NULL, NULL, "Xombrero" }; /* Run or raise declaration */
-static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" }; /* Run or raise declaration */
-static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" }; /* Run or raise declaration */
+//Run or raise
+static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" };
+static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
+static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" };
 
 /* tagging */
 #define MAX_TAGLEN 16
-static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc", "***" };
+static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,19 +40,22 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class         instance       title       tags mask     isfloating   monitor */
-	{ "Gimp",        NULL,          NULL,       0,            True,        -1 },
+	//cmd
 	{ "st-256color", "st-256color", NULL,       1,            False,       -1 },
+	//www
 	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "Dwb",         NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
+	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
-	{ "mpv",         NULL,          NULL,       0,            False,       -1 },
-	{ NULL,          NULL,          "qiv",      0,            True,        -1 },
-	{ "Sxiv",        NULL,          NULL,       0,            True,        -1 },
-	{ "Gifview",     NULL,          NULL,       0,            True,        -1 },
-	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
-	{ "Steam",       "Steam",       "Friends",  1 << 3,       True,        -1 },
+	{ "Steam",       "Steam",       NULL,       1 << 2,       False,       -1 },
+	{ "Steam",       "Steam",       "Friends",  1 << 2,       True,        -1 },
+	//all
+	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
+	{ NULL,          NULL,          "qiv",     ~0,            True,        -1 },
+	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
+	{ "Gifview",     NULL,          NULL,      ~0,            True,        -1 },
 };
 
 /* layout(s) */
@@ -83,25 +87,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-//static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL };
+//static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Replaced by run or raise termcmd
 static const char *openurl[]    = { "browser.sh", NULL };
 static const char *clipmenu[]   = { "clipmenu", NULL };
 static const char *newbg[]      = { "feh", "--bg-max", "--no-fehbg", "-z", "/home/Link/pictures/bg", NULL };
-//static const char *winswitch[]  = { "windowswitch.sh", NULL };
-//static const char *lightdown[]  = { "xbacklight", "-dec", "10", NULL };
-//static const char *lightup[]    = { "xbacklight", "-inc", "10", NULL };
-//static const char *voldown[]    = { "amixer", "set", "Master", "5%-", NULL };
-//static const char *volup[]      = { "amixer", "set", "Master", "5%+", NULL };
-//static const char *mute[]       = { "amixer", "set", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier           key                       function        argument */
-//	{ 0,                  XF86XK_MonBrightnessDown, spawn,          {.v = lightdown } },
-//	{ 0,                  XF86XK_MonBrightnessUp,   spawn,          {.v = lightup } },
-//	{ 0,                  XF86XK_AudioMute,         spawn,          {.v = mute } },
-//	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
-//	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,          {.v = volup } },
-//	{ 0,                  XK_F5,                    spawn,          {.v = winswitch } },
         { MODKEY,             XK_backslash,             runorraise,     {.v = irc } },
 	{ MODKEY,             XK_comma,                 focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_comma,                 tagmon,         {.i = -1 } },
@@ -166,7 +158,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+//	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
