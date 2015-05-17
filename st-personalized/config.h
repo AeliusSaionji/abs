@@ -7,12 +7,7 @@
  */
 static char font[] = "inconsolata:pixelsize=12";
 static int borderpx = 0;
-//static int histsize = 2000;
 static char shell[] = "/bin/sh";
-static char *utmp = NULL;
-
-/* identification sequence returned in DA and DECID */
-static char vtiden[] = "\033[?6c";
 
 /* Kerning / character bounding-box mutlipliers */
 float cwscale = 1.0;
@@ -41,7 +36,6 @@ static unsigned int actionfps = 30;
  * attribute.
  */
 static unsigned int blinktimeout = 800;
-
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -121,13 +115,9 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_Prior,       xzoom,          {.i = +1} },
 	{ MODKEY|ShiftMask,     XK_Next,        xzoom,          {.i = -1} },
-	{ MODKEY|ShiftMask,     XK_Home,        xzoomreset,     {.i =  0} },
-	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Insert,      selpaste,       {.i =  0} },
+	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_Insert,      clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-//	{ ShiftMask,		XK_F1,  	kscrollup,	{.i = -1} },
-//	{ ShiftMask,		XK_F2,  	kscrolldown,	{.i = -1} },
-//	{ MODKEY,		XK_u,		externalpipe,	{ .s = "sed -e '/http/!d' -e 's/.*http/http/g' -e 's/ .*//g' | dmenu | xargs -r browser.sh" } },
 };
 
 /*
@@ -166,11 +156,6 @@ static KeySym mappedkeys[] = { -1 };
  * numlock (Mod2Mask) and keyboard layout (XK_SWITCH_MOD) are ignored.
  */
 static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
-
-/* Override mouse-select while mask is active (when MODE_MOUSE is set).
- * Note that if you want to use ShiftMask with selmasks, set this to an other
- * modifier, set to 0 to not use it. */
-static uint forceselmod = ShiftMask;
 
 static Key key[] = {
 	/* keysym           mask            string      appkey appcursor crlf */
@@ -258,8 +243,8 @@ static Key key[] = {
 	{ XK_Return,        XK_ANY_MOD,     "\r\n",          0,    0,   +1},
 	{ XK_Insert,        ShiftMask,      "\033[4l",      -1,    0,    0},
 	{ XK_Insert,        ShiftMask,      "\033[2;2~",    +1,    0,    0},
-	{ XK_Insert,        ControlMask,    "\033[L",       +1,    0,    0},
-	{ XK_Insert,        ControlMask,    "\033[2;5~",    -1,    0,    0},
+	{ XK_Insert,        ControlMask,    "\033[L",       -1,    0,    0},
+	{ XK_Insert,        ControlMask,    "\033[2;5~",    +1,    0,    0},
 	{ XK_Insert,        XK_ANY_MOD,     "\033[4h",      -1,    0,    0},
 	{ XK_Insert,        XK_ANY_MOD,     "\033[2~",      +1,    0,    0},
 	{ XK_Delete,        ControlMask,    "\033[M",       -1,    0,    0},
