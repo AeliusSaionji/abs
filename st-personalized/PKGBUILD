@@ -3,54 +3,41 @@
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=20141119
-pkgrel=1
-pkgdesc='Simple virtual terminal emulator for X'
-#url='http://git.suckless.org/st/'
+pkgver=0.5
+pkgrel=2
+pkgdesc='A simple virtual terminal emulator for X.'
 arch=('i686' 'x86_64' 'armv7h')
 license=('MIT')
-depends=('libxft')
-makedepends=('ncurses' 'libxext')
-source=('st-personalized.tar.gz'
-	'st-git-20141122-argbbg.diff'
+depends=('libxext' 'libxft')
+makedepends=('ncurses')
+url="http://st.suckless.org"
+source=(http://dl.suckless.org/st/${_pkgname}-${pkgver}.tar.gz
+	'st-0.5-argbbg.diff'
 	'class_mod.diff'
 	'config.h')
-md5sums=('af982bd05f5411d0b6225d7461f129b6'
-	 'e06be65f50af0b86e2e20a1ed6e66d96'
+md5sums=('4f8ae2737120a8cba34b23c6020fe51e'
+	 '908be5ad6e87a01a00a6ccc404b73611'
 	 'c1131be748fa8f5c03897dfd6cdf5e0a'
-	 'e86c4b4e584c04831200f1aa5e31cf5e')
+	 '7a83fba014dbf226c60f480d2ce3ab5e')
 
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 
-#pkgver() {
-#	cd "${srcdir}/${_pkgname}"
-#	git log -1 --format='%cd.%h' --date=short | tr -d -
-#}
-
 prepare() {
-	cd "${srcdir}/${_pkgname}"
-	sed \
-		-e 's/CPPFLAGS =/CPPFLAGS +=/g' \
-		-e 's/CFLAGS =/CFLAGS +=/g' \
-		-e 's/LDFLAGS =/LDFLAGS +=/g' \
-		-i config.mk
-	sed '/char font/s/".*"/"Fixed:pixelsize=13:style=SemiCondensed"/' -i config.def.h
-	patch -F3 -i ${srcdir}/st-git-20141122-argbbg.diff
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	patch -i ${srcdir}/st-0.5-argbbg.diff
 	patch -i ${srcdir}/class_mod.diff
 }
 
 build() {
-	cd "${srcdir}/${_pkgname}"
+	cd "${srcdir}/${_pkgname}-${pkgver}"
 	cp "${srcdir}"/config.h config.h
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
-package() { 
-	cd "${srcdir}/${_pkgname}"
-	export TERMINFO="${pkgdir}/usr/share/terminfo"
-	install -d "$TERMINFO"
-	make PREFIX=/usr DESTDIR="${pkgdir}" install
-	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
+package() {
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	make PREFIX=/usr DESTDIR="${pkgdir}" TERMINFO="{$pkgdir}/usr/share/terminfo" install
+		install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+		install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
 }
