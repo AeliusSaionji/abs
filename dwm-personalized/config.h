@@ -47,6 +47,7 @@ static const Rule rules[] = {
 	{ "Dwb",         NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
+	{ "Chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
@@ -77,8 +78,8 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
