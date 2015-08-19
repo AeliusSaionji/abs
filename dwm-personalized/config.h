@@ -49,8 +49,9 @@ static const Rule rules[] = {
 	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
-	{ "Steam",       "Steam",       NULL,       1 << 2,       False,       -1 },
-	{ "Steam",       "Steam",       "Friends",  1 << 2,       False,        -1 },
+	//etc
+	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
+	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,        -1 },
 	//all
 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
 	{ NULL,          NULL,          "qiv",     ~0,            True,        -1 },
