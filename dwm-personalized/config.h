@@ -32,7 +32,7 @@ static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco",
 
 /* tagging */
 #define MAX_TAGLEN 16
-static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc" };
+static char tags[][MAX_TAGLEN] = { "cmd", "www", "irc", "etc" };
 
 static const Rule rules[] = {
 	/* xprop(1):

@@ -31,7 +31,7 @@ source=(config.h
 	dwm-6.1-push.diff
 	dwm-6.1-runorraise-fixed.diff
 	dwm-6.1-save_floats.diff)
-md5sums=('bf5139cb6ce8adf6bc3d33fb6bbcf018'
+md5sums=('8a4c8b4a01ab38c51b71a4c8982b82a9'
 	 '091126ed1734848375d756bf0909f083'
 	 '939f403a71b6e85261d09fc3412269ee'
          'SKIP'
