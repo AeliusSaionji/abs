@@ -7,11 +7,10 @@
 #include "bstackhoriz.c"
 #include <X11/XF86keysym.h>
 /* appearance */
-/* static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*"; */
 static const char *fonts[] = {
 	"fixed:size=7"
 };
-static const char dmenufont[]            = "-misc-fixed-medium-r-normal-*-9-*-*-*-*-*-iso10646-*";
+static const char dmenufont[]       = "-misc-fixed-medium-r-normal-*-9-*-*-*-*-*-iso10646-*";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -52,7 +51,7 @@ static const Rule rules[] = {
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
 	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
-	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,        -1 },
+	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,       -1 },
 	//all
 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
 	{ NULL,          NULL,          "qiv",     ~0,            True,        -1 },
@@ -67,9 +66,9 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[M]",      monocle }, /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[]=",      tile },    
         { "###",      gaplessgrid },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
@@ -131,14 +130,14 @@ static Key keys[] = {
 	{ MODKEY|ControlMask, XK_k,                     pushup,         {0} },
 	{ MODKEY,             XK_l,                     setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask, XK_l,                     setcfact,       {.f = -0.25} },
-	{ MODKEY,             XK_m,                     setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,             XK_m,                     setlayout,      {.v = &layouts[0]} },
         { MODKEY,             XK_o,                     runorraise,     {.v = browser } },
 	{ MODKEY|ControlMask, XK_o,                     setcfact,       {.f =  0.00} },
 	{ MODKEY,             XK_p,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,   XK_q,                     quit,           {0} },
 	{ MODKEY|ControlMask, XK_r,                     spawn,          {.v = newbg } },
 	{ MODKEY|ShiftMask,   XK_r,                     resizemouse,    {0} },
-	{ MODKEY,             XK_t,                     setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,             XK_t,                     setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,             XK_u,                     spawn,          {.v = openurl } },
 	{ MODKEY,             XK_0,                     view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,   XK_0,                     tag,            {.ui = ~0 } },
