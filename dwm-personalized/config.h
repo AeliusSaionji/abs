@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
+	{ "Client.pyw",  NULL,          NULL,       1 << 3,       False,       -1 },
 	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
 	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,       -1 },
 	//all
