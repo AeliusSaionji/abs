@@ -31,7 +31,7 @@ static Color colors[] = {
 /* curses attributes for the status bar */
 #define BAR_ATTR        (COLOR(BLUE) | A_NORMAL)
 /* status bar (command line option -s) position */
-#define BAR_POS         BAR_TOP /* BAR_BOTTOM, BAR_OFF */
+#define BAR_POS         BAR_OFF /* BAR_BOTTOM, BAR_TOP */
 /* whether status bar should be hidden if only one client exists */
 #define BAR_AUTOHIDE    true
 /* master width factor [0.1 .. 0.9] */
@@ -41,7 +41,7 @@ static Color colors[] = {
 /* scroll back buffer size in lines */
 #define SCROLL_HISTORY 500
 /* printf format string for the tag in the status bar */
-#define TAG_SYMBOL   "[%s]"
+#define TAG_SYMBOL   "%s "
 /* curses attributes for the currently selected tags */
 #define TAG_SEL      (COLOR(BLUE) | A_BOLD)
 /* curses attributes for not selected tags which contain no windows */
@@ -51,7 +51,7 @@ static Color colors[] = {
 /* curses attributes for not selected tags which with urgent windows */
 #define TAG_URGENT (COLOR(BLUE) | A_NORMAL | A_BLINK)
 
-const char tags[][8] = { "1", "2", "3", "4", "5" };
+const char tags[][8] = { "main", "ranger", "etc" };
 
 #include "tile.c"
 #include "grid.c"
@@ -61,9 +61,9 @@ const char tags[][8] = { "1", "2", "3", "4", "5" };
 /* by default the first layout entry is used */
 static Layout layouts[] = {
 	{ "[]=", tile },
-	{ "+++", grid },
+	{ "###", grid },
 	{ "TTT", bstack },
-	{ "[ ]", fullscreen },
+	{ "[M]", fullscreen },
 };
 
 #define MOD  KEY_F(13)
@@ -77,10 +77,10 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'J',          }, { focusnextnm,    { NULL }                    } },
 	{ { MOD, 'K',          }, { focusprevnm,    { NULL }                    } },
 	{ { MOD, 'k',          }, { focusprev,      { NULL }                    } },
-	{ { MOD, 'f',          }, { setlayout,      { "[]=" }                   } },
-	{ { MOD, 'g',          }, { setlayout,      { "+++" }                   } },
+	{ { MOD, 't',          }, { setlayout,      { "[]=" }                   } },
+	{ { MOD, 'g',          }, { setlayout,      { "###" }                   } },
 	{ { MOD, 'b',          }, { setlayout,      { "TTT" }                   } },
-	{ { MOD, 'm',          }, { setlayout,      { "[ ]" }                   } },
+	{ { MOD, 'm',          }, { setlayout,      { "[M]" }                   } },
 	{ { MOD, ' ',          }, { setlayout,      { NULL }                    } },
 	{ { MOD, 'i',          }, { incnmaster,     { "+1" }                    } },
 	{ { MOD, 'd',          }, { incnmaster,     { "-1" }                    } },
@@ -128,22 +128,22 @@ static KeyBinding bindings[] = {
 	{ { MOD, 'v', '4'      }, { view,           { tags[3] }                 } },
 	{ { MOD, 'v', '5'      }, { view,           { tags[4] }                 } },
 	{ { MOD, 'v', '\t',    }, { viewprevtag,    { NULL }                    } },
-	{ { MOD, 't', '0'      }, { tag,            { NULL }                    } },
-	{ { MOD, 't', '1'      }, { tag,            { tags[0] }                 } },
-	{ { MOD, 't', '2'      }, { tag,            { tags[1] }                 } },
-	{ { MOD, 't', '3'      }, { tag,            { tags[2] }                 } },
-	{ { MOD, 't', '4'      }, { tag,            { tags[3] }                 } },
-	{ { MOD, 't', '5'      }, { tag,            { tags[4] }                 } },
+	{ { MOD, 'f', '0'      }, { tag,            { NULL }                    } },
+	{ { MOD, 'f', '1'      }, { tag,            { tags[0] }                 } },
+	{ { MOD, 'f', '2'      }, { tag,            { tags[1] }                 } },
+	{ { MOD, 'f', '3'      }, { tag,            { tags[2] }                 } },
+	{ { MOD, 'f', '4'      }, { tag,            { tags[3] }                 } },
+	{ { MOD, 'f', '5'      }, { tag,            { tags[4] }                 } },
 	{ { MOD, 'V', '1'      }, { toggleview,     { tags[0] }                 } },
 	{ { MOD, 'V', '2'      }, { toggleview,     { tags[1] }                 } },
 	{ { MOD, 'V', '3'      }, { toggleview,     { tags[2] }                 } },
 	{ { MOD, 'V', '4'      }, { toggleview,     { tags[3] }                 } },
 	{ { MOD, 'V', '5'      }, { toggleview,     { tags[4] }                 } },
-	{ { MOD, 'T', '1'      }, { toggletag,      { tags[0] }                 } },
-	{ { MOD, 'T', '2'      }, { toggletag,      { tags[1] }                 } },
-	{ { MOD, 'T', '3'      }, { toggletag,      { tags[2] }                 } },
-	{ { MOD, 'T', '4'      }, { toggletag,      { tags[3] }                 } },
-	{ { MOD, 'T', '5'      }, { toggletag,      { tags[4] }                 } },
+	{ { MOD, 'F', '1'      }, { toggletag,      { tags[0] }                 } },
+	{ { MOD, 'F', '2'      }, { toggletag,      { tags[1] }                 } },
+	{ { MOD, 'F', '3'      }, { toggletag,      { tags[2] }                 } },
+	{ { MOD, 'F', '4'      }, { toggletag,      { tags[3] }                 } },
+	{ { MOD, 'F', '5'      }, { toggletag,      { tags[4] }                 } },
 };
 
 static const ColorRule colorrules[] = {
@@ -188,7 +188,7 @@ static const ColorRule colorrules[] = {
 #ifdef CONFIG_MOUSE
 static Button buttons[] = {
 	{ BUTTON1_CLICKED,        { mouse_focus,      { NULL  } } },
-	{ BUTTON1_DOUBLE_CLICKED, { mouse_fullscreen, { "[ ]" } } },
+	{ BUTTON1_DOUBLE_CLICKED, { mouse_fullscreen, { "[M]" } } },
 	{ BUTTON2_CLICKED,        { mouse_zoom,       { NULL  } } },
 	{ BUTTON3_CLICKED,        { mouse_minimize,   { NULL  } } },
 };

@@ -1,2 +1,3 @@
 dvtm has extremely rudimentary support for changing the modkey with launch arguments. Doesn't seem to be possible to use Fkeys, so I have to compile my own copy...
+added idle-fifo.patch; a fifo is always made but does nothing. Create an external script
 

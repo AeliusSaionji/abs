@@ -12,15 +12,18 @@ url='http://www.brain-dump.org/projects/dvtm/'
 license=('MIT')
 depends=('ncurses')
 source=("http://www.brain-dump.org/projects/${pkgname}/${pkgname}-${pkgver}.tar.gz"
-        'config.h')
+        'config.h'
+	'idle-fifo.patch')
 md5sums=('44ec5176b1996fdffd97cabe9a35ea0c'
-         '0bc6a9416d3825d6d14d44dd5348ee5b')
+         'cc29246822bec86fba2f44cb14130984'
+	 'de35df8069fb7504f64ca15a35f3eae5')
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
 
 	cp "${srcdir}/config.h" .
 	sed -i 's/CFLAGS =/CFLAGS +=/' config.mk
+	patch -i $srcdir/idle-fifo.patch
 }
 
 build() {
