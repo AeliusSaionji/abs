@@ -25,7 +25,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 //Run or raise
-static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" };
+static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm-status", "-M", NULL, NULL, NULL, "st-256color" };
 static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
 static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" };
 
@@ -92,10 +92,20 @@ static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufo
 //static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Replaced by run or raise termcmd
 static const char *openurl[]    = { "browser.sh", NULL };
 static const char *clipmenu[]   = { "clipmenu", NULL };
-static const char *newbg[]      = { "feh", "--bg-max", "--no-fehbg", "-z", "/home/Link/pictures/bg", NULL };
+static const char *newbg[]      = { "systemctl", "--user", "start", "feh-wallpaper.service", NULL };
+static const char *lightdown[]  = { "bright_adjust.sh", "dec", NULL };
+static const char *lightup[]    = { "bright_adjust.sh", "inc", NULL };
+static const char *rotate[]     = { "rotate.sh", NULL };
+static const char *voldown[]    = { "vol_adjust.sh", "-", NULL };
+static const char *volup[]      = { "vol_adjust.sh", "+", NULL };
 
 static Key keys[] = {
 	/* modifier           key                       function        argument */
+	{ 0,                  XF86XK_MonBrightnessDown, spawn,          {.v = lightdown } },
+	{ 0,                  XF86XK_MonBrightnessUp,   spawn,          {.v = lightup } },
+	{ 0,                  XF86XK_Display,           spawn,          {.v = rotate } },
+	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
+	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,          {.v = volup } },
         { MODKEY,             XK_backslash,             runorraise,     {.v = irc } },
 	{ MODKEY,             XK_comma,                 focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_comma,                 tagmon,         {.i = -1 } },
