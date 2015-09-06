@@ -25,7 +25,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 //Run or raise
-static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm-status", "-M", NULL, NULL, NULL, "st-256color" };
+static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" };
 static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
 static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" };
 
