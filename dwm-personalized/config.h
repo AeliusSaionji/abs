@@ -98,6 +98,7 @@ static const char *lightup[]    = { "bright_adjust.sh", "inc", NULL };
 static const char *rotate[]     = { "rotate.sh", NULL };
 static const char *voldown[]    = { "vol_adjust.sh", "-", NULL };
 static const char *volup[]      = { "vol_adjust.sh", "+", NULL };
+static const char *mute[]       = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier           key                       function        argument */
@@ -106,6 +107,7 @@ static Key keys[] = {
 	{ 0,                  XF86XK_Display,           spawn,          {.v = rotate } },
 	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
 	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,          {.v = volup } },
+	{ 0,                  XF86XK_AudioMute,         spawn,          {.v = mute } },
         { MODKEY,             XK_backslash,             runorraise,     {.v = irc } },
 	{ MODKEY,             XK_comma,                 focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_comma,                 tagmon,         {.i = -1 } },
