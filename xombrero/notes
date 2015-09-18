@@ -1,2 +1,0 @@
-Use gtk3 to hide scrollbars
-xombrero devs don't know what shortcuts vim uses, and ZZ is incorrectly hardcoded into it. The ZZ_save patch corrects xombrero.
