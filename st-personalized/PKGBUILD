@@ -1,7 +1,5 @@
 # Contributor: Patrick Jackson <PatrickSJackson gmail com>
 # Maintainer: Christoph Vigano <mail@cvigano.de>
-#http://dl.suckless.org/st/$_pkgname-$pkgver.tar.gz
-#1a926f450b4eacb7e2f5ac5b8ffea7c8
 
 pkgname=st-personalized
 _pkgname=st
@@ -29,8 +27,8 @@ md5sums=('SKIP'
 prepare() {
   cd "$_pkgname"
   git apply $srcdir/st-git-20150917-clipboard.diff
-  git apply $srcdir/st-git-20150917-hidecursor.diff
   git apply $srcdir/st-git-20150917-copyurl.diff
+  git apply $srcdir/st-git-20150917-hidecursor.diff
   cp $srcdir/config.h config.h
 }
 
