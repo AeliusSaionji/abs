@@ -92,6 +92,7 @@ static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufo
 //static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Replaced by run or raise termcmd
 static const char *openurl[]    = { "browser.sh", NULL };
 static const char *clipmenu[]   = { "clipmenu", NULL };
+static const char *clipsync[]   = { "clipsync.sh", NULL };
 static const char *newbg[]      = { "systemctl", "--user", "start", "feh-wallpaper.service", NULL };
 static const char *lightdown[]  = { "bright_adjust.sh", "dec", NULL };
 static const char *lightup[]    = { "bright_adjust.sh", "inc", NULL };
@@ -112,6 +113,7 @@ static Key keys[] = {
 	{ MODKEY,             XK_comma,                 focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_comma,                 tagmon,         {.i = -1 } },
 	{ ControlMask,        XK_grave,                 spawn,          {.v = clipmenu } },
+	{ ControlMask,        XK_Insert,                spawn,          {.v = clipsync } },
 	{ MODKEY,             XK_period,                focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,   XK_period,                tagmon,         {.i = +1 } },
 	{ MODKEY,             XK_Return,                zoom,           {0} },
