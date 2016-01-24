@@ -1,4 +1,4 @@
-# $Id: PKGBUILD 106204 2014-02-25 11:21:42Z bpiotrowski $
+# $Id: PKGBUILD 146421 2015-11-09 10:39:26Z spupykin $
 # Maintainer:  Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 # Contributor: Thorsten Töpper <atsutane-tu@freethoughts.de>
@@ -7,7 +7,11 @@
 
 pkgname=dmenu-personalized
 _pkgname=dmenu
-pkgver=4.5.13.5ed5e90
+pkgver=4.4.60.g5ed5e90
+pkgver() {
+  cd $_pkgname
+  git describe --tags |sed 's/-/./g'
+}
 pkgrel=1
 pkgdesc="A generic menu for X"
 url="http://tools.suckless.org/dmenu/"
@@ -26,22 +30,15 @@ md5sums=('SKIP'
 	 'ae45c6bf23d69f138a6618c7389ef72c'
 	 'dffce7fafd759df1185d98c7f79b2bd4')
 
-pkgver() {
-  cd $_pkgname
-  echo 4.5.$(git rev-list 7f45b3f7a..@ --count).$(git rev-parse --short HEAD)
-}
-
 prepare() {
   cd $_pkgname
   patch -i $srcdir/class.patch
   patch -i $srcdir/better-shift-insert.patch
 }
 
-build(){
+build() {
   cd $_pkgname
-  make \
-    X11INC=/usr/include/X11 \
-    X11LIB=/usr/lib/X11
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
 }
 
 package() {
