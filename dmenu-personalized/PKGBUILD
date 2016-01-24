@@ -7,8 +7,8 @@
 
 pkgname=dmenu-personalized
 _pkgname=dmenu
-pkgver=4.4.60.g5ed5e90
-pkgver() {
+pkgver=4.6.3.g3de85ca
+pkgver(){
   cd $_pkgname
   git describe --tags |sed 's/-/./g'
 }
@@ -21,7 +21,7 @@ depends=('sh' 'libxinerama')
 makedepends=('git')
 provides=('dmenu')
 conflicts=('dmenu')
-source=(git://git.suckless.org/dmenu#commit=5ed5e90bf
+source=("$_pkgname::git+http://git.suckless.org/dmenu"
 	class.patch
 	shift-insert.patch
 	better-shift-insert.patch)
@@ -32,8 +32,8 @@ md5sums=('SKIP'
 
 prepare() {
   cd $_pkgname
-  patch -i $srcdir/class.patch
-  patch -i $srcdir/better-shift-insert.patch
+#  patch -i $srcdir/class.patch
+#  patch -i $srcdir/better-shift-insert.patch
 }
 
 build() {
