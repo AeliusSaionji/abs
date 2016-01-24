@@ -1,6 +1,6 @@
 pkgname=dwm-personalized
 _pkgname=dwm
-pkgver=6.0.43.g14343e6
+pkgver=6.0.47.g04db03a
 pkgver(){
   cd $_pkgname
   git describe --tags |sed 's/-/./g'
@@ -21,7 +21,7 @@ conflicts=('dwm')
 source=(config.h
 	class.patch
 	dwm.desktop
-	"$_pkgname::git+http://git.suckless.org/dwm"
+	"$_pkgname::git+http://git.suckless.org/dwm#commit=04db03a4e69eba88c56c12128340125fb0ef1960"
 	dwm-6.0-bstack.diff
 	dwm-6.0-emptyview.diff
 	dwm-6.1-cfacts.diff
