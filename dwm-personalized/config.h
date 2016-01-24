@@ -24,10 +24,12 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-//Run or raise
-static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" };
-static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
-static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" };
+/* Run or raise */
+//static const char *termcmd[] = { "st", "-c", "st-256color", "-t", "st-256color", "-e", "dvtm", "-M", NULL, NULL, NULL, "st-256color" };
+//static const char *browser[] = { "firefox", NULL, NULL, NULL, "Firefox" };
+static const char *browser[] = { "qutebrowser", NULL, NULL, NULL, "qutebrowser" };
+//static const char *irc[] = { "st", "-c", "irssi", "-t", "irssi", "-e", "abduco", "-A", "irc", "irssi", NULL, NULL, NULL, "irssi" };
+static const char *irc[] = { "st", "-c", "ircterm", "-t", "ircterm", "-e", "abduco", "-A", "irc", "dvtm", NULL, NULL, NULL, "ircterm" };
 
 /* tagging */
 #define MAX_TAGLEN 16
@@ -49,6 +51,7 @@ static const Rule rules[] = {
 	{ "Chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
+	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
 	{ "Client.pyw",  NULL,          NULL,       1 << 3,       False,       -1 },
 	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
@@ -89,7 +92,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-//static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Replaced by run or raise termcmd
+static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Mutually exclusive with run or raise termcmd
 static const char *openurl[]    = { "browser.sh", NULL };
 static const char *clipmenu[]   = { "clipmenu", NULL };
 static const char *clipsync[]   = { "clipsync.sh", NULL };
@@ -117,7 +120,8 @@ static Key keys[] = {
 	{ MODKEY,             XK_period,                focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,   XK_period,                tagmon,         {.i = +1 } },
 	{ MODKEY,             XK_Return,                zoom,           {0} },
-	{ MODKEY|ShiftMask,   XK_Return,                runorraise,     {.v = termcmd } },
+//	{ MODKEY|ShiftMask,   XK_Return,                runorraise,     {.v = termcmd } },
+	{ MODKEY|ShiftMask,   XK_Return,                spawn,          {.v = termcmd } },
 	{ MODKEY,             XK_slash,                 togglebar,      {0} },
 	{ MODKEY,             XK_space,                 setlayout,      {0} },
 	{ MODKEY|ShiftMask,   XK_space,                 togglefloating, {0} },
