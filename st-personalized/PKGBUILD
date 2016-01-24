@@ -3,8 +3,12 @@
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=0.6
-pkgrel=2
+pkgver=0.6.57.g9031e22
+pkgver(){
+	cd $_pkgname
+	git describe --tags |sed 's/-/./g'
+}
+pkgrel=1
 pkgdesc='A simple virtual terminal emulator for X.'
 arch=('i686' 'x86_64')
 license=('MIT')
