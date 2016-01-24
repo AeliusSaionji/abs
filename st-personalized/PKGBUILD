@@ -15,17 +15,20 @@ conflicts=("$_pkgname")
 url="http://st.suckless.org"
 source=("$_pkgname::git+http://git.suckless.org/st#commit=9031e228ce283cd4847832acf012a910f74ad1ed"
         config.h
+	st-git-20151129-argbbg.diff
 	st-git-20150917-clipboard.diff
 	st-git-20150917-copyurl.diff
 	st-git-20150917-hidecursor.diff)
 md5sums=('SKIP'
-	'b873d698bc73348ac1a1e5ac788422c8'
+	'9e31345cd5d74acd139a6d9a63d0cfb0'
+	'6af3f436560795911cf31fb02a5571c6'
 	'27e4fa2a52c9b5581bcb03a8c02873f0'
 	'3f5cfd425365dee4ba4f99210a969515'
 	'01872cbd412564c6018a16f87c984706')
 
 prepare() {
   cd "$_pkgname"
+  git apply $srcdir/st-git-20151129-argbbg.diff
   git apply $srcdir/st-git-20150917-clipboard.diff
   git apply $srcdir/st-git-20150917-copyurl.diff
   git apply $srcdir/st-git-20150917-hidecursor.diff

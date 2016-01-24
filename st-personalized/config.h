@@ -96,6 +96,8 @@ static const char *colorname[] = {
 	"#555555",
 };
 
+/* bg opacity */
+static const int alpha = 0xdd;
 
 /*
  * Default colors (colorname index)
@@ -123,6 +125,7 @@ static unsigned int mousefg = 7;
 static unsigned int mousebg = 0;
 
 /*
+	"black",
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
  * will reverse too. Another logic would only make the simple feature too
  * complex.
