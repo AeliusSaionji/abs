@@ -73,29 +73,31 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Mutually exclusive with run or raise termcmd
-static const char *openurl[]  = { "browser.sh", NULL };
 static const char *clipmenu[] = { "clipmenu", NULL };
 static const char *clipsync[] = { "clipsync.sh", NULL };
-static const char *newbg[]    = { "systemctl", "--user", "start", "feh-wallpaper.service", NULL };
+static const char *dmenucmd[] = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *lightdown[]= { "bright_adjust.sh", "dec", NULL };
 static const char *lightup[]  = { "bright_adjust.sh", "inc", NULL };
+static const char *mute[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *newbg[]    = { "systemctl", "--user", "start", "feh-wallpaper.service", NULL };
+static const char *openurl[]  = { "browser.sh", NULL };
 static const char *rotate[]   = { "rotate.sh", NULL };
+static const char *scrot[]    = { "scrot", NULL };
+static const char *termcmd[]  = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Mutually exclusive with run or raise termcmd
 static const char *voldown[]  = { "vol_adjust.sh", "-", NULL };
 static const char *volup[]    = { "vol_adjust.sh", "+", NULL };
-static const char *mute[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier           key                       function        argument */
-	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
 	{ 0,                  XF86XK_AudioMute,         spawn,          {.v = mute } },
+	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
 	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,          {.v = volup } },
 	{ 0,                  XF86XK_Display,           spawn,          {.v = rotate } },
 	{ 0,                  XF86XK_MonBrightnessDown, spawn,          {.v = lightdown } },
 	{ 0,                  XF86XK_MonBrightnessUp,   spawn,          {.v = lightup } },
 	{ ControlMask,        XK_Insert,                spawn,          {.v = clipsync } },
 	{ ControlMask,        XK_grave,                 spawn,          {.v = clipmenu } },
+	{ MODKEY,             XK_Insert,                spawn,          {.v = scrot } },
 	{ MODKEY,             XK_p,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY,             XK_u,                     spawn,          {.v = openurl } },
 	{ MODKEY|ControlMask, XK_r,                     spawn,          {.v = newbg } },
