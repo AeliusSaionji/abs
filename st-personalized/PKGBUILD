@@ -24,7 +24,7 @@ source=("$_pkgname::git+http://git.suckless.org/st#commit=9031e228ce283cd4847832
 	st-git-20150917-copyurl.diff
 	st-git-20150917-hidecursor.diff)
 md5sums=('SKIP'
-	'9e31345cd5d74acd139a6d9a63d0cfb0'
+	'8d4878d6d52837d2467079c9a0fbac3e'
 	'6af3f436560795911cf31fb02a5571c6'
 	'27e4fa2a52c9b5581bcb03a8c02873f0'
 	'3f5cfd425365dee4ba4f99210a969515'

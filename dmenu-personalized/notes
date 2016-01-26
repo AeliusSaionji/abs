@@ -1,3 +1,0 @@
-Patched a class into dmenu, I don't think I need or want all the extra stuff in dmenu2
-Also added the keybinding "Shift Insert" to paste the current X selection. I don't want to have to remember the random C-y paste bind.
-	Previous attempt broke capital letters. New attempt, better-shift-insert.patch fixes that, but idfk c so I'm keeping the old patch around until I'm sure I didn't introduce a crippling flaw
