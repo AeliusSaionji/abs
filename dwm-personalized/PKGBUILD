@@ -4,12 +4,12 @@
 # Contributor: Grigorios Bouzakis <grbzks@gmail.com>
 pkgname=dwm-personalized
 _pkgname=dwm
-pkgver=6.0.47.g04db03a
+pkgver=6.1.2.g3465bed
 pkgver(){
   cd $_pkgname
   git describe --tags |sed 's/-/./g'
 }
-pkgrel=2
+pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
@@ -21,45 +21,21 @@ makedepends=('git')
 install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
-source=(config.h
+source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69a8096084ba6b8eb4956"
 	class.patch
+	config.h
 	dwm.desktop
-	"$_pkgname::git+http://git.suckless.org/dwm#commit=04db03a4e69eba88c56c12128340125fb0ef1960"
-	dwm-6.0-bstack.diff
-	dwm-6.0-emptyview.diff
-	dwm-6.1-cfacts.diff
-	dwm-6.1-gaplessgrid.diff
-	dwm-6.1-hide_vacant_tags.diff
-	dwm-6.1-moveresize.diff
-	dwm-6.1-push.diff
-	dwm-6.1-runorraise-fixed.diff
-	dwm-6.1-save_floats.diff)
-md5sums=('154369715e9cf3118ebe5a3b2ebd5f1d'
+	emptyview-fixed.diff)
+md5sums=('SKIP'
 	 '091126ed1734848375d756bf0909f083'
+	 'd3679a341d7341a85512047021158936'
 	 '939f403a71b6e85261d09fc3412269ee'
-         'SKIP'
-         'b60183f343d3912e841d5cbda3de768f'
-         '642a7f40ca61702e56458b69c6a92bcb'
-         '252cfab251e876b9539bf0c4d0db5aa7'
-         'a298c7e6e69134f24bca88016e3463ce'
-	 'cb3c56c8fddbe0ba4fb66596f04abe9a'
-         '6ba0b950da1a837fa3e302f66f4e0a1a'
-	 '3088dcea71d1a08fac760f88a9f2cec0'
-         '265c6cf54d1ab09ec4f784f57a4b82d9'
-         'a12ce4b78a6906c4f0ad67edfd46399a')
+	 '40565453fa4179b6ec5f1f3b69c20a97')
 
 prepare() {
   cd $_pkgname
-  patch -F3 -p1 < $srcdir/class.patch
-  patch -F3 -p1 < $srcdir/dwm-6.0-bstack.diff
-  patch -F3 -p1 < $srcdir/dwm-6.0-emptyview.diff
-  patch -p1 < $srcdir/dwm-6.1-cfacts.diff
-  patch -p1 < $srcdir/dwm-6.1-gaplessgrid.diff
-  patch -p1 < $srcdir/dwm-6.1-hide_vacant_tags.diff
-  patch -p1 < $srcdir/dwm-6.1-moveresize.diff
-  patch -p1 < $srcdir/dwm-6.1-push.diff
-  patch -p1 < $srcdir/dwm-6.1-runorraise-fixed.diff
-  patch -p1 < $srcdir/dwm-6.1-save_floats.diff
+  git apply $srcdir/emptyview-fixed.diff
+#  patch -F3 -p1 < $srcdir/class.patch
   cp $srcdir/config.h config.h
 }
 
