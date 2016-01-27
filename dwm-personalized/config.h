@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	{ "Dwb",         NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
-	{ "Chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
+	{ "chromium",    "chromium",    NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },

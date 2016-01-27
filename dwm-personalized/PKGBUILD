@@ -28,7 +28,7 @@ source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69
 	emptyview-fixed.diff)
 md5sums=('SKIP'
 	 '091126ed1734848375d756bf0909f083'
-	 '94bdc32211292ef862e5b294e1863a2f'
+	 '71f249c1d22c952ea73fd0b3b69a276e'
 	 '939f403a71b6e85261d09fc3412269ee'
 	 '40565453fa4179b6ec5f1f3b69c20a97')
 
