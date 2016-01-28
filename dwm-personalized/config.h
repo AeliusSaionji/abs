@@ -83,7 +83,8 @@ static const char *newbg[]    = { "systemctl", "--user", "start", "feh-wallpaper
 static const char *openurl[]  = { "browser.sh", NULL };
 static const char *rotate[]   = { "rotate.sh", NULL };
 static const char *scrot[]    = { "scrot", NULL };
-static const char *termcmd[]  = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL }; //Mutually exclusive with run or raise termcmd
+static const char *termcmd[]  = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL };
+static const char *trans[]    = { "trans-exempt.sh", NULL };
 static const char *voldown[]  = { "vol_adjust.sh", "-", NULL };
 static const char *volup[]    = { "vol_adjust.sh", "+", NULL };
 
@@ -98,6 +99,7 @@ static Key keys[] = {
 	{ ControlMask,        XK_Insert,                spawn,          {.v = clipsync } },
 	{ ControlMask,        XK_grave,                 spawn,          {.v = clipmenu } },
 	{ MODKEY,             XK_Insert,                spawn,          {.v = scrot } },
+	{ MODKEY,             XK_e,                     spawn,          {.v = trans } },
 	{ MODKEY,             XK_p,                     spawn,          {.v = dmenucmd } },
 	{ MODKEY,             XK_u,                     spawn,          {.v = openurl } },
 	{ MODKEY|ControlMask, XK_r,                     spawn,          {.v = newbg } },
