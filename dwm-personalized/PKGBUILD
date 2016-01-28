@@ -22,20 +22,17 @@ install=dwm.install
 provides=('dwm')
 conflicts=('dwm')
 source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69a8096084ba6b8eb4956"
-	class.patch
 	config.h
 	dwm.desktop
 	emptyview-fixed.diff)
 md5sums=('SKIP'
-	 '091126ed1734848375d756bf0909f083'
-	 'febd3bc4ca8f9fa5d639a622dd491268'
+	 '3e87c2d2e1b5ba1240a9d006fb7a6568'
 	 '939f403a71b6e85261d09fc3412269ee'
 	 '40565453fa4179b6ec5f1f3b69c20a97')
 
 prepare() {
   cd $_pkgname
   git apply $srcdir/emptyview-fixed.diff
-#  patch -F3 -p1 < $srcdir/class.patch
   cp $srcdir/config.h config.h
 }
 
