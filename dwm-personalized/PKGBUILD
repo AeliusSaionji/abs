@@ -24,24 +24,27 @@ conflicts=('dwm')
 source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69a8096084ba6b8eb4956"
 	config.h
 	dwm.desktop
+	deck-include.diff
 	dwm-6.1-gaplessgrid.diff
 	dwm-6.1-horizgrid-fixed.diff
-	dwm-6.1-htile-fixed.diff
-	emptyview-fixed.diff)
+	emptyview-fixed.diff
+	htile-include.diff)
 md5sums=('SKIP'
-	 '182308330a04e82ac0540e79461801da'
+	 'fcebcba97f6ddb9f65abaf74b453f568'
 	 '939f403a71b6e85261d09fc3412269ee'
+	 '7dbe956cd0b4ab3376cfbdf4423ec1c4'
 	 'a298c7e6e69134f24bca88016e3463ce'
 	 '828ea644a0d8ab3855bf095466f05533'
-	 'afe96c9ba44fd80cc2cff5546d24b049'
-	 '40565453fa4179b6ec5f1f3b69c20a97')
+	 '40565453fa4179b6ec5f1f3b69c20a97'
+	 '98f0564dd6b9ce77bd45633bf059fdad')
 
 prepare() {
   cd $_pkgname
+  git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
   git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
   git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
-  git apply $srcdir/dwm-6.1-htile-fixed.diff # manually add the layout in config.h
   git apply $srcdir/emptyview-fixed.diff
+  git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
   cp $srcdir/config.h config.h
 }
 

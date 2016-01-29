@@ -1,19 +1,10 @@
-diff --git a/dwm.c b/dwm.c
-index ff7e096..c48f165 100644
---- a/dwm.c
-+++ b/dwm.c
-@@ -209,6 +209,7 @@ static void spawn(const Arg *arg);
- static void tag(const Arg *arg);
- static void tagmon(const Arg *arg);
- static void tile(Monitor *);
-+static void htile(Monitor *);
- static void togglebar(const Arg *arg);
- static void togglefloating(const Arg *arg);
- static void toggletag(const Arg *arg);
-@@ -1695,6 +1696,32 @@ tile(Monitor *m)
- }
- 
- void
+diff --git a/htile.c b/htile.c
+new file mode 100644
+index 0000000..b2f0f81
+--- /dev/null
++++ b/htile.c
+@@ -0,0 +1,25 @@
++void
 +htile(Monitor *m) {
 +	unsigned int i, n, w, mh, mx, tx;
 +	Client *c;
@@ -38,8 +29,3 @@ index ff7e096..c48f165 100644
 +			tx += WIDTH(c);
 +		}
 +}
-+
-+void
- togglebar(const Arg *arg)
- {
- 	selmon->showbar = !selmon->showbar;
