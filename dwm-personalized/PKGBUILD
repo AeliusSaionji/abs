@@ -24,14 +24,23 @@ conflicts=('dwm')
 source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69a8096084ba6b8eb4956"
 	config.h
 	dwm.desktop
+	dwm-6.1-gaplessgrid.diff
+	dwm-6.1-horizgrid-fixed.diff
+	dwm-6.1-htile-fixed.diff
 	emptyview-fixed.diff)
 md5sums=('SKIP'
-	 '3e87c2d2e1b5ba1240a9d006fb7a6568'
+	 '182308330a04e82ac0540e79461801da'
 	 '939f403a71b6e85261d09fc3412269ee'
+	 'a298c7e6e69134f24bca88016e3463ce'
+	 '828ea644a0d8ab3855bf095466f05533'
+	 'afe96c9ba44fd80cc2cff5546d24b049'
 	 '40565453fa4179b6ec5f1f3b69c20a97')
 
 prepare() {
   cd $_pkgname
+  git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
+  git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
+  git apply $srcdir/dwm-6.1-htile-fixed.diff # manually add the layout in config.h
   git apply $srcdir/emptyview-fixed.diff
   cp $srcdir/config.h config.h
 }
