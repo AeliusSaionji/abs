@@ -162,6 +162,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
 	/* copyurl patch */
 	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
+	/* externalpipe patch */
+	{ MODKEY,               XK_u,           externalpipe,   {.v = "xurls | dmenu -l 10 | xargs -r qutebrowser" } },
 };
 
 /*
