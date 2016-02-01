@@ -29,13 +29,10 @@ static const Rule rules[] = {
 	//cmd
 	{ "st-256color", "st-256color", NULL,       1,            False,       -1 },
 	//www
-	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
-	{ "Dwb",         NULL,          NULL,       1 << 1,       False,       -1 },
-	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
-	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
+	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
+	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	//irc
-	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
 	{ "Client.pyw",  NULL,          NULL,       1 << 3,       False,       -1 },
@@ -46,9 +43,7 @@ static const Rule rules[] = {
 	{ "Okular",      "okular",      NULL,       1 << 3,       False,       -1 },
 	//all
 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
-	{ NULL,          NULL,          "qiv",     ~0,            True,        -1 },
 	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
-	{ "Gifview",     NULL,          NULL,      ~0,            True,        -1 },
 };
 
 /* layout(s) */
