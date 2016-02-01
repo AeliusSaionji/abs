@@ -33,12 +33,13 @@ static const Rule rules[] = {
 	{ "Dwb",         NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	{ "Xombrero",    NULL,          NULL,       1 << 1,       False,       -1 },
-	{ "chromium",    "chromium",    NULL,       1 << 1,       False,       -1 },
+	{ "chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "irssi",       NULL,          NULL,       1 << 2,       False,       -1 },
 	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
 	{ "Client.pyw",  NULL,          NULL,       1 << 3,       False,       -1 },
+	{ "steam",       "steam",       NULL,       1 << 3,       False,       -1 }, // Big Picture Mode
 	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
 	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,       -1 },
 	{ "xfreerdp",    "xfreerdp",    NULL,       1 << 3,       False,       -1 },
