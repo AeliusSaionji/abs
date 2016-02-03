@@ -3,7 +3,7 @@
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=0.6.57.g9031e22
+pkgver=0.6.63.g6d636be
 pkgver(){
 	cd $_pkgname
 	git describe --tags |sed 's/-/./g'
@@ -17,7 +17,7 @@ makedepends=('ncurses')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 url="http://st.suckless.org"
-source=("$_pkgname::git+http://git.suckless.org/st#commit=9031e228ce283cd4847832acf012a910f74ad1ed"
+source=("$_pkgname::git+http://git.suckless.org/st#commit=6d636beb229cebf3b897446c72c7a341bee9f820"
         config.h
 	st-git-20151129-argbbg.diff
 	st-git-20150917-clipboard.diff
