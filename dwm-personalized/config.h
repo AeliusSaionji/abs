@@ -89,7 +89,8 @@ static const char *lightdown[]= { "bright_adjust.sh", "dec", NULL };
 static const char *lightup[]  = { "bright_adjust.sh", "inc", NULL };
 static const char *lock[]     = { "locknow.sh", NULL };
 static const char *mute[]     = { "amixer", "-q", "sset", "Master", "toggle", NULL };
-static const char *newbg[]    = { "systemctl", "--user", "start", "feh-wallpaper.service", NULL };
+static const char *newbg[]    = { "systemctl", "--user", "start", "feh-wallpaper.service", "feh-wallpaper.timer", NULL };
+static const char *stopbg[]   = { "systemctl", "--user", "stop", "feh-wallpaper.timer", NULL };
 static const char *openurl[]  = { "browser.sh", NULL };
 static const char *rotate[]   = { "rotate.sh", NULL };
 static const char *scrot[]    = { "scrot", NULL };
@@ -115,6 +116,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,   XK_p,                     spawn,          {.v = j4dmenu } },
 	{ MODKEY,             XK_u,                     spawn,          {.v = openurl } },
 	{ MODKEY|ControlMask, XK_r,                     spawn,          {.v = newbg } },
+	{ MODKEY|ShiftMask,   XK_r,                     spawn,          {.v = stopbg } },
 	{ MODKEY|ShiftMask,   XK_Return,                spawn,          {.v = termcmd } },
 	{ MODKEY,             XK_space,                 setlayout,      {0} },
 	{ MODKEY,             XK_m,                     setlayout,      {.v = &layouts[0]} },
