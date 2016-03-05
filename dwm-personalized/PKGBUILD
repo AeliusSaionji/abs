@@ -16,7 +16,6 @@ arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st')
-optdepends=('xbacklight' 'qiv' 'st')
 makedepends=('git')
 install=dwm.install
 provides=('dwm')
