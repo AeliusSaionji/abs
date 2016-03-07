@@ -1,0 +1,64 @@
+# $Id: PKGBUILD 154170 2015-12-22 09:55:49Z spupykin $
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+pkgname=dwm-nerv
+_pkgname=dwm
+pkgver=6.1.2.g3465bed
+pkgver(){
+  cd $_pkgname
+  git describe --tags |sed 's/-/./g'
+}
+pkgrel=1
+pkgdesc="A dynamic window manager for X"
+url="http://dwm.suckless.org"
+arch=('i686' 'x86_64')
+license=('MIT')
+options=(zipman)
+depends=('libx11' 'libxinerama' 'libxft' 'freetype2' 'st' 'dmenu')
+makedepends=('git')
+install=dwm.install
+provides=('dwm')
+conflicts=('dwm')
+source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69a8096084ba6b8eb4956"
+	config.h
+	columns-include.diff
+	dwm.desktop
+	deck-include.diff
+	dwm-6.1-gaplessgrid.diff
+	dwm-6.1-horizgrid-fixed.diff
+	emptyview-fixed.diff
+	htile-include.diff)
+md5sums=('SKIP'
+	 '011cd0a717e4ad0da7f5630cc79645b8'
+	 '9f00d621857ec9fbaebaaf963429a7fc'
+	 '939f403a71b6e85261d09fc3412269ee'
+	 '7dbe956cd0b4ab3376cfbdf4423ec1c4'
+	 'a298c7e6e69134f24bca88016e3463ce'
+	 '828ea644a0d8ab3855bf095466f05533'
+	 '40565453fa4179b6ec5f1f3b69c20a97'
+	 '98f0564dd6b9ce77bd45633bf059fdad')
+
+prepare() {
+  cd $_pkgname
+  git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
+  git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
+  git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
+  git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
+#  git apply $srcdir/emptyview-fixed.diff
+  git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
+  cp $srcdir/config.h config.h
+}
+
+build() {
+  cd $_pkgname
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 FREETYPEINC=/usr/include/freetype2
+}
+
+package() {
+  cd $_pkgname
+  make PREFIX=/usr DESTDIR=$pkgdir install
+  install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
+  install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
+  install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
+}
