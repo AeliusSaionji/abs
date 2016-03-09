@@ -30,7 +30,7 @@ source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69
 	emptyview-fixed.diff
 	htile-include.diff)
 md5sums=('SKIP'
-	 '0048e6c5df7d3ffc119a18c2f1028b54'
+	 'SKIP'
 	 '9f00d621857ec9fbaebaaf963429a7fc'
 	 '939f403a71b6e85261d09fc3412269ee'
 	 '7dbe956cd0b4ab3376cfbdf4423ec1c4'
@@ -45,9 +45,15 @@ prepare() {
   git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
   git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
   git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
-  git apply $srcdir/emptyview-fixed.diff
   git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
   cp $srcdir/config.h config.h
+
+  # For NERV, single tag, only floating rules, no emptyview patch
+  if [ $(hostnamectl status --static) = "NERV" ]; then
+	sed -e 's/"cmd", "www", "irc", "etc"/"etc"/' -e '/False,\s*-1/d' $srcdir/config.h > config.h
+  else
+	git apply $srcdir/emptyview-fixed.diff
+  fi
 }
 
 build() {
