@@ -1,5 +1,5 @@
---- config.h	2016-03-09 20:57:54.583585425 -0500
-+++ config.foob	2016-03-09 21:11:39.486955937 -0500
+--- a/config.h	2016-03-09 20:57:54.583585425 -0500
++++ b/config.h	2016-03-09 21:11:39.486955937 -0500
 @@ -86,6 +86,9 @@
  static const char *j4dmenu[]    = { "fondler.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-i", NULL };
  static const char *brightdown[] = { "fondler.sh", "brightdown", NULL };
