@@ -28,6 +28,7 @@ source=("$_pkgname::git+http://git.suckless.org/dwm#commit=3465bed290abc62cb2e69
 	dwm-6.1-gaplessgrid.diff
 	dwm-6.1-horizgrid-fixed.diff
 	emptyview-fixed.diff
+	foobarmediakeys.diff
 	htile-include.diff)
 md5sums=('SKIP'
 	 'SKIP'
@@ -37,6 +38,7 @@ md5sums=('SKIP'
 	 'a298c7e6e69134f24bca88016e3463ce'
 	 '828ea644a0d8ab3855bf095466f05533'
 	 '40565453fa4179b6ec5f1f3b69c20a97'
+	 '3f008664b21eb00c51beef3c35f19f18'
 	 '98f0564dd6b9ce77bd45633bf059fdad')
 
 prepare() {
@@ -50,6 +52,7 @@ prepare() {
 
   # For NERV, single tag, only floating rules, no emptyview patch
   if [ $(hostnamectl status --static) = "NERV" ]; then
+	git apply $srcdir/foobarmediakeys.diff
 	sed -e 's/"cmd", "www", "irc", "etc"/"etc"/' -e '/False,\s*-1/d' $srcdir/config.h > config.h
   else
 	git apply $srcdir/emptyview-fixed.diff
