@@ -1,16 +1,24 @@
---- a/config.h	2016-03-09 20:57:54.583585425 -0500
-+++ b/config.h	2016-03-09 21:11:39.486955937 -0500
-@@ -86,6 +86,9 @@
+--- a/config.h	2016-03-06 19:36:11.540747440 -0500
++++ b/config.h	2016-03-10 00:59:08.661129356 -0500
+@@ -44,6 +44,7 @@
+ 	//all
+ 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
+ 	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
++	{ NULL,       "foobar2000.exe", NULL,      ~0,            False,        2 },
+ };
+ 
+ /* layout(s) */
+@@ -86,6 +87,9 @@
  static const char *j4dmenu[]    = { "fondler.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-i", NULL };
  static const char *brightdown[] = { "fondler.sh", "brightdown", NULL };
  static const char *brightup[]   = { "fondler.sh", "brightup", NULL };
-+static const char *foobnext[]   = { "wine", "~/.foobar2000/foobar2000.exe", "/next", NULL };
-+static const char *foobplay[]   = { "wine", "~/.foobar2000/foobar2000.exe", "/playpause", NULL };
-+static const char *foobprev[]   = { "wine", "~/.foobar2000/foobar2000.exe", "/prev", NULL };
++static const char *foobnext[]   = { "fondler.sh", "foobnext", NULL };
++static const char *foobplay[]   = { "fondler.sh", "foobplay", NULL };
++static const char *foobprev[]   = { "fondler.sh", "foobprev", NULL };
  static const char *lock[]       = { "fondler.sh", "lock", NULL };
  static const char *mute[]       = { "amixer", "-q", "sset", "Master", "toggle", NULL };
  static const char *newbg[]      = { "systemctl", "--user", "start", "feh-wallpaper.service", "feh-wallpaper.timer", NULL };
-@@ -103,6 +106,9 @@
+@@ -103,6 +107,9 @@
  	{ 0,                  XF86XK_AudioMute,         spawn,          {.v = mute } },
  	{ 0,                  XF86XK_AudioLowerVolume,  spawn,          {.v = voldown } },
  	{ 0,                  XF86XK_AudioRaiseVolume,  spawn,          {.v = volup } },
