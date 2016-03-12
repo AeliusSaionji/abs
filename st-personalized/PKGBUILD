@@ -3,7 +3,7 @@
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=0.6.65.g3044029
+pkgver=0.6.69.g3996461
 pkgver(){
 	cd $_pkgname
 	git describe --tags |sed 's/-/./g'
@@ -12,21 +12,21 @@ pkgrel=1
 pkgdesc='A simple virtual terminal emulator for X.'
 arch=('i686' 'x86_64')
 license=('MIT')
-depends=('libxft' 'libxext')
+depends=('libxft' 'libxext' 'xorg-fonts-misc')
 makedepends=('ncurses')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 url="http://st.suckless.org"
-source=("$_pkgname::git+http://git.suckless.org/st#commit=30440295bc054f37a2a8275acca769cd83bcb780"
+source=("$_pkgname::git+http://git.suckless.org/st#commit=39964614b742c4ec98a326762d98470cb987a45b"
         config.h
-	st-git-20151129-argbbg.diff
+	st-git-20160131-argbbg.diff
 	st-git-20150917-clipboard.diff
 	st-git-20150917-copyurl.diff
 	st-git-20150917-externalpipe.diff
 	st-git-20150917-hidecursor.diff)
 md5sums=('SKIP'
-	'db11ee58d49ba380199cb9170be3a4ce'
-	'6af3f436560795911cf31fb02a5571c6'
+	'5753527ac2864e9a37d1211c768f81d3'
+	'f72655670f5e70db9857a5631331d5c7'
 	'27e4fa2a52c9b5581bcb03a8c02873f0'
 	'3f5cfd425365dee4ba4f99210a969515'
 	'7368f1f3e7b6a197b0c076d78ae38df0'
@@ -34,7 +34,7 @@ md5sums=('SKIP'
 
 prepare() {
   cd "$_pkgname"
-  git apply $srcdir/st-git-20151129-argbbg.diff
+  git apply $srcdir/st-git-20160131-argbbg.diff
   git apply $srcdir/st-git-20150917-clipboard.diff
   git apply $srcdir/st-git-20150917-copyurl.diff
   git apply $srcdir/st-git-20150917-externalpipe.diff
