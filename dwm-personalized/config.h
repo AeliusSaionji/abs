@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	{ "chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
+	{ "vimterm",     NULL,          NULL,       1 << 1,       True,        -1 },
 	//irc
 	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
 	//etc
