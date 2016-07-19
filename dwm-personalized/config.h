@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	{ "xfreerdp",    "xfreerdp",    NULL,       1 << 3,       False,       -1 },
 	{ "Okular",      "okular",      NULL,       1 << 3,       False,       -1 },
 	//all
+	{ "qutebrowser", "qutebrowser", "popwww",  ~0,            True,        -1 },
 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
 	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
 	{ "popterm",     NULL,          NULL,      ~0,            True,        -1 },
@@ -112,7 +113,7 @@ static Key keys[] = {
 	{ 0,                     XF86XK_MonBrightnessUp,   spawn,          {.v = brightup } },
 	{ 0,                     XF86XK_Sleep,             spawn,          {.v = lock } },
 	{ ControlMask,           XK_grave,                 spawn,          {.v = clipmenu } },
-	{ ControlMask|ShiftMask, XK_grave,                 spawn,          {.v = popterm } },
+	{ MODKEY,                XK_backslash,             spawn,          {.v = popterm } },
 	{ MODKEY,                XK_Insert,                spawn,          {.v = scrot } },
 	{ MODKEY,                XK_e,                     spawn,          {.v = trans } },
 	{ MODKEY,                XK_p,                     spawn,          {.v = dmenucmd } },
