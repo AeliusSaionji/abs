@@ -25,31 +25,33 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance       title       tags mask     isfloating   monitor */
+	/* class           instance                                title      tags mask     isfloating   monitor */
 	//cmd
-	{ "st-256color", "st-256color", NULL,       1,            False,       -1 },
+	{ "st-256color",   "st-256color",                          NULL,      1,            False,       -1 },
 	//www
-	{ "chromium",    "chromium",    NULL,       1 << 1,       False,       -1 },
-	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
-	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
+	{ "chromium",      "chromium",                             NULL,      1 << 1,       False,       -1 },
+	{ "chromium",      "crx_pfpeapihoiogbcmdmnibeplnikfnhoge", NULL,      1 << 1,       False,       -1 },
+	{ "Firefox",       NULL,                                   NULL,      1 << 1,       False,       -1 },
+	{ "qutebrowser",   "qutebrowser",                          NULL,      1 << 1,       False,       -1 },
 	//irc
-	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
+	{ "ircterm",       NULL,                                   NULL,      1 << 2,       False,       -1 },
+	{ "skypeforlinux", "skypeforlinux",                        NULL,      1 << 2,       False,       -1 },
 	//dvr
-	{ "chromium",    NULL,         "Netflix",    1 << 3,       False,       -1 },
-	{ "chromium",    NULL,          "Plex",      1 << 3,       False,       -1 },
+	{ "chromium",      "crx_deceagebecbceejblnlcjooeohmmeldh", NULL,      1 << 3,       False,       -1 },
+	{ "chromium",      "crx_fpniocchabmgenibceglhnfeimmdhdfm", NULL,      1 << 3,       False,       -1 },
 	//gog
-	{ "steam",       "steam",       NULL,       1 << 4,       False,       -1 }, // Big Picture Mode
-	{ "Steam",       "Steam",       NULL,       1 << 4,       False,       -1 },
-	{ "Steam",       "Steam",       "Friends",  1 << 4,       False,       -1 },
+	{ "steam",         "steam",                                NULL,      1 << 4,       False,       -1 }, // Big Picture Mode
+	{ "Steam",         "Steam",                                NULL,      1 << 4,       False,       -1 },
+	{ "Steam",         "Steam",                                "Friends", 1 << 4,       False,       -1 },
 	//etc
-	{ "Client.pyw",  NULL,          NULL,       1 << 5,       False,       -1 },
-	{ "xfreerdp",    "xfreerdp",    NULL,       1 << 5,       False,       -1 },
-	{ "Okular",      "okular",      NULL,       1 << 5,       False,       -1 },
+	{ "Client.pyw",    NULL,                                   NULL,      1 << 5,       False,       -1 },
+	{ "xfreerdp",      "xfreerdp",                             NULL,      1 << 5,       False,       -1 },
+	{ "Okular",        "okular",                               NULL,      1 << 5,       False,       -1 },
 	//all
-	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
-	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
-	{ "popterm",     NULL,          NULL,      ~0,            True,        -1 },
-	{ "qutebrowser", "qutebrowser", "popwww",  ~0,            True,        -1 },
+	{ "mpv",           NULL,                                   NULL,     ~0,            True,        -1 },
+	{ "Sxiv",          NULL,                                   NULL,     ~0,            True,        -1 },
+	{ "popterm",       NULL,                                   NULL,     ~0,            True,        -1 },
+	{ "qutebrowser",   "qutebrowser",                          "popwww", ~0,            True,        -1 },
 };
 
 /* layout(s) */
