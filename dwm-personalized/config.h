@@ -18,7 +18,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "cmd", "www", "irc", "etc" };
+static const char *tags[] = { "cmd", "www", "irc", "dvr", "gog", "etc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,23 +29,27 @@ static const Rule rules[] = {
 	//cmd
 	{ "st-256color", "st-256color", NULL,       1,            False,       -1 },
 	//www
-	{ "chromium",    NULL,          NULL,       1 << 1,       False,       -1 },
+	{ "chromium",    "chromium",    NULL,       1 << 1,       False,       -1 },
 	{ "Firefox",     NULL,          NULL,       1 << 1,       False,       -1 },
 	{ "qutebrowser", "qutebrowser", NULL,       1 << 1,       False,       -1 },
 	//irc
 	{ "ircterm",     NULL,          NULL,       1 << 2,       False,       -1 },
+	//dvr
+	{ "chromium",    NULL,         "Netflix",    1 << 3,       False,       -1 },
+	{ "chromium",    NULL,          "Plex",      1 << 3,       False,       -1 },
+	//gog
+	{ "steam",       "steam",       NULL,       1 << 4,       False,       -1 }, // Big Picture Mode
+	{ "Steam",       "Steam",       NULL,       1 << 4,       False,       -1 },
+	{ "Steam",       "Steam",       "Friends",  1 << 4,       False,       -1 },
 	//etc
-	{ "Client.pyw",  NULL,          NULL,       1 << 3,       False,       -1 },
-	{ "steam",       "steam",       NULL,       1 << 3,       False,       -1 }, // Big Picture Mode
-	{ "Steam",       "Steam",       NULL,       1 << 3,       False,       -1 },
-	{ "Steam",       "Steam",       "Friends",  1 << 3,       False,       -1 },
-	{ "xfreerdp",    "xfreerdp",    NULL,       1 << 3,       False,       -1 },
-	{ "Okular",      "okular",      NULL,       1 << 3,       False,       -1 },
+	{ "Client.pyw",  NULL,          NULL,       1 << 5,       False,       -1 },
+	{ "xfreerdp",    "xfreerdp",    NULL,       1 << 5,       False,       -1 },
+	{ "Okular",      "okular",      NULL,       1 << 5,       False,       -1 },
 	//all
-	{ "qutebrowser", "qutebrowser", "popwww",  ~0,            True,        -1 },
 	{ "mpv",         NULL,          NULL,      ~0,            True,        -1 },
 	{ "Sxiv",        NULL,          NULL,      ~0,            True,        -1 },
 	{ "popterm",     NULL,          NULL,      ~0,            True,        -1 },
+	{ "qutebrowser", "qutebrowser", "popwww",  ~0,            True,        -1 },
 };
 
 /* layout(s) */
