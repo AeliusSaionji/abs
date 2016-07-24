@@ -24,56 +24,52 @@ source=("$_pkgname::git+http://git.suckless.org/dwm#commit=56a31dc4a7be459e3a1ea
 	foobarmediakeys.diff
 	htile-include.diff)
 md5sums=('SKIP'
-	 'f19d585dc60a16f29f7c09356c52db82'
-	 '9f00d621857ec9fbaebaaf963429a7fc'
-	 '939f403a71b6e85261d09fc3412269ee'
-	 '7dbe956cd0b4ab3376cfbdf4423ec1c4'
-	 'a298c7e6e69134f24bca88016e3463ce'
-	 '828ea644a0d8ab3855bf095466f05533'
-	 '5cfdb08e42746092d825284669dd10ab'
-	 '40565453fa4179b6ec5f1f3b69c20a97'
-	 'c2e77d7e9f4ce1ccfe0ade6c0ab96e37'
-	 '9eae9147dcd6d39cf4bac805a40e6031'
-	 '98f0564dd6b9ce77bd45633bf059fdad')
-
-pkgver(){
-  git describe --tags |sed 's/-/./g'
-}
+	'f19d585dc60a16f29f7c09356c52db82'
+	'9f00d621857ec9fbaebaaf963429a7fc'
+	'939f403a71b6e85261d09fc3412269ee'
+	'7dbe956cd0b4ab3376cfbdf4423ec1c4'
+	'a298c7e6e69134f24bca88016e3463ce'
+	'828ea644a0d8ab3855bf095466f05533'
+	'5cfdb08e42746092d825284669dd10ab'
+	'40565453fa4179b6ec5f1f3b69c20a97'
+	'c2e77d7e9f4ce1ccfe0ade6c0ab96e37'
+	'9eae9147dcd6d39cf4bac805a40e6031'
+	'98f0564dd6b9ce77bd45633bf059fdad')
 
 pkgver() {
-  cd $_pkgname
-  git log -1 --format='%cd.%h' --date=short | tr -d -
+	cd $_pkgname
+	git log -1 --format='%cd.%h' --date=short | tr -d -
 }
 
 prepare() {
-  cd $_pkgname
-  git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
-  git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
-  git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
-  git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
-  git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
-  git apply $srcdir/dwm-6.1-resizecorners.diff
-  git apply $srcdir/save_floats-fixed.diff
-  cp $srcdir/config.h config.h
+	cd $_pkgname
+	git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
+	git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
+	git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
+	git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
+	git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
+	git apply $srcdir/dwm-6.1-resizecorners.diff
+	git apply $srcdir/save_floats-fixed.diff
+	cp $srcdir/config.h config.h
 
-  # For NERV, single tag, only floating rules, no emptyview patch
-  if [ $(hostnamectl status --static) = "NERV" ]; then
-	sed -e 's/"cmd", "www", "irc", "etc"/"etc"/' -e '/False,\s*-1/d' $srcdir/config.h > config.h
-	git apply $srcdir/foobarmediakeys.diff
-  else
-	git apply $srcdir/emptyview-fixed.diff
-  fi
+	# For NERV, single tag, only floating rules, no emptyview patch
+	if [ $(hostnamectl status --static) = "NERV" ]; then
+		sed -e 's/"cmd", "www", "irc", "etc"/"etc"/' -e '/False,\s*-1/d' $srcdir/config.h > config.h
+		git apply $srcdir/foobarmediakeys.diff
+	else
+		git apply $srcdir/emptyview-fixed.diff
+	fi
 }
 
 build() {
-  cd $_pkgname
-  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+	cd $_pkgname
+	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-  cd $_pkgname
-  make PREFIX=/usr DESTDIR="$pkgdir" install
-  install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-  install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
-  install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
+	cd $_pkgname
+	make PREFIX=/usr DESTDIR="$pkgdir" install
+	install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
+	install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
 }
