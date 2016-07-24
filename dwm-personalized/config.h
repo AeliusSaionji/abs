@@ -2,20 +2,22 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const char *fonts[] = {
-	"inconsolata:size=8"
-};
-static const char dmenufont[]       = "inconsolata:size=8";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *fonts[]          = { "inconsolata:size=8" };
+static const char dmenufont[]       = "inconsolata:size=8";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#005577";
+static const char *colors[SchemeLast][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel] =  { col_gray4, col_cyan,  col_cyan  },
+};
 
 /* tagging */
 static const char *tags[] = { "cmd", "www", "irc", "dvr", "gog", "etc" };
@@ -89,9 +91,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *clipmenu[]   = { "clipmenu",   "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *j4dmenu[]    = { "fondler.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-i", NULL };
+static const char *dmenucmd[]   = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL };
+static const char *clipmenu[]   = { "clipmenu",   "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *j4dmenu[]    = { "fondler.sh", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-i", NULL };
 static const char *brightdown[] = { "fondler.sh", "brightdown", NULL };
 static const char *brightup[]   = { "fondler.sh", "brightup", NULL };
 static const char *dunsttoggle[]= { "fondler.sh", "dunsttoggle", NULL };
@@ -103,7 +106,6 @@ static const char *stopbg[]     = { "systemctl", "--user", "stop", "feh-wallpape
 static const char *openurl[]    = { "fondler.sh", "browser", NULL };
 static const char *rotate[]     = { "fondler.sh", "rotate", NULL };
 static const char *scrot[]      = { "scrot", NULL };
-static const char *termcmd[]    = { "st", "-c", "st-256color", "-e", "dvtm", "-M", NULL };
 static const char *trans[]      = { "trans-exempt.sh", NULL };
 static const char *voldown[]    = { "fondler.sh", "voldown", NULL };
 static const char *volup[]      = { "fondler.sh", "volup", NULL };
