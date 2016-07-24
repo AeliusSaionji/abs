@@ -1,23 +1,20 @@
-# Contributor: Patrick Jackson <PatrickSJackson gmail com>
-# Maintainer: Christoph Vigano <mail@cvigano.de>
+# Maintainer: mar77i <mysatyre at gmail dot com>
+# Past Maintainer: Gaetan Bisson <bisson@archlinux.org>
+# Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=0.6.72.g528241a
-pkgver(){
-	cd $_pkgname
-	git describe --tags |sed 's/-/./g'
-}
+pkgver=20160720.308bfbf
 pkgrel=1
-pkgdesc='A simple virtual terminal emulator for X.'
+pkgdesc='Simple virtual terminal emulator for X'
+url='http://git.suckless.org/st/'
 arch=('i686' 'x86_64')
 license=('MIT')
-depends=('libxft' 'libxext' 'xorg-fonts-misc')
-makedepends=('ncurses')
+depends=('libxft')
+makedepends=('ncurses' 'libxext' 'git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
-url="http://st.suckless.org"
-source=("$_pkgname::git+http://git.suckless.org/st#commit=528241aa3835e2f1f052abeeaf891737712955a0"
+source=("$_pkgname::git+http://git.suckless.org/st#commit=308bfbf6be46ac5f0aa77b0e42a242eeb3ae1443"
         config.h
 	st-git-20160131-argbbg.diff
 	st-git-20150917-clipboard.diff
@@ -25,31 +22,36 @@ source=("$_pkgname::git+http://git.suckless.org/st#commit=528241aa3835e2f1f052ab
 	st-git-20150917-externalpipe.diff
 	st-git-20150917-hidecursor.diff)
 md5sums=('SKIP'
-	'5753527ac2864e9a37d1211c768f81d3'
+	'a3cd492658b13079fa1e5579e8bab964'
 	'f72655670f5e70db9857a5631331d5c7'
 	'27e4fa2a52c9b5581bcb03a8c02873f0'
 	'3f5cfd425365dee4ba4f99210a969515'
 	'7368f1f3e7b6a197b0c076d78ae38df0'
 	'01872cbd412564c6018a16f87c984706')
 
+pkgver() {
+	cd "${srcdir}/${_pkgname}"
+	git log -1 --format='%cd.%h' --date=short | tr -d -
+}
+
 prepare() {
-  cd "$_pkgname"
-  git apply $srcdir/st-git-20160131-argbbg.diff
-  git apply $srcdir/st-git-20150917-clipboard.diff
-  git apply $srcdir/st-git-20150917-copyurl.diff
-  git apply $srcdir/st-git-20150917-externalpipe.diff
-  git apply $srcdir/st-git-20150917-hidecursor.diff
-  cp $srcdir/config.h config.h
+	cd "$_pkgname"
+	git apply $srcdir/st-git-20160131-argbbg.diff
+	git apply $srcdir/st-git-20150917-clipboard.diff
+	git apply $srcdir/st-git-20150917-copyurl.diff
+	git apply $srcdir/st-git-20150917-externalpipe.diff
+	git apply $srcdir/st-git-20150917-hidecursor.diff
+	cp $srcdir/config.h config.h
 }
 
 build() {
-  cd $_pkgname
-  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+	cd "${srcdir}/${_pkgname}"
+	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-  cd $_pkgname
-  make PREFIX=/usr DESTDIR="$pkgdir" TERMINFO="$pkgdir/usr/share/terminfo" install
-  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+	cd "${srcdir}/${_pkgname}"
+	make PREFIX=/usr DESTDIR="${pkgdir}" install
+	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
 }
