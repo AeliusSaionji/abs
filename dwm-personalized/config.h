@@ -46,9 +46,10 @@ static const Rule rules[] = {
 	{ "Steam",         "Steam",                                NULL,      1 << 4,       False,       -1 },
 	{ "Steam",         "Steam",                                "Friends", 1 << 4,       False,       -1 },
 	//etc
-	{ "Client.pyw",    NULL,                                   NULL,      1 << 5,       False,       -1 },
+	{ "Client.pyw",    "client.pyw",                           NULL,      1 << 5,       False,       -1 },
 	{ "xfreerdp",      "xfreerdp",                             NULL,      1 << 5,       False,       -1 },
 	{ "Okular",        "okular",                               NULL,      1 << 5,       False,       -1 },
+	{ "Deluge",        "deluge",                               NULL,      1 << 5,       False,       -1 },
 	//all
 	{ "mpv",           NULL,                                   NULL,     ~0,            True,        -1 },
 	{ "Sxiv",          NULL,                                   NULL,     ~0,            True,        -1 },

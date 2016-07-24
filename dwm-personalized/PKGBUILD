@@ -24,7 +24,7 @@ source=("$_pkgname::git+http://git.suckless.org/dwm#commit=56a31dc4a7be459e3a1ea
 	foobarmediakeys.diff
 	htile-include.diff)
 md5sums=('SKIP'
-	'f19d585dc60a16f29f7c09356c52db82'
+	'735366fd5ae8475c77fbcdcb864a9d8f'
 	'9f00d621857ec9fbaebaaf963429a7fc'
 	'939f403a71b6e85261d09fc3412269ee'
 	'7dbe956cd0b4ab3376cfbdf4423ec1c4'
