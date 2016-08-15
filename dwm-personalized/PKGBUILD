@@ -1,6 +1,6 @@
 pkgname=dwm-personalized
 _pkgname=dwm
-pkgver=20160628.56a31dc
+pkgver=20160812.ab9571b
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -11,7 +11,7 @@ depends=('libx11' 'libxinerama' 'libxft' 'st' 'dmenu')
 makedepends=('git')
 provides=('dwm')
 conflicts=('dwm')
-source=("$_pkgname::git+http://git.suckless.org/dwm#commit=56a31dc4a7be459e3a1ea06d45427e1a4087a1a6"
+source=("$_pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
 	config.h
 	columns-include.diff
 	dwm.desktop

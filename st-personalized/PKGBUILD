@@ -4,7 +4,7 @@
 
 pkgname=st-personalized
 _pkgname=st
-pkgver=20160720.308bfbf
+pkgver=20160811.023225e
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://git.suckless.org/st/'
@@ -14,7 +14,7 @@ depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
-source=("$_pkgname::git+http://git.suckless.org/st#commit=308bfbf6be46ac5f0aa77b0e42a242eeb3ae1443"
+source=("$_pkgname::git+http://git.suckless.org/st#commit=023225ef40b23d888353e34d95790ddf1cc79458"
         config.h
 	st-git-20160131-argbbg.diff
 	st-git-20150917-clipboard.diff
