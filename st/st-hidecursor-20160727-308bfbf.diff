@@ -1,8 +1,8 @@
 diff --git a/st.c b/st.c
-index bd8b815..9a8e872 100644
+index 2594c65..2a031f0 100644
 --- a/st.c
 +++ b/st.c
-@@ -259,6 +259,11 @@ typedef struct {
+@@ -260,6 +260,11 @@ typedef struct {
  	Draw draw;
  	Visual *vis;
  	XSetWindowAttributes attrs;
@@ -14,7 +14,7 @@ index bd8b815..9a8e872 100644
  	int scr;
  	int isfixed; /* is fixed geometry? */
  	int l, t; /* left and top offset */
-@@ -1290,6 +1295,13 @@ bmotion(XEvent *e)
+@@ -1291,6 +1296,13 @@ bmotion(XEvent *e)
  {
  	int oldey, oldex, oldsby, oldsey;
  
@@ -28,7 +28,7 @@ index bd8b815..9a8e872 100644
  	if (IS_SET(MODE_MOUSE) && !(e->xbutton.state & forceselmod)) {
  		mousereport(e);
  		return;
-@@ -3440,10 +3452,10 @@ void
+@@ -3435,10 +3447,10 @@ void
  xinit(void)
  {
  	XGCValues gcvalues;
@@ -40,7 +40,7 @@ index bd8b815..9a8e872 100644
  
  	if (!(xw.dpy = XOpenDisplay(NULL)))
  		die("Can't open display\n");
-@@ -3516,8 +3528,9 @@ xinit(void)
+@@ -3511,8 +3523,9 @@ xinit(void)
  		die("XCreateIC failed. Could not obtain input method.\n");
  
  	/* white cursor, black outline */
@@ -52,7 +52,7 @@ index bd8b815..9a8e872 100644
  
  	if (XParseColor(xw.dpy, xw.cmap, colorname[mousefg], &xmousefg) == 0) {
  		xmousefg.red   = 0xffff;
-@@ -3531,7 +3544,10 @@ xinit(void)
+@@ -3526,7 +3539,10 @@ xinit(void)
  		xmousebg.blue  = 0x0000;
  	}
  
@@ -64,7 +64,7 @@ index bd8b815..9a8e872 100644
  
  	xw.xembed = XInternAtom(xw.dpy, "_XEMBED", False);
  	xw.wmdeletewin = XInternAtom(xw.dpy, "WM_DELETE_WINDOW", False);
-@@ -4006,6 +4022,8 @@ unmap(XEvent *ev)
+@@ -4026,6 +4042,8 @@ unmap(XEvent *ev)
  void
  xsetpointermotion(int set)
  {
@@ -73,7 +73,7 @@ index bd8b815..9a8e872 100644
  	MODBIT(xw.attrs.event_mask, set, PointerMotionMask);
  	XChangeWindowAttributes(xw.dpy, xw.win, CWEventMask, &xw.attrs);
  }
-@@ -4105,6 +4123,12 @@ kpress(XEvent *ev)
+@@ -4125,6 +4143,12 @@ kpress(XEvent *ev)
  	Status status;
  	Shortcut *bp;
  

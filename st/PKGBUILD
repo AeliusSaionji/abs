@@ -3,7 +3,7 @@
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
 pkgname=st
-pkgver=20160811.023225e
+pkgver=20161018.68bae9c
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://git.suckless.org/st/'
@@ -11,20 +11,19 @@ arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-source=("$pkgname::git+http://git.suckless.org/st#commit=023225ef40b23d888353e34d95790ddf1cc79458"
+source=("$pkgname::git+http://git.suckless.org/st#commit=68bae9c7b121e30114f6b0cabe15da3fae46e673"
         config.h
-	st-git-20160131-argbbg.diff
-	st-git-20150917-clipboard.diff
-	st-git-20150917-copyurl.diff
-	st-git-20150917-externalpipe.diff
-	st-git-20150917-hidecursor.diff)
+	st-alpha-20160727-308bfbf.diff
+	st-externalpipe-20160727-308bfbf.diff
+	st-hidecursor-20160727-308bfbf.diff
+	st-scrollback-20160924-f739843.diff
+	)
 md5sums=('SKIP'
-	'a3cd492658b13079fa1e5579e8bab964'
-	'f72655670f5e70db9857a5631331d5c7'
-	'27e4fa2a52c9b5581bcb03a8c02873f0'
-	'3f5cfd425365dee4ba4f99210a969515'
-	'7368f1f3e7b6a197b0c076d78ae38df0'
-	'01872cbd412564c6018a16f87c984706')
+	'd00720a1ea1dd15d5c2bc48610904f2b'
+	'037bb7f2a354fd9e3c15b4aedd103165'
+	'47d628501defd776efd0d4fbb1968895'
+	'8ff8a77b34dfc09a4dd0d2cf876d68e7'
+	'f6a780d3e759f577d2fff7a9350b8655')
 
 pkgver() {
 	cd "${srcdir}/${pkgname}"
@@ -33,11 +32,11 @@ pkgver() {
 
 prepare() {
 	cd "$pkgname"
-	git apply $srcdir/st-git-20160131-argbbg.diff
-	git apply $srcdir/st-git-20150917-clipboard.diff
-	git apply $srcdir/st-git-20150917-copyurl.diff
-	git apply $srcdir/st-git-20150917-externalpipe.diff
-	git apply $srcdir/st-git-20150917-hidecursor.diff
+	git apply $srcdir/st-alpha-20160727-308bfbf.diff
+	# Git can't deal with the offsets, won't apply
+	patch -p1 < $srcdir/st-externalpipe-20160727-308bfbf.diff
+	git apply $srcdir/st-hidecursor-20160727-308bfbf.diff
+	git apply $srcdir/st-scrollback-20160924-f739843.diff
 	cp $srcdir/config.h config.h
 }
 

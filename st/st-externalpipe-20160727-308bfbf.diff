@@ -1,16 +1,16 @@
 diff --git a/st.c b/st.c
-index bd8b815..a43e615 100644
+index 2594c65..1491e77 100644
 --- a/st.c
 +++ b/st.c
-@@ -328,6 +328,7 @@ static void clipcopy(const Arg *);
- static void clippaste(const Arg *);
- static void numlock(const Arg *);
- static void selpaste(const Arg *);
+@@ -336,6 +336,7 @@ static void printsel(const Arg *);
+ static void printscreen(const Arg *) ;
+ static void toggleprinter(const Arg *);
+ static void sendbreak(const Arg *);
 +static void externalpipe(const Arg *);
- static void xzoom(const Arg *);
- static void xzoomabs(const Arg *);
- static void xzoomreset(const Arg *);
-@@ -2920,6 +2921,62 @@ eschandle(uchar ascii)
+ 
+ /* Config.h for applying patches and the configuration. */
+ #include "config.h"
+@@ -2922,6 +2923,62 @@ eschandle(uchar ascii)
  }
  
  void

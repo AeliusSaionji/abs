@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#define histsize 2000
+
 /*
  * appearance
  *
@@ -169,15 +171,15 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_Prior,       xzoom,          {.f = +1} },
 	{ MODKEY|ShiftMask,     XK_Next,        xzoom,          {.f = -1} },
 	{ MODKEY|ShiftMask,     XK_Home,        xzoomreset,     {.f =  0} },
-	{ ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
+	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_Insert,      clippaste,      {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	/* copyurl patch */
-	{ MODKEY,               XK_l,           copyurl,        {.i =  0} },
-	/* externalpipe patch */
-	{ MODKEY,               XK_u,           externalpipe,   {.v = "xurls | dmenu -l 10 | xargs -r qutebrowser" } },
+	{ MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ MODKEY, 		XK_u,           externalpipe,   { .v = "xurls | tac | dmenu -fn inconsolata:size=8 -i -l 10 | xargs -r xdg-open" } },
 };
 
 /*
