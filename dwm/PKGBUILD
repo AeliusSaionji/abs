@@ -1,5 +1,4 @@
-pkgname=dwm-personalized
-_pkgname=dwm
+pkgname=dwm
 pkgver=20160812.ab9571b
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
@@ -9,9 +8,7 @@ license=('MIT')
 options=(zipman)
 depends=('libx11' 'libxinerama' 'libxft' 'st' 'dmenu')
 makedepends=('git')
-provides=('dwm')
-conflicts=('dwm')
-source=("$_pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
+source=("$pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
 	config.h
 	columns-include.diff
 	dwm.desktop
@@ -37,12 +34,12 @@ md5sums=('SKIP'
 	'98f0564dd6b9ce77bd45633bf059fdad')
 
 pkgver() {
-	cd $_pkgname
+	cd $pkgname
 	git log -1 --format='%cd.%h' --date=short | tr -d -
 }
 
 prepare() {
-	cd $_pkgname
+	cd $pkgname
 	git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
 	git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
 	git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
@@ -62,12 +59,12 @@ prepare() {
 }
 
 build() {
-	cd $_pkgname
+	cd $pkgname
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-	cd $_pkgname
+	cd $pkgname
 	make PREFIX=/usr DESTDIR="$pkgdir" install
 	install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 	install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
