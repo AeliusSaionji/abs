@@ -2,8 +2,7 @@
 # Past Maintainer: Gaetan Bisson <bisson@archlinux.org>
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
-pkgname=st-personalized
-_pkgname=st
+pkgname=st
 pkgver=20160811.023225e
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
@@ -12,9 +11,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-provides=("$_pkgname")
-conflicts=("$_pkgname")
-source=("$_pkgname::git+http://git.suckless.org/st#commit=023225ef40b23d888353e34d95790ddf1cc79458"
+source=("$pkgname::git+http://git.suckless.org/st#commit=023225ef40b23d888353e34d95790ddf1cc79458"
         config.h
 	st-git-20160131-argbbg.diff
 	st-git-20150917-clipboard.diff
@@ -30,12 +27,12 @@ md5sums=('SKIP'
 	'01872cbd412564c6018a16f87c984706')
 
 pkgver() {
-	cd "${srcdir}/${_pkgname}"
+	cd "${srcdir}/${pkgname}"
 	git log -1 --format='%cd.%h' --date=short | tr -d -
 }
 
 prepare() {
-	cd "$_pkgname"
+	cd "$pkgname"
 	git apply $srcdir/st-git-20160131-argbbg.diff
 	git apply $srcdir/st-git-20150917-clipboard.diff
 	git apply $srcdir/st-git-20150917-copyurl.diff
@@ -45,12 +42,12 @@ prepare() {
 }
 
 build() {
-	cd "${srcdir}/${_pkgname}"
+	cd "${srcdir}/${pkgname}"
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-	cd "${srcdir}/${_pkgname}"
+	cd "${srcdir}/${pkgname}"
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
