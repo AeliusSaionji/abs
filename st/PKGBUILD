@@ -19,7 +19,7 @@ source=("$pkgname::git+http://git.suckless.org/st#commit=68bae9c7b121e30114f6b0c
 	st-scrollback-20160924-f739843.diff
 	)
 md5sums=('SKIP'
-	'd00720a1ea1dd15d5c2bc48610904f2b'
+	'df92ccf33454349ce51252b7eff74fbc'
 	'037bb7f2a354fd9e3c15b4aedd103165'
 	'47d628501defd776efd0d4fbb1968895'
 	'8ff8a77b34dfc09a4dd0d2cf876d68e7'

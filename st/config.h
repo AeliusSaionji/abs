@@ -1,7 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-#define histsize 2000
-
 /*
  * appearance
  *
@@ -9,6 +7,7 @@
  */
 static char font[] = "inconsolata:pixelsize=12:antialias=true:autohint=false";
 static int borderpx = 0;
+#define histsize 2000
 
 /*
  * What program is execed by st depends of these precedence rules:
