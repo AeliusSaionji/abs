@@ -11,27 +11,28 @@ makedepends=('git')
 source=("$pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
 	config.h
 	columns-include.diff
-	dwm.desktop
 	deck-include.diff
-	dwm-6.1-gaplessgrid.diff
 	dwm-6.1-horizgrid-fixed.diff
 	dwm-6.1-resizecorners.diff
+	dwm-bottomstack-20160719-56a31dc-include.diff
+	dwm-gaplessgrid-20160731-56a31dc.diff
+	dwm-savefloats-20160723-56a31dc.diff
+	dwm.desktop
 	emptyview-fixed.diff
-	save_floats-fixed.diff
 	foobarmediakeys.diff
-	htile-include.diff)
+	)
 md5sums=('SKIP'
-	'735366fd5ae8475c77fbcdcb864a9d8f'
+	'9b7a70134b930f88dc1a274c2324dbae'
 	'9f00d621857ec9fbaebaaf963429a7fc'
-	'939f403a71b6e85261d09fc3412269ee'
 	'7dbe956cd0b4ab3376cfbdf4423ec1c4'
-	'a298c7e6e69134f24bca88016e3463ce'
 	'828ea644a0d8ab3855bf095466f05533'
 	'5cfdb08e42746092d825284669dd10ab'
+	'023c17c902150f58e524e295112b11d1'
+	'97b7cc31611250e7e71484f1b423f03e'
+	'103805203b6f34cfcba7477d57bd98f2'
+	'939f403a71b6e85261d09fc3412269ee'
 	'40565453fa4179b6ec5f1f3b69c20a97'
-	'c2e77d7e9f4ce1ccfe0ade6c0ab96e37'
-	'9eae9147dcd6d39cf4bac805a40e6031'
-	'98f0564dd6b9ce77bd45633bf059fdad')
+	'9eae9147dcd6d39cf4bac805a40e6031')
 
 pkgver() {
 	cd $pkgname
@@ -42,11 +43,11 @@ prepare() {
 	cd $pkgname
 	git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
 	git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
-	git apply $srcdir/dwm-6.1-gaplessgrid.diff # manually add #include "gaplessgrid.c" and the layout in config.h
 	git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
-	git apply $srcdir/htile-include.diff # manually add #include "htile.c" and the layout in config.h
 	git apply $srcdir/dwm-6.1-resizecorners.diff
-	git apply $srcdir/save_floats-fixed.diff
+	git apply $srcdir/dwm-bottomstack-20160719-56a31dc-include.diff # manually add #include "bstack.c" and the two layouts bstack bstackhoriz in config.h
+	git apply $srcdir/dwm-gaplessgrid-20160731-56a31dc.diff # manually add #include "gaplessgrid.c" and the layout in config.h
+	git apply $srcdir/dwm-savefloats-20160723-56a31dc.diff
 	cp $srcdir/config.h config.h
 
 	# For NERV, single tag, only floating rules, no emptyview patch

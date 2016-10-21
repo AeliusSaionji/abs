@@ -3,8 +3,8 @@ Add gapless grid layout.
 
 Index: dwm/gaplessgrid.c
 ===================================================================
---- /dev/null	1970-01-01 00:00:00.000000000 +0000
-+++ dwm/gaplessgrid.c	2014-02-09 15:24:17.132117105 +0100
+--- /dev/null
++++ dwm/gaplessgrid.c
 @@ -0,0 +1,35 @@
 +void
 +gaplessgrid(Monitor *m) {

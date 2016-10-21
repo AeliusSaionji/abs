@@ -66,17 +66,18 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "deck.c"
 #include "gaplessgrid.c"
 #include "horizgrid.c"
-#include "htile.c"
+#include "bstack.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[M]",      monocle }, /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[]=",      tile },    
-	{ "TTT",      htile },
+	{ "TTT",      bstack },
 	{ "HHH",      horizgrid },
 	{ "###",      gaplessgrid },
 	{ "[]_",      deck },
 	{ "||=",      col },
+	{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -140,6 +141,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,      XK_g,                     setlayout,      {.v = &layouts[5]} },
         { MODKEY|ShiftMask,      XK_d,                     setlayout,      {.v = &layouts[6]} },
         { MODKEY,                XK_c,                     setlayout,      {.v = &layouts[7]} },
+        { MODKEY,                XK_o,                     setlayout,      {.v = &layouts[8]} },
 	{ MODKEY,                XK_Tab,                   view,           {0} },
 	{ MODKEY,                XK_0,                     view,           {.ui = ~0 } },
 	{ MODKEY,                XK_Return,                zoom,           {0} },
