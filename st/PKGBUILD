@@ -3,7 +3,7 @@
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
 pkgname=st
-pkgver=20161018.68bae9c
+pkgver=0.7.7.g68bae9c
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://git.suckless.org/st/'
@@ -27,7 +27,7 @@ md5sums=('SKIP'
 
 pkgver() {
 	cd "${srcdir}/${pkgname}"
-	git log -1 --format='%cd.%h' --date=short | tr -d -
+	git describe --tags |sed 's/-/./g'
 }
 
 prepare() {

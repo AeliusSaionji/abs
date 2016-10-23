@@ -1,5 +1,5 @@
 pkgname=dwm
-pkgver=20160812.ab9571b
+pkgver=6.1.6.gab9571b
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -36,7 +36,7 @@ md5sums=('SKIP'
 
 pkgver() {
 	cd $pkgname
-	git log -1 --format='%cd.%h' --date=short | tr -d -
+	git describe --tags |sed 's/-/./g'
 }
 
 prepare() {
