@@ -13,6 +13,7 @@ license=('MIT')
 options=('zipman')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
+epoch=1
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 source=("git://git.suckless.org/st#commit=68bae9c7b121e30114f6b0cabe15da3fae46e673"

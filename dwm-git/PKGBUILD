@@ -11,6 +11,7 @@ depends=('libx11' 'libxinerama' 'libxft')
 makedepends=('git')
 provides=('dwm')
 conflicts=('dwm')
+epoch=1
 source=("git://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
 	config.h
 	columns-include.diff
