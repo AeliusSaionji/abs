@@ -109,6 +109,8 @@ static const char *openurl[]    = { "fondler.sh", "browser", NULL };
 static const char *rotate[]     = { "fondler.sh", "rotate", NULL };
 static const char *scrot[]      = { "scrot", NULL };
 static const char *trans[]      = { "trans-exempt.sh", NULL };
+static const char *dwgrep[]     = { "fondler.sh", "dwgrep", NULL };
+static const char *dwtaggrep[]  = { "fondler.sh", "dwtaggrep", NULL };
 static const char *voldown[]    = { "fondler.sh", "voldown", NULL };
 static const char *volup[]      = { "fondler.sh", "volup", NULL };
 
@@ -131,6 +133,8 @@ static Key keys[] = {
 	{ MODKEY,                XK_u,                     spawn,          {.v = openurl } },
 	{ MODKEY|ControlMask,    XK_r,                     spawn,          {.v = newbg } },
 	{ MODKEY|ShiftMask,      XK_r,                     spawn,          {.v = stopbg } },
+	{ MODKEY,                XK_w,                     spawn,          {.v = dwtaggrep } },
+	{ MODKEY|ShiftMask,      XK_w,                     spawn,          {.v = dwgrep } },
 	{ MODKEY|ShiftMask,      XK_Return,                spawn,          {.v = termcmd } },
 	{ MODKEY,                XK_space,                 setlayout,      {0} },
 	{ MODKEY,                XK_m,                     setlayout,      {.v = &layouts[0]} },
