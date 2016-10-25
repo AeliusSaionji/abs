@@ -1,4 +1,5 @@
-pkgname=dwm
+pkgname=dwm-git
+_pkgname=dwm
 pkgver=6.1.6.gab9571b
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
@@ -6,9 +7,11 @@ url="http://dwm.suckless.org"
 arch=('i686' 'x86_64')
 license=('MIT')
 options=(zipman)
-depends=('libx11' 'libxinerama' 'libxft' 'st' 'dmenu')
+depends=('libx11' 'libxinerama' 'libxft')
 makedepends=('git')
-source=("$pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
+provides=('dwm')
+conflicts=('dwm')
+source=("git://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
 	config.h
 	columns-include.diff
 	deck-include.diff
@@ -37,12 +40,12 @@ md5sums=('SKIP'
 	'9eae9147dcd6d39cf4bac805a40e6031')
 
 pkgver() {
-	cd $pkgname
+	cd $_pkgname
 	git describe --tags |sed 's/-/./g'
 }
 
 prepare() {
-	cd $pkgname
+	cd $_pkgname
 	git apply $srcdir/columns-include.diff # manually add #include "column.c" and the layout in config.h
 	git apply $srcdir/deck-include.diff # manually add #include "deck.c" and the layout in config.h
 	git apply $srcdir/dwm-6.1-horizgrid-fixed.diff # manually add #include "horizgrid.c" and the layout in config.h
@@ -63,12 +66,12 @@ prepare() {
 }
 
 build() {
-	cd $pkgname
+	cd $_pkgname
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-	cd $pkgname
+	cd $_pkgname
 	make PREFIX=/usr DESTDIR="$pkgdir" install
 	install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 	install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
