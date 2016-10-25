@@ -1,17 +1,21 @@
-# Maintainer: mar77i <mysatyre at gmail dot com>
+# Maintainer: mar77i <mar77i at mar77i dot ch>
 # Past Maintainer: Gaetan Bisson <bisson@archlinux.org>
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
-pkgname=st
+pkgname=st-git
+_pkgname=st
 pkgver=0.7.7.g68bae9c
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
-url='http://git.suckless.org/st/'
+url='http://st.suckless.org/'
 arch=('i686' 'x86_64')
 license=('MIT')
+options=('zipman')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-source=("$pkgname::git+http://git.suckless.org/st#commit=68bae9c7b121e30114f6b0cabe15da3fae46e673"
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+source=("git://git.suckless.org/st#commit=68bae9c7b121e30114f6b0cabe15da3fae46e673"
         config.h
 	st-alpha-20160727-308bfbf.diff
 	st-externalpipe-20160727-308bfbf.diff
@@ -26,12 +30,12 @@ md5sums=('SKIP'
 	'f6a780d3e759f577d2fff7a9350b8655')
 
 pkgver() {
-	cd "${srcdir}/${pkgname}"
+	cd "${_pkgname}"
 	git describe --tags |sed 's/-/./g'
 }
 
 prepare() {
-	cd "$pkgname"
+	cd "${_pkgname}"
 	git apply $srcdir/st-alpha-20160727-308bfbf.diff
 	# Git can't deal with the offsets, won't apply
 	patch -p1 < $srcdir/st-externalpipe-20160727-308bfbf.diff
@@ -41,12 +45,12 @@ prepare() {
 }
 
 build() {
-	cd "${srcdir}/${pkgname}"
+	cd "${_pkgname}"
 	make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
 }
 
 package() {
-	cd "${srcdir}/${pkgname}"
+	cd "${_pkgname}"
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
