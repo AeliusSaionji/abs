@@ -12,6 +12,7 @@ source=("$pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd5832
 	config.h
 	columns-include.diff
 	deck-include.diff
+	dmenu-env.diff
 	dwm-6.1-horizgrid-fixed.diff
 	dwm-6.1-resizecorners.diff
 	dwm-bottomstack-20160719-56a31dc-include.diff
@@ -22,9 +23,10 @@ source=("$pkgname::git+http://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd5832
 	foobarmediakeys.diff
 	)
 md5sums=('SKIP'
-	'f5caad53f4d306b1d7cd1f15121f2636'
+	'1024176df03aca3b3e8edf8b169f23fb'
 	'9f00d621857ec9fbaebaaf963429a7fc'
 	'7dbe956cd0b4ab3376cfbdf4423ec1c4'
+	'5145ebd0e38226eb8fe32776efca7a19'
 	'828ea644a0d8ab3855bf095466f05533'
 	'5cfdb08e42746092d825284669dd10ab'
 	'023c17c902150f58e524e295112b11d1'
@@ -48,6 +50,7 @@ prepare() {
 	git apply $srcdir/dwm-bottomstack-20160719-56a31dc-include.diff # manually add #include "bstack.c" and the two layouts bstack bstackhoriz in config.h
 	git apply $srcdir/dwm-gaplessgrid-20160731-56a31dc.diff # manually add #include "gaplessgrid.c" and the layout in config.h
 	git apply $srcdir/dwm-savefloats-20160723-56a31dc.diff
+	git apply $srcdir/dmenu-env.diff
 	cp $srcdir/config.h config.h
 
 	# For NERV, single tag, only floating rules, no emptyview patch

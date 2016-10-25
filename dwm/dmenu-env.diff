@@ -1,0 +1,15 @@
+--- dwm.c	2016-10-25 03:02:54.189578045 -0400
++++ dwm.c	2016-10-25 03:04:13.496243149 -0400
+@@ -2133,6 +2133,12 @@
+ 	checkotherwm();
+ 	setup();
+ 	scan();
++	setenv("DMENU_FONT", dmenufont, 1);
++	setenv("DMENU_COL_GRAY1", col_gray1, 1);
++	setenv("DMENU_COL_GRAY2", col_gray2, 1);
++	setenv("DMENU_COL_GRAY3", col_gray3, 1);
++	setenv("DMENU_COL_GRAY4", col_gray4, 1);
++	setenv("DMENU_COL_CYAN", col_cyan, 1);
+ 	run();
+ 	cleanup();
+ 	XCloseDisplay(dpy);
