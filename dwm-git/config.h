@@ -31,8 +31,8 @@ static const Rule rules[] = {
 	//cmd
 	{ "st-256color",   "st-256color",                          NULL,      1,            False,       -1 },
 	//www
-	{ "chromium",      "chromium",                             NULL,      1 << 1,       False,       -1 },
-	{ "chromium",      "crx_pfpeapihoiogbcmdmnibeplnikfnhoge", NULL,      1 << 1,       False,       -1 },
+	{ "Chromium",      "chromium",                             NULL,      1 << 1,       False,       -1 },
+	{ "Chromium",      "crx_pfpeapihoiogbcmdmnibeplnikfnhoge", NULL,      1 << 1,       False,       -1 },
 	{ "Firefox",       NULL,                                   NULL,      1 << 1,       False,       -1 },
 	{ "qutebrowser",   "qutebrowser",                          NULL,      1 << 1,       False,       -1 },
 	//irc
@@ -54,7 +54,7 @@ static const Rule rules[] = {
 	{ "mpv",           NULL,                                   NULL,     ~0,            True,        -1 },
 	{ "Sxiv",          NULL,                                   NULL,     ~0,            True,        -1 },
 	{ "popterm",       NULL,                                   NULL,     ~0,            True,        -1 },
-	{ "qutebrowser",   "qutebrowser",                          "popwww", ~0,            True,        -1 },
+	{ "qutebrowser",   "popwww",                               NULL,     ~0,            True,        -1 },
 };
 
 /* layout(s) */
