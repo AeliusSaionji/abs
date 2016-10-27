@@ -13,18 +13,18 @@ provides=('dwm')
 conflicts=('dwm')
 epoch=1
 source=("git://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
-	config.h
-	columns-include.diff
-	deck-include.diff
-	dmenu-env.diff
-	dwm-6.1-horizgrid-fixed.diff
-	dwm-6.1-resizecorners.diff
-	dwm-bottomstack-20160719-56a31dc-include.diff
-	dwm-gaplessgrid-20160731-56a31dc.diff
-	dwm-savefloats-20160723-56a31dc.diff
-	dwm.desktop
-	emptyview-fixed.diff
-	foobarmediakeys.diff
+	'config.h'
+	'columns-include.diff'
+	'deck-include.diff'
+	'dmenu-env.diff'
+	'dwm-6.1-horizgrid-fixed.diff'
+	'dwm-6.1-resizecorners.diff'
+	'dwm-bottomstack-20160719-56a31dc-include.diff'
+	'dwm-gaplessgrid-20160731-56a31dc.diff'
+	'dwm-savefloats-20160723-56a31dc.diff'
+	'dwm.desktop'
+	'emptyview-fixed.diff'
+	'foobarmediakeys.diff'
 	)
 md5sums=('SKIP'
          '61c70531f8ad0158ddf1d4d569d2b956'
