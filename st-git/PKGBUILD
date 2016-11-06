@@ -23,7 +23,7 @@ source=('git://git.suckless.org/st#commit=8c99915608beee03eca3bae6ed92264a0da87e
         'st-hidecursor-20160727-308bfbf.diff'
         'st-scrollback-20160924-f739843.diff')
 md5sums=('SKIP'
-         'd7717cdc09a1bd6a8b3e2960ffedd52d'
+         'a77e43fbbc986a2e0c408ff0cef86766'
          '037bb7f2a354fd9e3c15b4aedd103165'
          '47d628501defd776efd0d4fbb1968895'
          '8ff8a77b34dfc09a4dd0d2cf876d68e7'
