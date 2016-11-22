@@ -1,6 +1,6 @@
 pkgname=dwm-git
 _pkgname=dwm
-pkgver=6.1.6.gab9571b
+pkgver=6.1.9.g839c7f6
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -12,7 +12,7 @@ makedepends=('git')
 provides=('dwm')
 conflicts=('dwm')
 epoch=1
-source=("git://git.suckless.org/dwm#commit=ab9571bbc5f6fb04fd583238a665a7e830fc1397"
+source=("git://git.suckless.org/dwm#commit=839c7f6939368fe5784058975ee95062cc88d4c3"
 	'config.h'
 	'columns-include.diff'
 	'deck-include.diff'
