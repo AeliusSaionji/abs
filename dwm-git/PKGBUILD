@@ -27,7 +27,7 @@ source=("git://git.suckless.org/dwm#commit=839c7f6939368fe5784058975ee95062cc88d
 	'foobarmediakeys.diff'
 	)
 md5sums=('SKIP'
-         'c5187d173b2c62d2e1add9be7a9397e0'
+         'cd03baa64ae90564a7a31d168c044924'
          '9f00d621857ec9fbaebaaf963429a7fc'
          '7dbe956cd0b4ab3376cfbdf4423ec1c4'
          '5145ebd0e38226eb8fe32776efca7a19'
