@@ -52,7 +52,6 @@ static const Rule rules[] = {
 	{ "Deluge",         "deluge",                                NULL,       1 << 5,     False,       -1 },
 //all
 	{ "mpv",            NULL,                                    NULL,       ~0,         True,        -1 },
-	{ "Sxiv",           NULL,                                    NULL,       ~0,         True,        -1 },
 	{ "popterm",        NULL,                                    NULL,       ~0,         True,        -1 },
 	{ "qutebrowser",    "popwww",                                NULL,       ~0,         True,        -1 },
 };
@@ -94,7 +93,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2]          = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]     = { "st", NULL };
+static const char *termcmd[]     = { "st", "-e", "dvtm", "-M", NULL };
 static const char *clipmenu[]    = { "clipmenu",   "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-i", NULL };
 static const char *j4dmenu[]     = { "fondler.sh", "j4", dmenumon, NULL };
 static const char *brightdown[]  = { "fondler.sh", "brightdown", NULL };
