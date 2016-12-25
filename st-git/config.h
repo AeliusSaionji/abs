@@ -7,7 +7,6 @@
  */
 static char font[] = "inconsolata:pixelsize=12:antialias=true:autohint=false";
 static int borderpx = 0;
-#define histsize 2000
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -134,8 +133,16 @@ static unsigned int defaultrcs = 257;
 static unsigned int cursorshape = 2;
 
 /*
- * Default colour and shape of the mouse cursor
- */
+* Default columns and rows numbers
+*/
+
+static unsigned int cols = 80;
+static unsigned int rows = 24;
+
+/*
+* Default colour and shape of the mouse cursor
+*/
+
 static unsigned int mouseshape = XC_xterm;
 static unsigned int mousefg = 7;
 static unsigned int mousebg = 0;
@@ -174,8 +181,6 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,  XK_V,          clippaste,      {.i =  0} },
 	{ MODKEY,            XK_Num_Lock,   numlock,        {.i =  0} },
 	{ MODKEY,            XK_Control_L,  iso14755,       {.i =  0} },
-	{ ShiftMask,         XK_Page_Up,    kscrollup,      {.i = -1} },
-	{ ShiftMask,         XK_Page_Down,  kscrolldown,    {.i = -1} },
 	{ MODKEY,            XK_u,          externalpipe,   { .v = "xurls | tac | dmenu -i -l 10 | xargs -r xdg-open" } },
 };
 
