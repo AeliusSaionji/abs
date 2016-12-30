@@ -51,7 +51,6 @@ static const Rule rules[] = {
 	{ "Okular",         "okular",                                NULL,       1 << 5,     False,       -1 },
 	{ "Deluge",         "deluge",                                NULL,       1 << 5,     False,       -1 },
 //all
-	{ "mpv",            NULL,                                    NULL,       ~0,         True,        -1 },
 	{ "popterm",        NULL,                                    NULL,       ~0,         True,        -1 },
 	{ "qutebrowser",    "popwww",                                NULL,       ~0,         True,        -1 },
 };
@@ -68,9 +67,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "bstack.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[M]",      monocle }, /* first entry is default */
+	{ "[]=",      tile },    /* first entry is default */   
+	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[]=",      tile },    
 	{ "TTT",      bstack },
 	{ "HHH",      horizgrid },
 	{ "###",      gaplessgrid },
@@ -136,9 +135,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_w,                      spawn,           {.v = dwgrep } },
 	{ MODKEY|ShiftMask,    XK_Return,                 spawn,           {.v = termcmd } },
 	{ MODKEY,              XK_space,                  setlayout,       {0} },
-	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[0]} },
-	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[1]} },
-	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[2]} },
+	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[0]} },
+	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[1]} },
+	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[2]} },
         { MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} },
         { MODKEY,              XK_g,                      setlayout,       {.v = &layouts[4]} },
         { MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[5]} },
