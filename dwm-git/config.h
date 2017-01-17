@@ -100,7 +100,9 @@ static const char *brightup[]    = { "fondler.sh", "brightup", NULL };
 static const char *lock[]        = { "fondler.sh", "lock", NULL };
 static const char *popterm[]     = { "popterm", "abduco", "-A", "popterm", NULL };
 static const char *popwww[]      = { "popwww", NULL };
-static const char *mute[]        = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *micmute[]     = { "amixer", "-q", "set", "Capture", "nocap", NULL };
+static const char *micunmute[]   = { "amixer", "-q", "set", "Capture", "cap", NULL };
+static const char *mute[]        = { "amixer", "-q", "set", "Master", "toggle", NULL };
 static const char *newbg[]       = { "systemctl", "--user", "start", "feh-wallpaper.service", "feh-wallpaper.timer", NULL };
 static const char *stopbg[]      = { "systemctl", "--user", "stop", "feh-wallpaper.timer", NULL };
 static const char *openurl[]     = { "fondler.sh", "browser", NULL };
@@ -114,6 +116,8 @@ static const char *volup[]       = { "fondler.sh", "volup", NULL };
 
 static Key keys[] = {
 	/* modifier,           key,                       function,        argument */
+	{ MODKEY,              XK_Home,                   spawn,           {.v = micunmute } },
+	{ MODKEY,              XK_End,                    spawn,           {.v = micmute } },
 	{ 0,                   XF86XK_AudioMute,          spawn,           {.v = mute } },
 	{ 0,                   XF86XK_AudioLowerVolume,   spawn,           {.v = voldown } },
 	{ 0,                   XF86XK_AudioRaiseVolume,   spawn,           {.v = volup } },
