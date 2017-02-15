@@ -20,14 +20,12 @@ source=('git://git.suckless.org/st#commit=c63a87cd936c1eeef14c4c21572e5b782d3df4
         'config.h'
         'st-alpha-20160727-308bfbf.diff'
         'st-externalpipe-20160727-308bfbf.diff'
-        'st-hidecursor-20160727-308bfbf.diff'
-        'st-scrollback-20160924-f739843.diff')
+	'st-hidecursor-20160727-308bfbf.diff')
 md5sums=('SKIP'
-         '680075df2f8a38dba3dc8863932a4cc4'
+         'b5b2cf67e7dd5df306ac6e4833c1e197'
          '037bb7f2a354fd9e3c15b4aedd103165'
          '47d628501defd776efd0d4fbb1968895'
-         '8ff8a77b34dfc09a4dd0d2cf876d68e7'
-         'f6a780d3e759f577d2fff7a9350b8655')
+         '8ff8a77b34dfc09a4dd0d2cf876d68e7')
 
 pkgver() {
 	cd "${_pkgname}"

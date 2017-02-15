@@ -182,6 +182,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,            XK_Num_Lock,   numlock,        {.i =  0} },
 	{ MODKEY,            XK_Control_L,  iso14755,       {.i =  0} },
 	{ MODKEY,            XK_u,          externalpipe,   { .v = "xurls | tac | dmenu -i -l 10 | xargs -r xdg-open" } },
+	{ MODKEY,            XK_x,          externalpipe,   { .v = "grep -F '/MSG' | dmenu -i -l 10 | xdcc | xsel -ip" } },
 };
 
 /*
