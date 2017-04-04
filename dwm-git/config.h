@@ -41,6 +41,7 @@ static const Rule rules[] = {
 //dvr
 	{ "Chromium",       "crx_deceagebecbceejblnlcjooeohmmeldh",  NULL,       1 << 3,     False,       -1 },
 	{ "Chromium",       "crx_fpniocchabmgenibceglhnfeimmdhdfm",  NULL,       1 << 3,     False,       -1 },
+	{ "plexmediaplayer","plexmediaplayer",                       NULL,       1 << 3,     False,       -1 },
 //gog
 	{ "steam",          "steam",                                 NULL,       1 << 4,     False,       -1 },       // Big Picture Mode
 	{ "Steam",          "Steam",                                 NULL,       1 << 4,     False,       -1 },
