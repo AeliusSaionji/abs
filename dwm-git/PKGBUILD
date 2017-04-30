@@ -24,7 +24,8 @@ source=('git://git.suckless.org/dwm#commit=5b238c8dab945023b6a16a6c9f642b11137f2
 	'dwm-savefloats-20160723-56a31dc.diff'
 	'dwm.desktop'
 	'emptyview-fixed.diff'
-	'foobarmediakeys.diff'
+	'nerv-notags.diff'
+	'nerv-foobar2000.diff'
 	)
 md5sums=('SKIP'
          'e90c005e994f3f138cd5fdd25b3ef334'
@@ -38,7 +39,8 @@ md5sums=('SKIP'
          '103805203b6f34cfcba7477d57bd98f2'
          '939f403a71b6e85261d09fc3412269ee'
          '40565453fa4179b6ec5f1f3b69c20a97'
-         '9eae9147dcd6d39cf4bac805a40e6031')
+         '2548c84f7848136415ff9195f91d96de'
+         '1f74b27822c48485a3727d3bca77936a')
 
 pkgver() {
 	cd $_pkgname
@@ -59,8 +61,8 @@ prepare() {
 
 	# For NERV, single tag, only floating rules, no emptyview patch
 	if [ $(hostnamectl status --static) = "NERV" ]; then
-		sed -e 's/"cmd", "www", "irc", "etc"/"etc"/' -e '/False,\s*-1/d' $srcdir/config.h > config.h
-		git apply $srcdir/foobarmediakeys.diff
+		git apply $srcdir/nerv-notags.diff
+		git apply $srcdir/nerv-foobar2000.diff
 	else
 		git apply $srcdir/emptyview-fixed.diff
 	fi
