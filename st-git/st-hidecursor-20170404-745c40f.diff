@@ -1,8 +1,8 @@
-diff --git a/st.c b/st.c
-index 2594c65..2a031f0 100644
---- a/st.c
-+++ b/st.c
-@@ -260,6 +260,11 @@ typedef struct {
+diff --git a/x.c b/x.c
+index fbfd350..2f72214 100644
+--- a/x.c
++++ b/x.c
+@@ -47,6 +47,11 @@ typedef struct {
  	Draw draw;
  	Visual *vis;
  	XSetWindowAttributes attrs;
@@ -14,21 +14,21 @@ index 2594c65..2a031f0 100644
  	int scr;
  	int isfixed; /* is fixed geometry? */
  	int l, t; /* left and top offset */
-@@ -1291,6 +1296,13 @@ bmotion(XEvent *e)
+@@ -535,6 +540,13 @@ bmotion(XEvent *e)
  {
  	int oldey, oldex, oldsby, oldsey;
  
-+	if(!xw.pointerisvisible) {
++	if (!xw.pointerisvisible) {
 +		XDefineCursor(xw.dpy, xw.win, xw.vpointer);
 +		xw.pointerisvisible = 1;
-+		if(!IS_SET(MODE_MOUSEMANY))
++		if (!IS_SET(MODE_MOUSEMANY))
 +			xsetpointermotion(0);
 +	}
 +
  	if (IS_SET(MODE_MOUSE) && !(e->xbutton.state & forceselmod)) {
  		mousereport(e);
  		return;
-@@ -3435,10 +3447,10 @@ void
+@@ -871,10 +883,10 @@ void
  xinit(void)
  {
  	XGCValues gcvalues;
@@ -40,7 +40,7 @@ index 2594c65..2a031f0 100644
  
  	if (!(xw.dpy = XOpenDisplay(NULL)))
  		die("Can't open display\n");
-@@ -3511,8 +3523,9 @@ xinit(void)
+@@ -947,8 +959,9 @@ xinit(void)
  		die("XCreateIC failed. Could not obtain input method.\n");
  
  	/* white cursor, black outline */
@@ -52,7 +52,7 @@ index 2594c65..2a031f0 100644
  
  	if (XParseColor(xw.dpy, xw.cmap, colorname[mousefg], &xmousefg) == 0) {
  		xmousefg.red   = 0xffff;
-@@ -3526,7 +3539,10 @@ xinit(void)
+@@ -962,7 +975,10 @@ xinit(void)
  		xmousebg.blue  = 0x0000;
  	}
  
@@ -64,20 +64,20 @@ index 2594c65..2a031f0 100644
  
  	xw.xembed = XInternAtom(xw.dpy, "_XEMBED", False);
  	xw.wmdeletewin = XInternAtom(xw.dpy, "WM_DELETE_WINDOW", False);
-@@ -4026,6 +4042,8 @@ unmap(XEvent *ev)
+@@ -1462,6 +1478,8 @@ unmap(XEvent *ev)
  void
  xsetpointermotion(int set)
  {
-+	if(!set && !xw.pointerisvisible)
++	if (!set && !xw.pointerisvisible)
 +		return;
  	MODBIT(xw.attrs.event_mask, set, PointerMotionMask);
  	XChangeWindowAttributes(xw.dpy, xw.win, CWEventMask, &xw.attrs);
  }
-@@ -4125,6 +4143,12 @@ kpress(XEvent *ev)
+@@ -1521,6 +1539,12 @@ kpress(XEvent *ev)
  	Status status;
  	Shortcut *bp;
  
-+	if(xw.pointerisvisible) {
++	if (xw.pointerisvisible) {
 +		XDefineCursor(xw.dpy, xw.win, xw.bpointer);
 +		xsetpointermotion(1);
 +		xw.pointerisvisible = 0;

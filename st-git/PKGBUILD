@@ -4,7 +4,7 @@
 
 pkgname=st-git
 _pkgname=st
-pkgver=0.7.17.gc63a87c
+pkgver=0.7.24.g5a10aca
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://st.suckless.org/'
@@ -16,16 +16,16 @@ makedepends=('ncurses' 'libxext' 'git')
 epoch=1
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
-source=('git://git.suckless.org/st#commit=c63a87cd936c1eeef14c4c21572e5b782d3df4bc'
+source=('git://git.suckless.org/st#commit=5a10aca702bf7bc9094cb4abaea6c59558740d29'
         'config.h'
         'st-alpha-20160727-308bfbf.diff'
-        'st-externalpipe-20160727-308bfbf.diff'
-	'st-hidecursor-20160727-308bfbf.diff')
+        'st-externalpipe-20170320-e7ed326.diff'
+	'st-hidecursor-20170404-745c40f.diff')
 md5sums=('SKIP'
-         'b5b2cf67e7dd5df306ac6e4833c1e197'
+         '811a9d7dd6bc08590cedb82529dcc344'
          '037bb7f2a354fd9e3c15b4aedd103165'
-         '47d628501defd776efd0d4fbb1968895'
-         '8ff8a77b34dfc09a4dd0d2cf876d68e7')
+         '102ef3d4141566a406509a6e4b2fa21c'
+         '487dc42b84ea464474aac527c2b47191')
 
 pkgver() {
 	cd "${_pkgname}"
@@ -34,10 +34,10 @@ pkgver() {
 
 prepare() {
 	cd "${_pkgname}"
-	git apply $srcdir/st-alpha-20160727-308bfbf.diff
-	# Git can't deal with the offsets, won't apply
-	patch -p1 < $srcdir/st-externalpipe-20160727-308bfbf.diff
-	git apply $srcdir/st-hidecursor-20160727-308bfbf.diff
+	# broken
+	#git apply --verbose $srcdir/st-alpha-20160727-308bfbf.diff
+	git apply $srcdir/st-externalpipe-20170320-e7ed326.diff
+	git apply $srcdir/st-hidecursor-20170404-745c40f.diff
 	cp $srcdir/config.h config.h
 }
 
