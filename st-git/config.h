@@ -177,12 +177,11 @@ Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
-	{ TERMMOD,              XK_u,          externalpipe,   { .v = "xurls | tac | dmenu -i -l 10 | xargs -r xdg-open" } },
-	{ TERMMOD,              XK_x,          externalpipe,   { .v = "grep -F '/MSG' | dmenu -i -l 10 | xdcc | xsel -ip" } },
+	{ TERMMOD,              XK_L,          externalpipe,   { .v = "xurls | tac | dmenu -i -l 10 | xargs -r xdg-open" } },
+	{ TERMMOD,              XK_X,          externalpipe,   { .v = "grep -F '/MSG' | dmenu -i -l 10 | xdcc | xsel -ip" } },
 };
 
 /*
