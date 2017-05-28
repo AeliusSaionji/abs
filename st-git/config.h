@@ -109,10 +109,11 @@ const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
+	"black",
 };
 
 /* bg opacity */
-static const int alpha = 0xdd;
+unsigned int alpha = 0xcc;
 
 /*
  * Default colors (colorname index)
