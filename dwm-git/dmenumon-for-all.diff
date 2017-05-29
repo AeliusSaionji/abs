@@ -1,0 +1,13 @@
+diff --git a/dwm.c b/dwm.c
+index a5ce993..03530eb 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1641,7 +1641,7 @@ sigchld(int unused)
+ void
+ spawn(const Arg *arg)
+ {
+-	if (arg->v == dmenucmd)
++	if ((arg->v == dmenucmd) ^ (arg->v == clipmenu) ^ (arg->v == j4dmenu))
+ 		dmenumon[0] = '0' + selmon->num;
+ 	if (fork() == 0) {
+ 		if (dpy)

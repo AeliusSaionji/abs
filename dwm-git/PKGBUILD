@@ -26,7 +26,7 @@ source=('git://git.suckless.org/dwm#commit=ceac8c91ff3bf45ae53135658d6f560cb2335
 	'emptyview-fixed.diff'
 	'nerv-notags.diff'
 	'nerv-foobar2000.diff'
-	)
+	'dmenumon-for-all.diff')
 md5sums=('SKIP'
          '76708221620021ea6d587751e2a76304'
          '9f00d621857ec9fbaebaaf963429a7fc'
@@ -40,7 +40,8 @@ md5sums=('SKIP'
          '939f403a71b6e85261d09fc3412269ee'
          '40565453fa4179b6ec5f1f3b69c20a97'
          '2548c84f7848136415ff9195f91d96de'
-         '1f74b27822c48485a3727d3bca77936a')
+         '1f74b27822c48485a3727d3bca77936a'
+         '4909e70765c9d3174e763d59e2adb5f4')
 
 pkgver() {
 	cd $_pkgname
@@ -57,6 +58,7 @@ prepare() {
 	git apply --ignore-space-change $srcdir/dwm-gaplessgrid-20160731-56a31dc.diff # manually add #include "gaplessgrid.c" and the layout in config.h
 	git apply --ignore-space-change $srcdir/dwm-savefloats-20160723-56a31dc.diff
 	git apply --ignore-space-change $srcdir/dmenu-env.diff
+	git apply --ignore-space-change $srcdir/dmenumon-for-all.diff
 	cp $srcdir/config.h config.h
 
 	# For NERV, single tag, only floating rules, no emptyview patch
