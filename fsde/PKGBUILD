@@ -1,0 +1,26 @@
+pkgname=fsde
+pkgver=1
+pkgrel=1
+pkgdesc="My personal environment"
+arch=('i686' 'x86_64')
+depends=('chromium'
+	 'clipmenu'
+	 'compton'
+	 'dash'
+	 'dmenu'
+	 'dvtm-git'
+	 'fish'
+	 'git'
+	 'gvim'
+	 'j4-dmenu-desktop'
+	 'mosh'
+	 'openssh'
+	 'qutebrowser-git'
+	 'ranger'
+	 'sudo'
+	 'ttf-inconsolata'
+	 'udevil'
+	 'vis-git')
+
+# TODO
+# include dotfiles?
