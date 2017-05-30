@@ -4,29 +4,35 @@ pkgrel=1
 pkgdesc="My personal environment"
 arch=('i686' 'x86_64')
 depends=('abduco'
-	 'chromium'
 	 'clipmenu'
 	 'compton'
 	 'dash'
 	 'dmenu'
 	 'dunst'
 	 'dvtm-git'
-	 'fish'
-	 'git'
-	 'gvim'
+	 'feh'
 	 'j4-dmenu-desktop'
 	 'libnotify'
-	 'mosh'
-	 'openssh'
-	 'qutebrowser-git'
-	 'ranger'
-	 'sudo'
+	 'mimeo'
+	 'perl-file-mimeinfo'
 	 'ttf-inconsolata'
-	 'udevil'
-	 'vis-git'
+	 'xdg-utils-mimeo'
 	 'wmutils-git'
+	 'xorg-xbacklight'
 	 'xorg-xprop'
-	 'xorg-xwininfo')
+	 'xorg-xrandr'
+	 'xorg-xsetroot'
+	 'xorg-xwininfo'
+	 'xsel'
+	 'xss-lock-git')
 
 # TODO
 # include dotfiles?
+# install dash hook?
+# gtk-xfce-engine -and/or- aur/gtk-theme-windows10
+# lxappearance
+# sound-theme-freedesktop
+# trash-cli
+# ttf-dejavu
+# ttf-hanazono
+# wmctrl
