@@ -3,7 +3,8 @@ pkgver=1
 pkgrel=1
 pkgdesc="My personal environment"
 arch=('i686' 'x86_64')
-depends=('chromium'
+depends=('abduco'
+	 'chromium'
 	 'clipmenu'
 	 'compton'
 	 'dash'
