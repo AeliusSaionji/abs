@@ -8,11 +8,13 @@ depends=('chromium'
 	 'compton'
 	 'dash'
 	 'dmenu'
+	 'dunst'
 	 'dvtm-git'
 	 'fish'
 	 'git'
 	 'gvim'
 	 'j4-dmenu-desktop'
+	 'libnotify'
 	 'mosh'
 	 'openssh'
 	 'qutebrowser-git'
@@ -20,7 +22,10 @@ depends=('chromium'
 	 'sudo'
 	 'ttf-inconsolata'
 	 'udevil'
-	 'vis-git')
+	 'vis-git'
+	 'wmutils-git'
+	 'xorg-xprop'
+	 'xorg-xwininfo')
 
 # TODO
 # include dotfiles?
