@@ -28,7 +28,7 @@ source=('git://git.suckless.org/dwm#commit=ceac8c91ff3bf45ae53135658d6f560cb2335
 	'nerv-foobar2000.diff'
 	'dmenumon-for-all.diff')
 md5sums=('SKIP'
-         '76708221620021ea6d587751e2a76304'
+         '5231114f55b0701ed580a753ae824034'
          '9f00d621857ec9fbaebaaf963429a7fc'
          '7dbe956cd0b4ab3376cfbdf4423ec1c4'
          '5145ebd0e38226eb8fe32776efca7a19'
