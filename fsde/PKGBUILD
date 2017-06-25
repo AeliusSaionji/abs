@@ -15,6 +15,7 @@ depends=('abduco'
 	 'libnotify'
 	 'mimeo'
 	 'perl-file-mimeinfo'
+	 'polkit' # Local user can shutdown/suspend/restart
 	 'slock'
 	 'ttf-inconsolata'
 	 'xdg-utils-mimeo'

@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	{ "ircterm",        NULL,                                    NULL,       1 << 2,     False,       -1 },
 	{ "skypeforlinux",  "skypeforlinux",                         NULL,       1 << 2,     False,       -1 },
 //dvr
-	{ "Chromium",       "crx_deceagebecbceejblnlcjooeohmmeldh",  NULL,       1 << 3,     False,       -1 },
+	{ "Chromium",       "netflix.com",                           NULL,       1 << 3,     False,       -1 },
 	{ "Chromium",       "crx_fpniocchabmgenibceglhnfeimmdhdfm",  NULL,       1 << 3,     False,       -1 },
 	{ "plexmediaplayer","plexmediaplayer",                       NULL,       1 << 3,     False,       -1 },
 //gog
