@@ -59,15 +59,8 @@ prepare() {
 	git apply --ignore-space-change $srcdir/dwm-savefloats-20160723-56a31dc.diff
 	git apply --ignore-space-change $srcdir/dmenu-env.diff
 	git apply --ignore-space-change $srcdir/dmenumon-for-all.diff
+	git apply --ignore-space-change $srcdir/emptyview-fixed.diff
 	cp $srcdir/config.h config.h
-
-	# For NERV, single tag, only floating rules, no emptyview patch
-	if [ $(hostnamectl status --static) = "NERV" ]; then
-		git apply --ignore-space-change $srcdir/nerv-notags.diff
-		git apply --ignore-space-change $srcdir/nerv-foobar2000.diff
-	else
-		git apply --ignore-space-change $srcdir/emptyview-fixed.diff
-	fi
 }
 
 build() {
