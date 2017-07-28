@@ -30,16 +30,16 @@ index 877afab..0e423b1 100644
  unsigned int defaultrcs = 257;
  
 diff --git a/config.mk b/config.mk
-index c84c5ee..2854f6c 100644
+index 0aceec4..d3d8dd3 100644
 --- a/config.mk
 +++ b/config.mk
 @@ -14,7 +14,7 @@ X11LIB = /usr/X11R6/lib
- INCS = -I. -I/usr/include -I${X11INC} \
+ INCS = -I$(X11INC) \
         `pkg-config --cflags fontconfig` \
         `pkg-config --cflags freetype2`
--LIBS = -L/usr/lib -lc -L${X11LIB} -lm -lrt -lX11 -lutil -lXft \
-+LIBS = -L/usr/lib -lc -L${X11LIB} -lm -lrt -lX11 -lutil -lXft -lXrender\
-        `pkg-config --libs fontconfig`  \
+-LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft \
++LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender\
+        `pkg-config --libs fontconfig` \
         `pkg-config --libs freetype2`
  
 diff --git a/st.h b/st.h
