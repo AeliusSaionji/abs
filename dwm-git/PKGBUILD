@@ -26,7 +26,7 @@ source=('git://git.suckless.org/dwm#commit=ceac8c91ff3bf45ae53135658d6f560cb2335
 	'emptyview-fixed.diff'
 	'dmenumon-for-all.diff')
 md5sums=('SKIP'
-         '5231114f55b0701ed580a753ae824034'
+         'c9e184dff2d21f9dce42d83e3baf6711'
          '9f00d621857ec9fbaebaaf963429a7fc'
          '7dbe956cd0b4ab3376cfbdf4423ec1c4'
          '5145ebd0e38226eb8fe32776efca7a19'

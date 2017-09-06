@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	{ "qutebrowser",    "qutebrowser",                           NULL,       1 << 1,     False,       -1 },
 //irc
 	{ "ircterm",        NULL,                                    NULL,       1 << 2,     False,       -1 },
-	{ "skypeforlinux",  "skypeforlinux",                         NULL,       1 << 2,     False,       -1 },
+	{ "Skype Preview",  "skype preview",                         NULL,       1 << 2,     False,       -1 },
 //dvr
 	{ "Chromium",       "netflix.com",                           NULL,       1 << 3,     False,       -1 },
 	{ "Chromium",       "crx_fpniocchabmgenibceglhnfeimmdhdfm",  NULL,       1 << 3,     False,       -1 },
@@ -47,9 +47,7 @@ static const Rule rules[] = {
 	{ "Steam",          "Steam",                                 NULL,       1 << 4,     False,       -1 },
 	{ "Steam",          "Steam",                                 "Friends",  1 << 4,     False,       -1 },
 //etc
-	{ "Client.pyw",     "client.pyw",                            NULL,       1 << 5,     False,       -1 },
 	{ "xfreerdp",       "xfreerdp",                              NULL,       1 << 5,     False,       -1 },
-	{ "Okular",         "okular",                                NULL,       1 << 5,     False,       -1 },
 	{ "Deluge",         "deluge",                                NULL,       1 << 5,     False,       -1 },
 //all
 	{ "popterm",        NULL,                                    NULL,       ~0,         True,        -1 },
