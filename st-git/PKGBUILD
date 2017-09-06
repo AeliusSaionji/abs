@@ -18,12 +18,10 @@ provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 source=('git://git.suckless.org/st#commit=7f990328e4fec8dfaaad311cb8af2304b58c872e'
         'config.h'
-	'st-alpha-20170509-5a10aca-fix.diff'
 	'st-externalpipe-20170608-b331da5.diff'
 	'st-hidecursor-20170404-745c40f.diff')
 md5sums=('SKIP'
-         '2e0063b091f53258de93f795562beda5'
-         '7eeb727191fdddd70b2acae3f6b0d49e'
+         'c166b1b66a31be5c86e83a52a2d9de0f'
          '77e080a98bdc395f8d546841b02a0ffd'
          '487dc42b84ea464474aac527c2b47191')
 
@@ -34,7 +32,6 @@ pkgver() {
 
 prepare() {
 	cd "${_pkgname}"
-	patch -p1 < $srcdir/st-alpha-20170509-5a10aca-fix.diff
 	patch -p1 < $srcdir/st-externalpipe-20170608-b331da5.diff
 	patch -p1 < $srcdir/st-hidecursor-20170404-745c40f.diff
 	cp $srcdir/config.h config.h
