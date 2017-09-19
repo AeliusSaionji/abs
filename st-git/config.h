@@ -34,6 +34,14 @@ float chscale = 1.0;
  */
 static char worddelimiters[] = " '`\"()[]{}<>|";
 
+/* externalpipe commands */
+static char *openurlcmd[] = { "/bin/sh", "-c",
+	"xurls | dmenu -l 10 -w $1 | xargs -r open",
+	"externalpipe", winid, NULL };
+static char *listdcccmd[] = { "/bin/sh", "-c",
+	"grep -F '/MSG' | dmenu -i -l 10 -w $1 | xdcc | xsel -ip",
+	"externalpipe", winid, NULL };
+
 /* selection timeouts (in milliseconds) */
 unsigned int doubleclicktimeout = 300;
 unsigned int tripleclicktimeout = 600;
@@ -177,8 +185,8 @@ Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
-	{ TERMMOD,              XK_L,          externalpipe,   { .v = "xurls | tac | dmenu -i -l 10 | xargs -r xdg-open" } },
-	{ TERMMOD,              XK_X,          externalpipe,   { .v = "grep -F '/MSG' | dmenu -i -l 10 | xdcc | xsel -ip" } },
+	{ TERMMOD,              XK_L,           externalpipe,   {.v = openurlcmd} },
+	{ TERMMOD,              XK_X,           externalpipe,   {.v = listdcccmd} },
 };
 
 /*
