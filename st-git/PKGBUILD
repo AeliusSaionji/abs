@@ -21,7 +21,7 @@ source=('git://git.suckless.org/st#commit=b1338e91ed632adbcd08388de37e46cf25326e
 	'st-externalpipe-20170608-b331da5.diff'
 	'st-hidecursor-20170404-745c40f.diff')
 md5sums=('SKIP'
-         '74e031f0d532a219f5521e00f4c2e45f'
+         '0f80ca3fbea88204a31a7aee6dcdd82d'
          '77e080a98bdc395f8d546841b02a0ffd'
          '487dc42b84ea464474aac527c2b47191')
 
