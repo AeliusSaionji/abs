@@ -111,6 +111,7 @@ static const char *dwgrep[]      = { "fondler.sh", "dwgrep", NULL };
 static const char *dwtaggrep[]   = { "fondler.sh", "dwtaggrep", NULL };
 static const char *voldown[]     = { "fondler.sh", "voldown", NULL };
 static const char *volup[]       = { "fondler.sh", "volup", NULL };
+static const char *quitWM[]      = { "touch", ".cache/quitWM", NULL };
 
 static Key keys[] = {
 	/* modifier,           key,                       function,        argument */
@@ -164,6 +165,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_space,                  togglefloating,  {0} },
 	{ MODKEY|ShiftMask,    XK_c,                      killclient,      {0} },
 	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
+	{ MODKEY|ControlMask,  XK_q,                      spawn,           {.v = quitWM } },
 	TAGKEYS(               XK_1,                      0)
 	TAGKEYS(               XK_2,                      1)
 	TAGKEYS(               XK_3,                      2)
