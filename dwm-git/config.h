@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{ "steam",		"steam",		NULL,		1 << 6,		False,		-1 },	// Big Picture Mode
 	{ "Steam",		"Steam",		NULL,		1 << 6,		False,		-1 },
 	{ "Steam",		"Steam",		"Friends",	1 << 6,		False,		-1 },
+	{ "retroarch",		"retroarch",		NULL,		1 << 6,		False,		-1 },
 //all
 	{ "popterm",		NULL,			NULL,		~0,		True,		-1 },
 	{ "qutebrowser",	"popwww",		NULL,		~0,		True,		-1 },
