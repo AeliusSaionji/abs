@@ -19,7 +19,7 @@ depends=('abduco'
 	 'slock'
 	 'ttf-inconsolata'
 	 'xdg-utils-mimeo'
-	 'wmutils-git'
+	 'xdotool'
 	 'xorg-server'
 	 'xorg-xbacklight'
 	 'xorg-xinit'
@@ -43,3 +43,4 @@ depends=('abduco'
 # feh
 # wpa_actiond
 # ifplugd
+
