@@ -39,7 +39,7 @@ static char *openurlcmd[] = { "/bin/sh", "-c",
 	"xurls | tac | dmenu -l 10 -w $1 | xargs -r xdg-open",
 	"externalpipe", winid, NULL };
 static char *listdcccmd[] = { "/bin/sh", "-c",
-	"grep -F '/MSG' | dmenu -i -l 10 -w $1 | xdcc | xsel -ip",
+	"grep -F '/MSG' | dmenu -i -l 10 -w $1 | xdcc | xsel -ib",
 	"externalpipe", winid, NULL };
 
 /* selection timeouts (in milliseconds) */
