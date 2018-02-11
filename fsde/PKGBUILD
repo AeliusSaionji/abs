@@ -4,7 +4,6 @@ pkgrel=1
 pkgdesc="My personal environment"
 arch=('i686' 'x86_64')
 depends=('abduco'
-	 'clipmenu'
 	 'compton'
 	 'dash'
 	 'dmenu'
@@ -27,7 +26,7 @@ depends=('abduco'
 	 'xorg-xsetroot'
 	 'xorg-xwininfo'
 	 'xsel'
-	 'xss-lock-git')
+	 'xss-lock')
 
 # TODO
 # include dotfiles?
@@ -44,3 +43,5 @@ depends=('abduco'
 # wpa_actiond
 # ifplugd
 
+# REMOVED
+# clipmenu
