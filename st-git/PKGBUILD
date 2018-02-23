@@ -47,5 +47,5 @@ package() {
 	make PREFIX=/usr DESTDIR="${pkgdir}" install
 	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 	install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
-	tic -s st.info -o "${pkgdir}/usr/share/terminfo"
+	#tic -s st.info -o "${pkgdir}/usr/share/terminfo"
 }
