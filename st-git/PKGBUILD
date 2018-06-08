@@ -4,7 +4,7 @@
 
 pkgname=st-git
 _pkgname=st
-pkgver=0.8.1.6.gdc3b5ba
+pkgver=0.7.41.g1f24bde
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://st.suckless.org/'
@@ -16,14 +16,14 @@ makedepends=('ncurses' 'libxext' 'git')
 epoch=1
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
-source=('git://git.suckless.org/st#commit=dc3b5babf1f8639a0d65cd347fc7879ac0461012'
+source=('git://git.suckless.org/st#commit=1f24bde82b19912c080fbb4a0b153a248cd6c6ea'
         'config.h'
-	'st-externalpipe-0.8.diff'
-	'st-hidecursor-0.8.diff')
+	'st-externalpipe-20170608-b331da5.diff'
+	'st-hidecursor-20170404-745c40f.diff')
 md5sums=('SKIP'
-         'b91658b12a27edd190f478bcebe7ab4d'
-         'ef7d8404215cb73e41c8fe63ff3356c5'
-         'ede665482752bea51edb1ce8f0d135c8')
+         'e6da1cc6b21f236303b2e85a6a913386'
+         '77e080a98bdc395f8d546841b02a0ffd'
+         '487dc42b84ea464474aac527c2b47191')
 
 pkgver() {
 	cd "${_pkgname}"
@@ -32,8 +32,8 @@ pkgver() {
 
 prepare() {
 	cd "${_pkgname}"
-	patch -p1 < $srcdir/st-externalpipe-0.8.diff
-	patch -p1 < $srcdir/st-hidecursor-0.8.diff
+	patch -p1 < $srcdir/st-externalpipe-20170608-b331da5.diff
+	patch -p1 < $srcdir/st-hidecursor-20170404-745c40f.diff
 	cp $srcdir/config.h config.h
 }
 
