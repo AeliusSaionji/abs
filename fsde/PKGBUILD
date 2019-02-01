@@ -12,6 +12,7 @@ depends=('abduco'
 	 'feh'
 	 'j4-dmenu-desktop'
 	 'libnotify'
+	 'lxqt-powermanagement'
 	 'mimeo'
 	 'perl-file-mimeinfo'
 	 'polkit' # Local user can shutdown/suspend/restart
@@ -45,3 +46,4 @@ depends=('abduco'
 
 # REMOVED
 # clipmenu
+
