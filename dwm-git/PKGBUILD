@@ -23,6 +23,8 @@ source=('git://git.suckless.org/dwm#commit=b69c870a3076d78ab595ed1cd4b41cf6b03b2
 	'dwm-gaplessgrid-20160731-56a31dc.diff'
 	'dwm-savefloats-20160723-56a31dc.diff'
 	'dwm.desktop'
+	'xinitrc.desktop'
+	'exec-xinitrc'
 	'emptyview-fixed.diff'
 	'dmenumon-for-all.diff')
 md5sums=('SKIP'
@@ -36,6 +38,8 @@ md5sums=('SKIP'
          '97b7cc31611250e7e71484f1b423f03e'
          '103805203b6f34cfcba7477d57bd98f2'
          '939f403a71b6e85261d09fc3412269ee'
+         '82467a0c7ec91bce9d1295a633a6ee31'
+         '329e3590082a05e835b37f23d111fc72'
          '40565453fa4179b6ec5f1f3b69c20a97'
          '4909e70765c9d3174e763d59e2adb5f4')
 
@@ -70,4 +74,6 @@ package() {
 	install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 	install -m644 -D README "$pkgdir/usr/share/doc/$pkgname/README"
 	install -m644 -D ../dwm.desktop "$pkgdir/usr/share/xsessions/dwm.desktop"
+	install -m644 -D ../xinitrc.desktop "$pkgdir/usr/share/xsessions/xinitrc.desktop"
+	install -m755 -D ../exec-xinitrc "$pkgdir/usr/bin/exec-xinitrc"
 }
