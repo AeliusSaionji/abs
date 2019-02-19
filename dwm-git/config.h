@@ -19,6 +19,13 @@ static const char *colors[][3]      = {
 	[SchemeSel] =  { col_gray4, col_cyan,  col_cyan  },
 };
 
+/*   Display modes of the tab bar: never shown, always shown, shown only in  */
+/*   monocle mode in presence of several windows.                            */
+/*   A mode can be disabled by moving it after the showtab_nmodes end marker */
+enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always};
+static const int showtab            = showtab_auto; /* Default tab bar show mode  */
+static const Bool toptab            = False;         /* False means bottom tab bar */
+
 /* tagging */
 static const char *tags[] = { "www", "cmd", "irc", "etc", "dvr", "rdp", "gog" };
 
@@ -27,31 +34,34 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class,		instance,		title,		tagsmask,	isfloating,	monitor */
+	/* class            , instance          , title     , tagsmask , isfloating , monitor */
 //www
-	{ "Chromium",		"chromium",		NULL,		1,		False,		-1 },
-	{ "Firefox",		NULL,			NULL,		1,		False,		-1 },
-	{ "qutebrowser",	"qutebrowser",		NULL,		1,		False,		-1 },
+	{ "Chromium"        , "chromium"        , NULL      , 1        , False      , -1 }       ,
+	{ "Firefox"         , NULL              , NULL      , 1        , False      , -1 }       ,
+	{ "qutebrowser"     , "qutebrowser"     , NULL      , 1        , False      , -1 }       ,
 //cmd
-	{ "st-256color",	"st-256color",		NULL,		1 << 1,		False,		-1 },
+	{ "st-256color"     , "st-256color"     , NULL      , 1 << 1   , False      , -1 }       ,
 //irc
-	{ "ircterm",		NULL,			NULL,		1 << 2,		False,		-1 },
-	{ "Skype Preview",	"skype preview",	NULL,		1 << 2,		False,		-1 },
+	{ "ircterm"         , NULL              , NULL      , 1 << 2   , False      , -1 }       ,
+	{ "Keybase"         , "keybase"         , NULL      , 1 << 2   , False      , -1 }       ,
+	{ "Signal"          , "signal"          , NULL      , 1 << 2   , False      , -1 }       ,
+	{ "discord"         , "discord"         , NULL      , 1 << 2   , False      , -1 }       ,
+	{ "Slack"           , "slack"           , NULL      , 1 << 2   , False      , -1 }       ,
 //etc
-	{ "Deluge",		"deluge",		NULL,		1 << 3,		False,		-1 },
+	{ "Deluge"          , "deluge"          , NULL      , 1 << 3   , False      , -1 }       ,
 //dvr
-	{ "Chromium",		"netflix.com",		NULL,		1 << 4,		False,		-1 },
-	{ "plexmediaplayer",	"plexmediaplayer",	NULL,		1 << 4,		False,		-1 },
+	{ "Chromium"        , "netflix.com"     , NULL      , 1 << 4   , False      , -1 }       ,
+	{ "plexmediaplayer" , "plexmediaplayer" , NULL      , 1 << 4   , False      , -1 }       ,
 //rdp
-	{ "xfreerdp",		"xfreerdp",		NULL,		1 << 5,		False,		-1 },
+	{ "xfreerdp"        , "xfreerdp"        , NULL      , 1 << 5   , False      , -1 }       ,
 //gog
-	{ "steam",		"steam",		NULL,		1 << 6,		False,		-1 },	// Big Picture Mode
-	{ "Steam",		"Steam",		NULL,		1 << 6,		False,		-1 },
-	{ "Steam",		"Steam",		"Friends",	1 << 6,		False,		-1 },
-	{ "retroarch",		"retroarch",		NULL,		1 << 6,		False,		-1 },
+	{ "steam"           , "steam"           , NULL      , 1 << 6   , False      , -1 }       , // Big Picture Mode
+	{ "Steam"           , "Steam"           , NULL      , 1 << 6   , False      , -1 }       ,
+	{ "Steam"           , "Steam"           , "Friends" , 1 << 6   , False      , -1 }       ,
+	{ "retroarch"       , "retroarch"       , NULL      , 1 << 6   , False      , -1 }       ,
 //all
-	{ "popterm",		NULL,			NULL,		~0,		True,		-1 },
-	{ "qutebrowser",	"popwww",		NULL,		~0,		True,		-1 },
+	{ "popterm"         , NULL              , NULL      , ~0       , True       , -1 }       ,
+	{ "qutebrowser"     , "popwww"          , NULL      , ~0       , True       , -1 }       ,
 };
 
 /* layout(s) */
@@ -92,13 +102,10 @@ static const Layout layouts[] = {
 static char dmenumon[2]          = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]     = { "st", "-e", "dvtm", "-M", NULL };
-static const char *clipmenu[]    = { "clipmenu",   "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-i", NULL };
 static const char *j4dmenu[]     = { "fondler.sh", "j4", dmenumon, NULL };
 static const char *brightdown[]  = { "fondler.sh", "brightdown", NULL };
 static const char *brightup[]    = { "fondler.sh", "brightup", NULL };
-static const char *lock[]        = { "fondler.sh", "lock", NULL };
 static const char *popterm[]     = { "popterm", "abduco", "-A", "popterm", NULL };
-static const char *popwww[]      = { "popwww", NULL };
 static const char *micmute[]     = { "amixer", "-q", "set", "Capture", "nocap", NULL };
 static const char *micunmute[]   = { "amixer", "-q", "set", "Capture", "cap", NULL };
 static const char *mute[]        = { "amixer", "-q", "set", "Master", "toggle", NULL };
@@ -122,10 +129,8 @@ static Key keys[] = {
 	{ 0,                   XF86XK_Display,            spawn,           {.v = rotate } },
 	{ 0,                   XF86XK_MonBrightnessDown,  spawn,           {.v = brightdown } },
 	{ 0,                   XF86XK_MonBrightnessUp,    spawn,           {.v = brightup } },
-	{ 0,                   XF86XK_Sleep,              spawn,           {.v = lock } },
-	{ ControlMask,         XK_grave,                  spawn,           {.v = clipmenu } },
 	{ MODKEY,              XK_backslash,              spawn,           {.v = popterm } },
-	{ MODKEY,              XK_bracketright,           spawn,           {.v = popwww } },
+	{ MODKEY,              XK_w,                      tabmode,         {-1} }, //tab patch
 	{ MODKEY,              XK_Insert,                 spawn,           {.v = maim } },
 	{ MODKEY,              XK_e,                      spawn,           {.v = trans } },
 	{ MODKEY,              XK_p,                      spawn,           {.v = j4dmenu } },
@@ -138,12 +143,12 @@ static Key keys[] = {
 	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[0]} },
 	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[1]} },
 	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[2]} },
-        { MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} },
-        { MODKEY,              XK_g,                      setlayout,       {.v = &layouts[4]} },
-        { MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[5]} },
-        { MODKEY|ShiftMask,    XK_d,                      setlayout,       {.v = &layouts[6]} },
-        { MODKEY,              XK_c,                      setlayout,       {.v = &layouts[7]} },
-        { MODKEY,              XK_o,                      setlayout,       {.v = &layouts[8]} },
+	{ MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} },
+	{ MODKEY,              XK_g,                      setlayout,       {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[5]} },
+	{ MODKEY|ShiftMask,    XK_d,                      setlayout,       {.v = &layouts[6]} },
+	{ MODKEY,              XK_c,                      setlayout,       {.v = &layouts[7]} },
+	{ MODKEY,              XK_o,                      setlayout,       {.v = &layouts[8]} },
 	{ MODKEY,              XK_Tab,                    view,            {0} },
 	{ MODKEY,              XK_0,                      view,            {.ui = ~0 } },
 	{ MODKEY,              XK_Return,                 zoom,            {0} },
@@ -189,5 +194,6 @@ static Button buttons[] = {
 	{ ClkTagBar,      0,           Button3,  toggleview,      {0} },
 	{ ClkTagBar,      MODKEY,      Button1,  tag,             {0} },
 	{ ClkTagBar,      MODKEY,      Button3,  toggletag,       {0} },
+	{ ClkTabBar,      0,           Button1,  focuswin,        {0} }, //tab patch
 };
 

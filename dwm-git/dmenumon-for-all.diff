@@ -7,7 +7,7 @@ index a5ce993..03530eb 100644
  spawn(const Arg *arg)
  {
 -	if (arg->v == dmenucmd)
-+	if ((arg->v == dmenucmd) ^ (arg->v == clipmenu) ^ (arg->v == j4dmenu))
++	if ((arg->v == dmenucmd) ^ (arg->v == j4dmenu))
  		dmenumon[0] = '0' + selmon->num;
  	if (fork() == 0) {
  		if (dpy)
