@@ -61,7 +61,6 @@ static const Rule rules[] = {
 	{ "retroarch"       , "retroarch"       , NULL      , 1 << 6   , False      , -1 }       ,
 //all
 	{ "popterm"         , NULL              , NULL      , ~0       , True       , -1 }       ,
-	{ "qutebrowser"     , "popwww"          , NULL      , ~0       , True       , -1 }       ,
 };
 
 /* layout(s) */
