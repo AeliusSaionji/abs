@@ -18,12 +18,10 @@ provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 source=('git://git.suckless.org/st#commit=e85b6b64660214121164ea97fb098eaa4935f7db'
 	'config.h'
-	'plumb_without_shell_OSC.diff'
 	'st-externalpipe-20181016-3be4cf1.diff'
 	'st-hidecursor-0.8.1-fixed.diff')
 md5sums=('SKIP'
-         '7e277a1dbc60772ca982fec03bc547be'
-         'c0a38eba884579b754a367212598447f'
+         '7f79b7e05cab3e04e5ee326788e70666'
          '68df469f840cf9bec54b617535ccea08'
          'e15b0da610486dbfe1ad271c3c8a6636')
 
@@ -34,7 +32,6 @@ pkgver() {
 
 prepare() {
 	cd "${_pkgname}"
-	git apply --reject --ignore-space-change $srcdir/plumb_without_shell_OSC.diff
 	git apply --reject --ignore-space-change $srcdir/st-externalpipe-20181016-3be4cf1.diff
 	git apply --reject --ignore-space-change $srcdir/st-hidecursor-0.8.1-fixed.diff
 	cp $srcdir/config.h config.h
