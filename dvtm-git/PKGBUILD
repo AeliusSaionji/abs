@@ -14,9 +14,9 @@ makedepends=('git')
 provides=("$_pkgname=$pkgver-$pkgrel")
 conflicts=('dvtm')
 source=("git+https://github.com/$_owner/$_pkgname"
-'config.h')
+	'plumb.diff')
 md5sums=('SKIP'
-         '530cbacce2603d255125cdcd1d76f1bf')
+         '57506ab3821d601b4b675b9653eb3fcd')
 
 pkgver() {
 	cd "$_pkgname"
@@ -25,9 +25,7 @@ pkgver() {
 
 prepare() {
 	cd "$_pkgname"
-	[[ -e "$srcdir/config.h" ]] && cp "$srcdir/config.h" .
-
-	sed -i"" 's/CFLAGS =/CFLAGS +=/' config.mk
+	git apply --reject --ignore-space-change $srcdir/plumb.diff
 }
 
 build() {
