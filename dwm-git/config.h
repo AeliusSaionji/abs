@@ -79,11 +79,11 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 	{ "HHH",      horizgrid },
 	{ "###",      gaplessgrid },
-	{ "[]_",      deck },
 	{ "||=",      col },
-	{ "===",      bstackhoriz },
+	{ "[]_",      deck },
 };
 
 /* key definitions */
@@ -120,53 +120,60 @@ static const char *quitWM[]      = { "touch", ".cache/quitWM", NULL };
 
 static Key keys[] = {
 	/* modifier,           key,                       function,        argument */
-	{ MODKEY,              XK_Home,                   spawn,           {.v = micunmute } },
-	{ MODKEY,              XK_End,                    spawn,           {.v = micmute } },
-	{ 0,                   XF86XK_AudioMute,          spawn,           {.v = mute } },
-	{ 0,                   XF86XK_AudioLowerVolume,   spawn,           {.v = voldown } },
-	{ 0,                   XF86XK_AudioRaiseVolume,   spawn,           {.v = volup } },
-	{ 0,                   XF86XK_Display,            spawn,           {.v = rotate } },
-	{ 0,                   XF86XK_MonBrightnessDown,  spawn,           {.v = brightdown } },
-	{ 0,                   XF86XK_MonBrightnessUp,    spawn,           {.v = brightup } },
-	{ MODKEY,              XK_backslash,              spawn,           {.v = popterm } },
-	{ MODKEY,              XK_w,                      tabmode,         {-1} }, //tab patch
-	{ MODKEY,              XK_Insert,                 spawn,           {.v = maim } },
-	{ MODKEY,              XK_e,                      spawn,           {.v = trans } },
+// Core Commands
+	{ MODKEY|ShiftMask,    XK_Return,                 spawn,           {.v = termcmd } },
 	{ MODKEY,              XK_p,                      spawn,           {.v = j4dmenu } },
 	{ MODKEY|ShiftMask,    XK_p,                      spawn,           {.v = dmenucmd } },
+	{ MODKEY|ControlMask,  XK_q,                      spawn,           {.v = quitWM } },
+	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
+// Environment Commands
+	{ MODKEY,              XK_backslash,              spawn,           {.v = popterm } },
+	{ MODKEY,              XK_Insert,                 spawn,           {.v = maim } },
+	{ MODKEY,              XK_e,                      spawn,           {.v = trans } },
 	{ MODKEY,              XK_u,                      spawn,           {.v = openurl } },
 	{ MODKEY|ControlMask,  XK_r,                      spawn,           {.v = newbg } },
 	{ MODKEY|ShiftMask,    XK_r,                      spawn,           {.v = stopbg } },
-	{ MODKEY|ShiftMask,    XK_Return,                 spawn,           {.v = termcmd } },
+	{ MODKEY,              XK_Home,                   spawn,           {.v = micunmute } },
+	{ MODKEY,              XK_End,                    spawn,           {.v = micmute } },
+// Laptop
+	{ 0,                   XF86XK_Display,            spawn,           {.v = rotate } },
+	{ 0,                   XF86XK_AudioMute,          spawn,           {.v = mute } },
+	{ 0,                   XF86XK_AudioLowerVolume,   spawn,           {.v = voldown } },
+	{ 0,                   XF86XK_AudioRaiseVolume,   spawn,           {.v = volup } },
+	{ 0,                   XF86XK_MonBrightnessDown,  spawn,           {.v = brightdown } },
+	{ 0,                   XF86XK_MonBrightnessUp,    spawn,           {.v = brightup } },
+// Layouts
+	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[0]} }, //tile
+	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[1]} }, //monocle
+	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[2]} }, //float
+	{ MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} }, //bstack
+	{ MODKEY|ShiftMask,    XK_b,                      setlayout,       {.v = &layouts[4]} }, //bstackhoriz
+	{ MODKEY,              XK_g,                      setlayout,       {.v = &layouts[5]} }, //horizgrid
+	{ MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[6]} }, //gaplessgrid
+	{ MODKEY,              XK_c,                      setlayout,       {.v = &layouts[7]} }, //col
+	{ MODKEY|ShiftMask,    XK_d,                      setlayout,       {.v = &layouts[8]} }, //deck
 	{ MODKEY,              XK_space,                  setlayout,       {0} },
-	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[0]} },
-	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[1]} },
-	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[2]} },
-	{ MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} },
-	{ MODKEY,              XK_g,                      setlayout,       {.v = &layouts[4]} },
-	{ MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,    XK_d,                      setlayout,       {.v = &layouts[6]} },
-	{ MODKEY,              XK_c,                      setlayout,       {.v = &layouts[7]} },
-	{ MODKEY,              XK_o,                      setlayout,       {.v = &layouts[8]} },
 	{ MODKEY,              XK_Tab,                    view,            {0} },
 	{ MODKEY,              XK_0,                      view,            {.ui = ~0 } },
-	{ MODKEY,              XK_Return,                 zoom,            {0} },
-	{ MODKEY,              XK_k,                      focusstack,      {.i = -1 } },
+	{ MODKEY,              XK_w,                      tabmode,         {-1} }, //tab patch
+	{ MODKEY,              XK_slash,                  togglebar,       {0} },
+// Navigation
 	{ MODKEY,              XK_j,                      focusstack,      {.i = +1 } },
+	{ MODKEY,              XK_k,                      focusstack,      {.i = -1 } },
+	{ MODKEY,              XK_Return,                 zoom,            {0} },
 	{ MODKEY,              XK_comma,                  focusmon,        {.i = -1 } },
 	{ MODKEY,              XK_period,                 focusmon,        {.i = +1 } },
-	{ MODKEY|ShiftMask,    XK_comma,                  tagmon,          {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_period,                 tagmon,          {.i = +1 } },
+// Manipulation
 	{ MODKEY,              XK_h,                      setmfact,        {.f = -0.05} },
 	{ MODKEY,              XK_l,                      setmfact,        {.f = +0.05} },
 	{ MODKEY,              XK_d,                      incnmaster,      {.i = -1 } },
 	{ MODKEY,              XK_i,                      incnmaster,      {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_0,                      tag,             {.ui = ~0 } },
-	{ MODKEY,              XK_slash,                  togglebar,       {0} },
+	{ MODKEY|ShiftMask,    XK_comma,                  tagmon,          {.i = -1 } },
+	{ MODKEY|ShiftMask,    XK_period,                 tagmon,          {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_space,                  togglefloating,  {0} },
 	{ MODKEY|ShiftMask,    XK_c,                      killclient,      {0} },
-	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
-	{ MODKEY|ControlMask,  XK_q,                      spawn,           {.v = quitWM } },
+
 	TAGKEYS(               XK_1,                      0)
 	TAGKEYS(               XK_2,                      1)
 	TAGKEYS(               XK_3,                      2)
