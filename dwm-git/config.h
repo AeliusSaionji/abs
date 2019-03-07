@@ -128,7 +128,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
 // Environment Commands
 	{ MODKEY,              XK_backslash,              spawn,           {.v = popterm } },
-	{ MODKEY,              XK_Insert,                 spawn,           {.v = maim } },
+	{ 0,                   XK_Print,                  spawn,           {.v = maim } },
 	{ MODKEY,              XK_e,                      spawn,           {.v = trans } },
 	{ MODKEY,              XK_u,                      spawn,           {.v = openurl } },
 	{ MODKEY|ControlMask,  XK_r,                      spawn,           {.v = newbg } },
