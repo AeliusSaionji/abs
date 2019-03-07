@@ -111,7 +111,6 @@ static const char *mute[]        = { "amixer", "-q", "set", "Master", "toggle", 
 static const char *newbg[]       = { "systemctl", "--user", "start", "feh-wallpaper.service", "feh-wallpaper.timer", NULL };
 static const char *stopbg[]      = { "systemctl", "--user", "stop", "feh-wallpaper.timer", NULL };
 static const char *openurl[]     = { "fondler.sh", "browser", NULL };
-static const char *rotate[]      = { "fondler.sh", "rotate", NULL };
 static const char *maim[]        = { "fondler.sh", "maim", NULL };
 static const char *trans[]       = { "trans-exempt.sh", NULL };
 static const char *voldown[]     = { "fondler.sh", "voldown", NULL };
@@ -136,7 +135,6 @@ static Key keys[] = {
 	{ MODKEY,              XK_Home,                   spawn,           {.v = micunmute } },
 	{ MODKEY,              XK_End,                    spawn,           {.v = micmute } },
 // Laptop
-	{ 0,                   XF86XK_Display,            spawn,           {.v = rotate } },
 	{ 0,                   XF86XK_AudioMute,          spawn,           {.v = mute } },
 	{ 0,                   XF86XK_AudioLowerVolume,   spawn,           {.v = voldown } },
 	{ 0,                   XF86XK_AudioRaiseVolume,   spawn,           {.v = volup } },
