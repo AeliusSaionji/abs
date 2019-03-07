@@ -3,7 +3,9 @@ new file mode 100644
 index 0000000..2231f8a
 --- /dev/null
 +++ b/deck.c
-@@ -0,0 +1,27 @@
+@@ -0,0 +1,29 @@
++static void deck(Monitor *m);
++
 +void
 +deck(Monitor *m) {
 +	int dn;

@@ -5,7 +5,9 @@ Index: dwm/gaplessgrid.c
 ===================================================================
 --- /dev/null
 +++ dwm/gaplessgrid.c
-@@ -0,0 +1,35 @@
+@@ -0,0 +1,37 @@
++static void gaplessgrid(Monitor *m);
++
 +void
 +gaplessgrid(Monitor *m) {
 +	unsigned int n, cols, rows, cn, rn, i, cx, cy, cw, ch;

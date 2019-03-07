@@ -3,7 +3,9 @@ new file mode 100644
 index 0000000..4a19b87
 --- /dev/null
 +++ b/column.c
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,27 @@
++static void col(Monitor *m);
++
 +void
 +col(Monitor *m) {
 +	unsigned int i, n, h, w, x, y,mw;

@@ -3,7 +3,9 @@ new file mode 100644
 index 0000000..51ce0f8
 --- /dev/null
 +++ b/horizgrid.c
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,34 @@
++static void horizgrid(Monitor *m);
++
 +void
 +horizgrid(Monitor *m) {
 +	Client *c;
