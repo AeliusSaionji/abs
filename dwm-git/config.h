@@ -77,13 +77,13 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */   
 	{ "[M]",      monocle },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
 	{ "HHH",      horizgrid },
 	{ "###",      gaplessgrid },
 	{ "||=",      col },
 	{ "[]_",      deck },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -122,12 +122,12 @@ static Key keys[] = {
 	/* modifier,           key,                       function,        argument */
 // Core Commands
 	{ MODKEY|ShiftMask,    XK_Return,                 spawn,           {.v = termcmd } },
-	{ MODKEY,              XK_p,                      spawn,           {.v = j4dmenu } },
-	{ MODKEY|ShiftMask,    XK_p,                      spawn,           {.v = dmenucmd } },
+	{ MODKEY,              XK_space,                  spawn,           {.v = j4dmenu } },
+	{ MODKEY|ControlMask,  XK_space,                  spawn,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,  XK_q,                      spawn,           {.v = quitWM } },
 	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
 // Environment Commands
-	{ MODKEY,              XK_backslash,              spawn,           {.v = popterm } },
+	{ MODKEY|ControlMask,  XK_Return,                 spawn,           {.v = popterm } },
 	{ 0,                   XK_Print,                  spawn,           {.v = maim } },
 	{ MODKEY,              XK_e,                      spawn,           {.v = trans } },
 	{ MODKEY,              XK_u,                      spawn,           {.v = openurl } },
@@ -143,34 +143,34 @@ static Key keys[] = {
 	{ 0,                   XF86XK_MonBrightnessDown,  spawn,           {.v = brightdown } },
 	{ 0,                   XF86XK_MonBrightnessUp,    spawn,           {.v = brightup } },
 // Layouts
-	{ MODKEY,              XK_t,                      setlayout,       {.v = &layouts[0]} }, //tile
-	{ MODKEY,              XK_m,                      setlayout,       {.v = &layouts[1]} }, //monocle
-	{ MODKEY,              XK_f,                      setlayout,       {.v = &layouts[2]} }, //float
-	{ MODKEY,              XK_b,                      setlayout,       {.v = &layouts[3]} }, //bstack
-	{ MODKEY|ShiftMask,    XK_b,                      setlayout,       {.v = &layouts[4]} }, //bstackhoriz
-	{ MODKEY,              XK_g,                      setlayout,       {.v = &layouts[5]} }, //horizgrid
-	{ MODKEY|ShiftMask,    XK_g,                      setlayout,       {.v = &layouts[6]} }, //gaplessgrid
-	{ MODKEY,              XK_c,                      setlayout,       {.v = &layouts[7]} }, //col
-	{ MODKEY|ShiftMask,    XK_d,                      setlayout,       {.v = &layouts[8]} }, //deck
-	{ MODKEY,              XK_space,                  setlayout,       {0} },
+	{ MODKEY,              XK_F1,                     setlayout,       {.v = &layouts[0]} }, //tile
+	{ MODKEY,              XK_F2,                     setlayout,       {.v = &layouts[1]} }, //monocle
+	{ MODKEY,              XK_F3,                     setlayout,       {.v = &layouts[2]} }, //bstack
+	{ MODKEY,              XK_F4,                     setlayout,       {.v = &layouts[3]} }, //bstackhoriz
+	{ MODKEY,              XK_F5,                     setlayout,       {.v = &layouts[4]} }, //horizgrid
+	{ MODKEY,              XK_F6,                     setlayout,       {.v = &layouts[5]} }, //gaplessgrid
+	{ MODKEY,              XK_F7,                     setlayout,       {.v = &layouts[6]} }, //col
+	{ MODKEY,              XK_F8,                     setlayout,       {.v = &layouts[7]} }, //deck
+	{ MODKEY,              XK_F9,                     setlayout,       {.v = &layouts[8]} }, //float
+	{ MODKEY|ShiftMask,    XK_Tab,                    setlayout,       {0} },
 	{ MODKEY,              XK_Tab,                    view,            {0} },
 	{ MODKEY,              XK_0,                      view,            {.ui = ~0 } },
-	{ MODKEY,              XK_w,                      tabmode,         {-1} }, //tab patch
-	{ MODKEY,              XK_slash,                  togglebar,       {0} },
+	{ MODKEY|ControlMask,  XK_Escape,                 tabmode,         {-1} }, //tab patch
+	{ MODKEY|ShiftMask,    XK_Escape,                 togglebar,       {0} },
 // Navigation
-	{ MODKEY,              XK_j,                      focusstack,      {.i = +1 } },
-	{ MODKEY,              XK_k,                      focusstack,      {.i = -1 } },
+	{ MODKEY,              XK_bracketleft,            focusstack,      {.i = +1 } }, //hjkl 3rd finger down
+	{ MODKEY,              XK_bracketright,           focusstack,      {.i = -1 } }, //hjkl 4th finger up
 	{ MODKEY,              XK_Return,                 zoom,            {0} },
-	{ MODKEY,              XK_comma,                  focusmon,        {.i = -1 } },
-	{ MODKEY,              XK_period,                 focusmon,        {.i = +1 } },
+	{ MODKEY|ControlMask,  XK_bracketleft,            focusmon,        {.i = -1 } },
+	{ MODKEY|ControlMask,  XK_bracketright,           focusmon,        {.i = +1 } },
 // Manipulation
-	{ MODKEY,              XK_h,                      setmfact,        {.f = -0.05} },
-	{ MODKEY,              XK_l,                      setmfact,        {.f = +0.05} },
+	{ MODKEY,              XK_p,                      setmfact,        {.f = -0.05} },
+	{ MODKEY,              XK_backslash,              setmfact,        {.f = +0.05} },
 	{ MODKEY,              XK_d,                      incnmaster,      {.i = -1 } },
 	{ MODKEY,              XK_i,                      incnmaster,      {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_0,                      tag,             {.ui = ~0 } },
-	{ MODKEY|ShiftMask,    XK_comma,                  tagmon,          {.i = -1 } },
-	{ MODKEY|ShiftMask,    XK_period,                 tagmon,          {.i = +1 } },
+	{ MODKEY|ShiftMask,    XK_bracketleft,            tagmon,          {.i = -1 } },
+	{ MODKEY|ShiftMask,    XK_bracketright,           tagmon,          {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_space,                  togglefloating,  {0} },
 	{ MODKEY|ShiftMask,    XK_c,                      killclient,      {0} },
 
