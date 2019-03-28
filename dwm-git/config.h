@@ -50,7 +50,7 @@ static const Rule rules[] = {
 //etc
 	{ "Deluge"          , "deluge"          , NULL      , 1 << 3   , False      , -1 }       ,
 //dvr
-	{ "Chromium"        , "netflix.com"     , NULL      , 1 << 4   , False      , -1 }       ,
+	{ "Spotify"         , "spotify"         , NULL      , 1 << 4   , False      , -1 }       ,
 	{ "plexmediaplayer" , "plexmediaplayer" , NULL      , 1 << 4   , False      , -1 }       ,
 //rdp
 	{ "xfreerdp"        , "xfreerdp"        , NULL      , 1 << 5   , False      , -1 }       ,
