@@ -122,7 +122,7 @@ static Key keys[] = {
 // Core Commands
 	{ MODKEY|ShiftMask,    XK_Return,                 spawn,           {.v = termcmd } },
 	{ MODKEY,              XK_space,                  spawn,           {.v = j4dmenu } },
-	{ MODKEY|ControlMask,  XK_space,                  spawn,           {.v = dmenucmd } },
+	{ MODKEY|Mod1Mask,     XK_space,                  spawn,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,  XK_q,                      spawn,           {.v = quitWM } },
 	{ MODKEY|ShiftMask,    XK_q,                      quit,            {0} },
 // Environment Commands
