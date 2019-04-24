@@ -34,33 +34,33 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class            , instance          , title     , tagsmask , isfloating , monitor */
+	/* class,             instance,           title,      tagsmask,  isfloating,  monitor */
 //www
-	{ "Chromium"        , "chromium"        , NULL      , 1        , False      , -1 }       ,
-	{ "Firefox"         , NULL              , NULL      , 1        , False      , -1 }       ,
-	{ "qutebrowser"     , "qutebrowser"     , NULL      , 1        , False      , -1 }       ,
+	{ "Chromium",         "chromium",         NULL,       1,         False,       -1 },
+	{ "Firefox",          NULL,               NULL,       1,         False,       -1 },
+	{ "qutebrowser",      "qutebrowser",      NULL,       1,         False,       -1 },
 //cmd
-	{ "st-256color"     , "st-256color"     , NULL      , 1 << 1   , False      , -1 }       ,
+	{ "st-256color",      "st-256color",      NULL,       1 << 1,    False,       -1 },
 //irc
-	{ "ircterm"         , NULL              , NULL      , 1 << 2   , False      , -1 }       ,
-	{ "Keybase"         , "keybase"         , NULL      , 1 << 2   , False      , -1 }       ,
-	{ "Signal"          , "signal"          , NULL      , 1 << 2   , False      , -1 }       ,
-	{ "discord"         , "discord"         , NULL      , 1 << 2   , False      , -1 }       ,
-	{ "Slack"           , "slack"           , NULL      , 1 << 2   , False      , -1 }       ,
+	{ "ircterm",          NULL,               NULL,       1 << 2,    False,       -1 },
+	{ "Keybase",          "keybase",          NULL,       1 << 2,    False,       -1 },
+	{ "Signal",           "signal",           NULL,       1 << 2,    False,       -1 },
+	{ "discord",          "discord",          NULL,       1 << 2,    False,       -1 },
+	{ "Slack",            "slack",            NULL,       1 << 2,    False,       -1 },
 //etc
-	{ "Deluge"          , "deluge"          , NULL      , 1 << 3   , False      , -1 }       ,
+	{ "Deluge",           "deluge",           NULL,       1 << 3,    False,       -1 },
 //dvr
-	{ "Spotify"         , "spotify"         , NULL      , 1 << 4   , False      , -1 }       ,
-	{ "plexmediaplayer" , "plexmediaplayer" , NULL      , 1 << 4   , False      , -1 }       ,
+	{ "Spotify",          "spotify",          NULL,       1 << 4,    False,       -1 },
+	{ "plexmediaplayer",  "plexmediaplayer",  NULL,       1 << 4,    False,       -1 },
 //rdp
-	{ "xfreerdp"        , "xfreerdp"        , NULL      , 1 << 5   , False      , -1 }       ,
+	{ "xfreerdp",         "xfreerdp",         NULL,       1 << 5,    False,       -1 },
 //gog
-	{ "steam"           , "steam"           , NULL      , 1 << 6   , False      , -1 }       , // Big Picture Mode
-	{ "Steam"           , "Steam"           , NULL      , 1 << 6   , False      , -1 }       ,
-	{ "Steam"           , "Steam"           , "Friends" , 1 << 6   , False      , -1 }       ,
-	{ "retroarch"       , "retroarch"       , NULL      , 1 << 6   , False      , -1 }       ,
+	{ "steam",            "steam",            NULL,       1 << 6,    False,       -1 },       // Big Picture Mode
+	{ "Steam",            "Steam",            NULL,       1 << 6,    False,       -1 },
+	{ "Steam",            "Steam",            "Friends",  1 << 6,    False,       -1 },
+	{ "retroarch",        "retroarch",        NULL,       1 << 6,    False,       -1 },
 //all
-	{ "popterm"         , NULL              , NULL      , ~0       , True       , -1 }       ,
+	{ "popterm",          NULL,               NULL,       ~0,        True,        -1 },
 };
 
 /* layout(s) */
