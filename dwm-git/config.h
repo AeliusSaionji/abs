@@ -52,6 +52,7 @@ static const Rule rules[] = {
 //dvr
 	{ "Spotify",          "spotify",          NULL,       1 << 4,    False,       -1 },
 	{ "plexmediaplayer",  "plexmediaplayer",  NULL,       1 << 4,    False,       -1 },
+	{ "Girens",           "girens",           NULL,       1 << 4,    False,       -1 },
 //rdp
 	{ "xfreerdp",         "xfreerdp",         NULL,       1 << 5,    False,       -1 },
 //gog
