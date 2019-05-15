@@ -43,6 +43,7 @@ static const Rule rules[] = {
 	{ "st-256color",      "st-256color",      NULL,       1 << 1,    False,       -1 },
 //irc
 	{ "ircterm",          NULL,               NULL,       1 << 2,    False,       -1 },
+	{ "quassel",          "quasselclient",    NULL,       1 << 2,    False,       -1 },
 	{ "Keybase",          "keybase",          NULL,       1 << 2,    False,       -1 },
 	{ "Signal",           "signal",           NULL,       1 << 2,    False,       -1 },
 	{ "discord",          "discord",          NULL,       1 << 2,    False,       -1 },
