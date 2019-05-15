@@ -27,7 +27,7 @@ static const int showtab            = showtab_auto; /* Default tab bar show mode
 static const Bool toptab            = False;         /* False means bottom tab bar */
 
 /* tagging */
-static const char *tags[] = { "www", "cmd", "irc", "etc", "dvr", "rdp", "gog" };
+static const char *tags[] = { "cmd", "www", "irc", "etc", "dvr", "rdp", "gog" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,12 +35,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class,             instance,           title,      tagsmask,  isfloating,  monitor */
-//www
-	{ "Chromium",         "chromium",         NULL,       1,         False,       -1 },
-	{ "Firefox",          NULL,               NULL,       1,         False,       -1 },
-	{ "qutebrowser",      "qutebrowser",      NULL,       1,         False,       -1 },
 //cmd
-	{ "st-256color",      "st-256color",      NULL,       1 << 1,    False,       -1 },
+	{ "st-256color",      "st-256color",      NULL,       1,         False,       -1 },
+//www
+	{ "Chromium",         "chromium",         NULL,       1 << 1,    False,       -1 },
+	{ "Firefox",          NULL,               NULL,       1 << 1,    False,       -1 },
+	{ "qutebrowser",      "qutebrowser",      NULL,       1 << 1,    False,       -1 },
 //irc
 	{ "ircterm",          NULL,               NULL,       1 << 2,    False,       -1 },
 	{ "quassel",          "quasselclient",    NULL,       1 << 2,    False,       -1 },
