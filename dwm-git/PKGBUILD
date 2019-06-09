@@ -29,7 +29,7 @@ source=('git://git.suckless.org/dwm#commit=cb3f58ad06993f7ef3a7d8f61468012e2b786
 	'xinitrc.desktop'
 	'exec-xinitrc')
 md5sums=('SKIP'
-         '4168bd16c12ba958e8c121f010630f7e'
+         'c893c4d3d8905818b1ec61ca3649b2b1'
          '0628cd5b24af25790800c8c0ef21ce9f'
          'aac97b9fe68c14725bc49e8a70cfc436'
          'baf416283dabaa884b5925850777d3d1'
