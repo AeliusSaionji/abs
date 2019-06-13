@@ -3,48 +3,52 @@ pkgver=1
 pkgrel=1
 pkgdesc="My personal environment"
 arch=('i686' 'x86_64')
-depends=('abduco'
-	 'compton'
-	 'dash'
-	 'dex'
-	 'dmenu'
-	 'dunst'
-	 'dvtm-git'
-	 'feh'
-	 'j4-dmenu-desktop'
-	 'libnotify'
-	 'mate-power-manager'
-	 'mimeo'
-	 'perl-file-mimeinfo'
-	 'polkit' # Local user can shutdown/suspend/restart
-	 'slock'
-	 'ttf-inconsolata'
-	 'xdg-utils-mimeo'
-	 'xdotool'
-	 'xorg-server'
-	 'xorg-xbacklight'
-	 'xorg-xinit'
-	 'xorg-xprop'
-	 'xorg-xsetroot'
-	 'xorg-xwininfo'
-	 'xsel'
-	 'xss-lock')
+depends=(
+	#aur
+	'j4-dmenu-desktop'
+	'mimeo'
+	'xdg-utils-mimeo'
+	'xiccd'
+	#official
+	'alsa-utils'
+	'compton'
+	'dash'
+	'dex'
+	'dmenu'
+	'dunst'
+	'feh'
+	'fish'
+	'libnotify'
+	'lxappearance'
+	'maim'
+	'mate-power-manager'
+	'perl-file-mimeinfo'
+	'polkit' # Local user can shutdown/suspend/restart
+	'sddm'
+	'slock'
+	'sound-theme-freedesktop'
+	'tlp'
+	'ttf-inconsolata'
+	'udevil'
+	'xdotool'
+	'xorg-server'
+	'xorg-xbacklight'
+	'xorg-xinit'
+	'xorg-xprop'
+	'xorg-xsetroot'
+	'xorg-xwininfo'
+	'xsel'
+	'xss-lock')
 
 # TODO
 # include dotfiles?
 # install dash hook?
-# gtk-xfce-engine -and/or- aur/gtk-theme-windows10
-# lxappearance
-# sound-theme-freedesktop
-# trash-cli
 # ttf-dejavu
 # ttf-hanazono
 # wmctrl
 # redshift
-# feh
 # wpa_actiond
 # ifplugd
+# xf86-input-synaptics
 
-# REMOVED
-# clipmenu
 
