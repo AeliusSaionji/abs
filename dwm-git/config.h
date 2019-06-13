@@ -103,11 +103,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2]          = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]     = { "st", "-e", "dvtm", "-M", NULL };
+static const char *termcmd[]     = { "st", "-e", "tmux", "-f", ".config/tmux/tmux.conf", NULL };
 static const char *j4dmenu[]     = { "fondler.sh", "j4", dmenumon, NULL };
 static const char *brightdown[]  = { "fondler.sh", "brightdown", NULL };
 static const char *brightup[]    = { "fondler.sh", "brightup", NULL };
-static const char *popterm[]     = { "popterm", "dvtm", "-M", NULL };
+static const char *popterm[]     = { "popterm", "tmux", "-f", ".config/tmux/tmux.conf", NULL };
 static const char *micmute[]     = { "amixer", "-q", "set", "Capture", "nocap", NULL };
 static const char *micunmute[]   = { "amixer", "-q", "set", "Capture", "cap", NULL };
 static const char *mute[]        = { "amixer", "-q", "set", "Master", "toggle", NULL };
