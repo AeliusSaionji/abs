@@ -28,6 +28,7 @@ depends=(
 	'slock'
 	'sound-theme-freedesktop'
 	'tlp'
+	'tmux'
 	'ttf-inconsolata'
 	'udevil'
 	'xdotool'
