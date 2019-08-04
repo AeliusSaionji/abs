@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	{ "st-256color",      "st-256color",      NULL,       1,         False,       -1 },
 //www
 	{ "Chromium",         "chromium",         NULL,       1 << 1,    False,       -1 },
-	{ "Firefox",          NULL,               NULL,       1 << 1,    False,       -1 },
+	{ "firefox",          "Navigator",        NULL,       1 << 1,    False,       -1 },
 	{ "qutebrowser",      "qutebrowser",      NULL,       1 << 1,    False,       -1 },
 //irc
 	{ "ircterm",          NULL,               NULL,       1 << 2,    False,       -1 },
