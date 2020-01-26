@@ -38,7 +38,7 @@ depends=(
 	'xorg-xprop'
 	'xorg-xsetroot'
 	'xorg-xwininfo'
-	'xsel'
+	'xclip'
 	'xss-lock')
 
 # TODO
