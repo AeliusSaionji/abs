@@ -76,6 +76,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "gaplessgrid.c"
 #include "horizgrid.c"
 #include "bstack.c"
+#include "centered-master.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */   
@@ -86,6 +87,8 @@ static const Layout layouts[] = {
 	{ "###",      gaplessgrid },
 	{ "||=",      col },
 	{ "[]_",      deck },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
@@ -152,7 +155,9 @@ static Key keys[] = {
 	{ MODKEY,              XK_F6,                     setlayout,       {.v = &layouts[5]} }, //gaplessgrid
 	{ MODKEY,              XK_F7,                     setlayout,       {.v = &layouts[6]} }, //col
 	{ MODKEY,              XK_F8,                     setlayout,       {.v = &layouts[7]} }, //deck
-	{ MODKEY,              XK_F9,                     setlayout,       {.v = &layouts[8]} }, //float
+	{ MODKEY,              XK_F9,                     setlayout,       {.v = &layouts[8]} }, //centeredmaster
+	{ MODKEY,              XK_F10,                    setlayout,       {.v = &layouts[9]} }, //centeredfloatingmaster
+	{ MODKEY,              XK_F11,                    setlayout,       {.v = &layouts[10]} }, //float
 	{ MODKEY|ShiftMask,    XK_Tab,                    setlayout,       {0} },
 	{ MODKEY,              XK_Tab,                    view,            {0} },
 	{ MODKEY,              XK_0,                      view,            {.ui = ~0 } },
