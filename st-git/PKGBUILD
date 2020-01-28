@@ -15,11 +15,13 @@ makedepends=('ncurses' 'libxext' 'git')
 source=('git://git.suckless.org/st#commit=895e5b50a8cc835c19a45e1e328eb4dc78f5fd0c'
 	'config.h'
 	'st-externalpipe-0.8.2.diff'
-	'st-hidecursor-0.8.1-fixed.diff')
+	'st-hidecursor-0.8.1-fixed.diff'
+	'st.desktop')
 sha1sums=('SKIP'
           '85748ae5157879900e46276eaa37eb294c26962e'
           'cf7530e9926214a3660a938936a8fcaefbeab7c2'
-          '5e902a2ea5182658462a541b693bb0e427b7b79f')
+          '5e902a2ea5182658462a541b693bb0e427b7b79f'
+          'bc7d6fff88c401a5143000f43f3c5fab1d48e974')
 provides=('st')
 conflicts=('st')
 
@@ -34,6 +36,7 @@ prepare() {
 	git apply --reject --ignore-space-change $srcdir/st-externalpipe-0.8.2.diff
 	git apply --reject --ignore-space-change $srcdir/st-hidecursor-0.8.1-fixed.diff
 	cp $srcdir/config.h config.h
+	cp $srcdir/st.desktop st.desktop
 }
 
 build() {
@@ -48,4 +51,5 @@ package() {
     make PREFIX=/usr DESTDIR="${pkgdir}" TERMINFO="/dev/null" install
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     install -Dm644 README "${pkgdir}/usr/share/doc/${pkgname}/README"
+	install -Dm644 st.desktop "${pkgdir}/usr/share/applications/st.desktop"
 }
