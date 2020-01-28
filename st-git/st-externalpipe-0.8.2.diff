@@ -1,18 +1,8 @@
-From c19e14bef38548e3984a0135f6466f77d56b8d77 Mon Sep 17 00:00:00 2001
-From: Parker Ellertson <parkerellertson@airmail.cc>
-Date: Tue, 16 Oct 2018 12:27:29 -0600
-Subject: [PATCH] Applied externalpipe patch to current git version.
-
----
- st.c | 53 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- st.h |  1 +
- 2 files changed, 54 insertions(+)
-
 diff --git a/st.c b/st.c
-index 46cf2da..2a34f83 100644
+index ede7ae6..f55d30f 100644
 --- a/st.c
 +++ b/st.c
-@@ -1978,6 +1978,59 @@ tprinter(char *s, size_t len)
+@@ -1914,6 +1914,59 @@ strparse(void)
  	}
  }
  
@@ -70,20 +60,17 @@ index 46cf2da..2a34f83 100644
 +}
 +
  void
- toggleprinter(const Arg *arg)
+ strdump(void)
  {
 diff --git a/st.h b/st.h
-index 38c61c4..fe56f49 100644
+index 4da3051..cb7101f 100644
 --- a/st.h
 +++ b/st.h
-@@ -83,6 +83,7 @@ void draw(void);
+@@ -80,6 +80,7 @@ void die(const char *, ...);
+ void redraw(void);
+ void draw(void);
+ 
++void externalpipe(const Arg *);
  void printscreen(const Arg *);
  void printsel(const Arg *);
  void sendbreak(const Arg *);
-+void externalpipe(const Arg *);
- void toggleprinter(const Arg *);
- 
- int tattrset(int);
--- 
-2.19.1
-

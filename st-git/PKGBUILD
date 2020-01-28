@@ -4,7 +4,7 @@
 
 pkgname=st-git
 _pkgname=st
-pkgver=0.8.2.1.ge85b6b6
+pkgver=0.8.2.26.g895e5b5
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='http://st.suckless.org/'
@@ -16,14 +16,14 @@ makedepends=('ncurses' 'libxext' 'git')
 epoch=1
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
-source=('git://git.suckless.org/st#commit=e85b6b64660214121164ea97fb098eaa4935f7db'
+source=('git://git.suckless.org/st#commit=895e5b50a8cc835c19a45e1e328eb4dc78f5fd0c'
 	'config.h'
-	'st-externalpipe-20181016-3be4cf1.diff'
+	'st-externalpipe-0.8.2.diff'
 	'st-hidecursor-0.8.1-fixed.diff')
 md5sums=('SKIP'
-         '7f79b7e05cab3e04e5ee326788e70666'
-         '68df469f840cf9bec54b617535ccea08'
-         'e15b0da610486dbfe1ad271c3c8a6636')
+         '7f5650b36c38acf32a614e1efbad011b'
+         '3a3bcd26bf88f8412e8b5cfa64a83fbc'
+         '8d2cdaf7a8ae619a33d17da31fecb5a2')
 
 pkgver() {
 	cd "${_pkgname}"
@@ -32,7 +32,7 @@ pkgver() {
 
 prepare() {
 	cd "${_pkgname}"
-	git apply --reject --ignore-space-change $srcdir/st-externalpipe-20181016-3be4cf1.diff
+	git apply --reject --ignore-space-change $srcdir/st-externalpipe-0.8.2.diff
 	git apply --reject --ignore-space-change $srcdir/st-hidecursor-0.8.1-fixed.diff
 	cp $srcdir/config.h config.h
 }
