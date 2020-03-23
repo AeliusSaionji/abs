@@ -6,8 +6,8 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "inconsolata:size=8" };
-static const char dmenufont[]       = "inconsolata:size=8";
+static const char *fonts[]          = { "Inconsolata Regular:size=7:antialias=true:autohint=false:family=mono" };
+static const char dmenufont[]       = "Inconsolata Regular:size=7:antialias=true:autohint=false:family=mono";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -105,7 +105,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2]          = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, NULL };
 static const char *termcmd[]     = { "st", "-e", "tmux", "-f", ".config/tmux/tmux.conf", NULL };
 static const char *j4dmenu[]     = { "fondler.sh", "j4", dmenumon, NULL };
 static const char *brightdown[]  = { "fondler.sh", "brightdown", NULL };
