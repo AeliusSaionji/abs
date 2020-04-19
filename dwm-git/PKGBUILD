@@ -20,7 +20,6 @@ source=('git://git.suckless.org/dwm#commit=cb3f58ad06993f7ef3a7d8f61468012e2b786
 	'dwm-centeredmaster-20160719-56a31dc-include.diff'
 	'dwm-columns-6.0-include.diff'
 	'dwm-deck-20170909-tweaked.diff'
-	'dwm-focusonnetactive-2017-12-24-3756f7f.diff'
 	'dwm-gaplessgrid-20160731-fixed.diff'
 	'dwm-horizgrid-6.1-fixed.diff'
 	'dwm-pertag-20170513-tab-v2-6.1-aelius_combo.diff'
@@ -38,7 +37,6 @@ md5sums=('SKIP'
          '62633b1baab6943e639c08ae2fec68ec'
          'c05449580019b808dc5dea7c3cdf9259'
          '07ad471cec9177e0363c3600dd38d47a'
-         '5f3d2d4e4097df977e6930ead6c50a13'
          '6b026fae2e9ba4cd4a7855cfd70ad1d2'
          '10334eff0f42566bdb1021eb1da28294'
          '19a099cb5f89f665f9e6119f10fcaefe'
@@ -67,7 +65,6 @@ prepare() {
 	git apply --reject --ignore-space-change $srcdir/dwm-pertag-20170513-tab-v2-6.1-aelius_combo.diff
 	git apply --reject --ignore-space-change $srcdir/dwm-resizecorners-6.1.diff
 	git apply --reject --ignore-space-change $srcdir/dwm-savefloats-20181212-b69c870.diff
-	git apply --reject --ignore-space-change $srcdir/dwm-focusonnetactive-2017-12-24-3756f7f.diff
 	#git apply --reject --ignore-space-change $srcdir/emptyview-fixed.diff # broken by dwm-pertag-20170513-tab-v2-6.1-aelius_combo.diff
 	cp $srcdir/config.h config.h
 }
