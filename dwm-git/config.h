@@ -39,7 +39,7 @@ static const Rule rules[] = {
 	{ "st-256color",      "st-256color",      NULL,       1,         False,       -1 },
 //www
 	{ "Chromium",         "chromium",         NULL,       1 << 1,    False,       -1 },
-	{ "firefox",          "Navigator",        NULL,       1 << 1,    False,       -1 },
+	{ "Firefox",          "Navigator",        NULL,       1 << 1,    False,       -1 },
 	{ "qutebrowser",      "qutebrowser",      NULL,       1 << 1,    False,       -1 },
 //irc
 	{ "ircterm",          NULL,               NULL,       1 << 2,    False,       -1 },
@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{ "Signal",           "signal",           NULL,       1 << 2,    False,       -1 },
 	{ "discord",          "discord",          NULL,       1 << 2,    False,       -1 },
 	{ "Slack",            "slack",            NULL,       1 << 2,    False,       -1 },
+	{ "Ripcord",          NULL,               NULL,       1 << 2,    False,       -1 },
 //etc
 	{ "Deluge",           "deluge",           NULL,       1 << 3,    False,       -1 },
 //dvr
