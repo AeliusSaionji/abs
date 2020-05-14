@@ -4,7 +4,7 @@
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
 pkgname=st-git
-pkgver=0.8.2.r26.g895e5b5
+pkgver=0.8.3.r9.g045a0fa
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='https://st.suckless.org/'
@@ -12,17 +12,17 @@ arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-source=('git://git.suckless.org/st#commit=895e5b50a8cc835c19a45e1e328eb4dc78f5fd0c'
+source=('git://git.suckless.org/st#commit=045a0fab4f80b57f4a982ae6bc5f33fe21d66111'
 	'config.h'
-	'st-alphaFocusHighlight-20191218-2b8333f-fixed.diff'
+	'st-alphaFocusHighlight-20200216-26cdfeb-fixed.diff'
 	'st-externalpipe-0.8.2.diff'
 	'st-hidecursor-0.8.1-fixed.diff'
 	'st.desktop')
 sha1sums=('SKIP'
-          '218200e999e6ff1b3dc997967361e19f1e52048d'
-          '894fbb4c458aafb8539d85a9ad09f6919c7457d0'
+          '20729c618d9fedcb869546d73386295c21754732'
+          '8de7e64982297b05586df8fb0076be6521da5947'
           'cf7530e9926214a3660a938936a8fcaefbeab7c2'
-          '5e902a2ea5182658462a541b693bb0e427b7b79f'
+          '7e2b94ae956d057136a3a87d4294d4cee1f0914d'
           'bc7d6fff88c401a5143000f43f3c5fab1d48e974')
 provides=('st')
 conflicts=('st')
@@ -37,7 +37,7 @@ prepare() {
 
 	git apply --reject --ignore-space-change $srcdir/st-externalpipe-0.8.2.diff
 	git apply --reject --ignore-space-change $srcdir/st-hidecursor-0.8.1-fixed.diff
-	git apply --reject --ignore-space-change $srcdir/st-alphaFocusHighlight-20191218-2b8333f-fixed.diff
+	git apply --reject --ignore-space-change $srcdir/st-alphaFocusHighlight-20200216-26cdfeb-fixed.diff
 	cp $srcdir/config.h config.h
 	cp $srcdir/st.desktop st.desktop
 }

@@ -1,6 +1,8 @@
---- x.c.orig	2020-01-28 04:42:35.624352978 -0500
-+++ x.c	2020-01-28 04:48:03.322845708 -0500
-@@ -99,6 +99,11 @@
+diff --git a/x.c b/x.c
+index 1dc44d6..6611dca 100644
+--- a/x.c
++++ b/x.c
+@@ -103,6 +103,11 @@ typedef struct {
  	Draw draw;
  	Visual *vis;
  	XSetWindowAttributes attrs;
@@ -12,7 +14,7 @@
  	int scr;
  	int isfixed; /* is fixed geometry? */
  	int l, t; /* left and top offset */
-@@ -678,6 +683,13 @@
+@@ -698,6 +703,13 @@ brelease(XEvent *e)
  void
  bmotion(XEvent *e)
  {
@@ -26,7 +28,7 @@
  	if (IS_SET(MODE_MOUSE) && !(e->xbutton.state & forcemousemod)) {
  		mousereport(e);
  		return;
-@@ -1062,10 +1074,10 @@
+@@ -1099,10 +1111,10 @@ void
  xinit(int cols, int rows)
  {
  	XGCValues gcvalues;
@@ -38,8 +40,8 @@
  
  	if (!(xw.dpy = XOpenDisplay(NULL)))
  		die("can't open display\n");
-@@ -1126,8 +1138,9 @@
- 	ximopen(xw.dpy);
+@@ -1166,8 +1178,9 @@ xinit(int cols, int rows)
+ 	}
  
  	/* white cursor, black outline */
 -	cursor = XCreateFontCursor(xw.dpy, mouseshape);
@@ -50,7 +52,7 @@
  
  	if (XParseColor(xw.dpy, xw.cmap, colorname[mousefg], &xmousefg) == 0) {
  		xmousefg.red   = 0xffff;
-@@ -1141,7 +1154,10 @@
+@@ -1181,7 +1194,10 @@ xinit(int cols, int rows)
  		xmousebg.blue  = 0x0000;
  	}
  
@@ -62,7 +64,7 @@
  
  	xw.xembed = XInternAtom(xw.dpy, "_XEMBED", False);
  	xw.wmdeletewin = XInternAtom(xw.dpy, "WM_DELETE_WINDOW", False);
-@@ -1631,6 +1647,8 @@
+@@ -1674,6 +1690,8 @@ unmap(XEvent *ev)
  void
  xsetpointermotion(int set)
  {
@@ -71,7 +73,7 @@
  	MODBIT(xw.attrs.event_mask, set, PointerMotionMask);
  	XChangeWindowAttributes(xw.dpy, xw.win, CWEventMask, &xw.attrs);
  }
-@@ -1749,6 +1767,12 @@
+@@ -1794,6 +1812,12 @@ kpress(XEvent *ev)
  	Status status;
  	Shortcut *bp;
  
