@@ -4,7 +4,7 @@
 # Contributor: Scytrin dai Kinthra <scytrin@gmail.com>
 
 pkgname=st-git
-pkgver=0.8.3.r19.g9ba7ecf
+pkgver=0.8.4.r0.gfa253f0
 pkgrel=1
 pkgdesc='Simple virtual terminal emulator for X'
 url='https://st.suckless.org/'
@@ -12,7 +12,7 @@ arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libxft')
 makedepends=('ncurses' 'libxext' 'git')
-source=('git://git.suckless.org/st#commit=9ba7ecf7b15ec2986c6142036706aa353b249ef9'
+source=('git://git.suckless.org/st#commit=fa253f077f19b3220c7655b81bd91e52f4367803'
 	'config.h'
 	'st-alphaFocusHighlight-20200216-26cdfeb-fixed.diff'
 	'st-externalpipe-0.8.2.diff'
