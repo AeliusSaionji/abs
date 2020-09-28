@@ -107,11 +107,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2]          = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "run-recent", "-m", dmenumon, NULL };
-static const char *termcmd[]     = { "st", "-e", "scroll", NULL };
+static const char *termcmd[]     = { "st", "-e", "tmux", NULL };
 static const char *j4dmenu[]     = { "fondler.sh", "j4", dmenumon, NULL };
 static const char *brightdown[]  = { "fondler.sh", "brightdown", NULL };
 static const char *brightup[]    = { "fondler.sh", "brightup", NULL };
-static const char *popterm[]     = { "popterm", "scroll", NULL };
+static const char *popterm[]     = { "popterm", "tmux", NULL };
 static const char *micmute[]     = { "amixer", "-q", "set", "Capture", "nocap", NULL };
 static const char *micunmute[]   = { "amixer", "-q", "set", "Capture", "cap", NULL };
 static const char *mute[]        = { "amixer", "-q", "set", "Master", "toggle", NULL };
