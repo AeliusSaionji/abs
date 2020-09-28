@@ -4,52 +4,48 @@ pkgrel=1
 pkgdesc="My personal environment"
 arch=('i686' 'x86_64')
 depends=(
-	#aur
-	'j4-dmenu-desktop'
-	'mimeo'
-	'xdg-utils-mimeo'
-	'xiccd'
-	#official
-	'alsa-utils'
-	'compton'
-	'dash'
-	'dex'
-	'dmenu'
-	'dunst'
-	'feh'
-	'fish'
-	'libnotify'
-	'lxappearance'
-	'maim'
-	'mate-power-manager'
-	'perl-file-mimeinfo'
-	'polkit' # Local user can shutdown/suspend/restart
-	'sddm'
-	'slock'
-	'sound-theme-freedesktop'
-	'tlp'
-	'tmux'
-	'ttf-inconsolata'
-	'udevil'
-	'xdotool'
-	'xorg-server'
-	'xorg-xbacklight'
-	'xorg-xinit'
-	'xorg-xprop'
-	'xorg-xsetroot'
-	'xorg-xwininfo'
-	'xclip'
-	'xss-lock')
+  #aur
+  'j4-dmenu-desktop'
+  'mimeo'
+  'xdg-utils-mimeo'
+  'xiccd'
+  #official
+  'alsa-utils'
+  'compton'
+  'dash'
+  'dex'
+  'dmenu'
+  'dunst'
+  'feh'
+  'fish'
+  'libnotify'
+  'lxappearance'
+  'maim'
+  'mate-power-manager'
+  'perl-file-mimeinfo'
+  'polkit' # Local user can shutdown/suspend/restart
+  'sddm'
+  'slock'
+  'sound-theme-freedesktop'
+  'tlp'
+  'tmux'
+  'ttf-inconsolata'
+  'udevil'
+  'xdotool'
+  'xorg-server'
+  'xorg-xbacklight'
+  'xorg-xinit'
+  'xorg-xprop'
+  'xorg-xsetroot'
+  'xorg-xwininfo'
+  'xclip'
+  'xss-lock')
 
 # TODO
 # include dotfiles?
 # install dash hook?
-# ttf-dejavu
-# ttf-hanazono
-# wmctrl
+# fonts?
+# iwd?
+# wmctrl?
 # redshift
-# wpa_actiond
-# ifplugd
 # xf86-input-synaptics
-
-
