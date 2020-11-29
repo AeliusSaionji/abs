@@ -25,7 +25,6 @@ source=('git://git.suckless.org/dwm#commit=cb3f58ad06993f7ef3a7d8f61468012e2b786
 	'dwm-pertag-20170513-tab-v2-6.1-aelius_combo.diff'
 	'dwm-resizecorners-6.1.diff'
 	'dwm-savefloats-20181212-b69c870.diff'
-	'emptyview-fixed.diff'
 	'dwm.desktop'
 	'xinitrc.desktop'
 	'exec-xinitrc')
@@ -42,7 +41,6 @@ md5sums=('SKIP'
          '19a099cb5f89f665f9e6119f10fcaefe'
          '5cfdb08e42746092d825284669dd10ab'
          'c2576b5b80958e76525473260bf09cc9'
-         '40565453fa4179b6ec5f1f3b69c20a97'
          '939f403a71b6e85261d09fc3412269ee'
          '82467a0c7ec91bce9d1295a633a6ee31'
          '329e3590082a05e835b37f23d111fc72')
