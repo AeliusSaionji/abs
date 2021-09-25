@@ -1,0 +1,11 @@
+I have a bad memory and limited experience.
+How 2 patch 4 dum me
+
+/* at known good state */
+makebuild --cleanbuild --nobuild
+cd srcdir
+git commit -am patches
+git apply --reject that-pesky.patch
+/* manually merge rejects */
+git --no-pager diff --output=thenew.diff
+
