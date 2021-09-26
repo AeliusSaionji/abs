@@ -3,3 +3,10 @@ Removed media tag and associated programs- it's just never intuitive
 Manually changed all layout patches to #include a new c file instead of patching dwm.c.
 	Updates to dwm should no longer break the patches
 Added a dirty hack to quit dwm out of the loop in xinitrc
+
+TODO 
+patch that shows possible actions to help navigate the endless keyboard shortcuts
+initial thought: MOD4 activates gui and shows base mod4+key. Other mod combinations are excluded unless pressed (mod4+ctrl+key to see those shortcuts, etc). Ideally it sources from the user's config.h such that it becomes a tool for exploring other dwm configurations
+
+patch to search and execute dwm commands
+there are plenty of interesting patches I may never use enough to remember the key combo. If it can be executed without arguments, a gui not unlike vscode/obsidian/windowsterminal could let users visualize what is there
