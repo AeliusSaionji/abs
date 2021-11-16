@@ -1,0 +1,13 @@
+diff --git a/x.c b/x.c
+index 89786b8..685028a 100644
+--- a/x.c
++++ b/x.c
+@@ -947,6 +947,8 @@ xloadfont(Font *f, FcPattern *pattern)
+ 
+ 	f->height = f->ascent + f->descent;
+ 	f->width = DIVCEIL(extents.xOff, strlen(ascii_printable));
++  if (extents.xOff > extents.width)
++    f->width -= extents.xOff - extents.width;
+ 
+ 	return 0;
+ }
