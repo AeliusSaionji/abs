@@ -18,6 +18,7 @@ source=('git://git.suckless.org/st#commit=2f6e597ed871cff91c627850d03152cae5f457
   'st-externalpipe-0.8.4.diff'
   'st-focus-20200731-43a395a-fixed.diff'
   'st-hidecursor-0.8.3-fixed.diff'
+  'st-xft-fix.diff'
   'st.desktop')
 sha1sums=('SKIP'
           '9d4856fef01485148167de9d7d732931c96385f3'
@@ -25,6 +26,7 @@ sha1sums=('SKIP'
           'aee72b8ea01e9d970769e1ef23a8b3d5efcf1dac'
           '7f80a82aec5f6b1451f9165970317338cf062684'
           '9171a8ac8199c53b3056be7b244f9db17053a6a1'
+          'ec588beba09d0ee1cd3e27072e81bed0cee2416a'
           'bc7d6fff88c401a5143000f43f3c5fab1d48e974')
 provides=('st')
 conflicts=('st')
@@ -40,6 +42,7 @@ prepare() {
   git apply --reject --ignore-space-change $srcdir/st-externalpipe-0.8.4.diff
   git apply --reject --ignore-space-change $srcdir/st-focus-20200731-43a395a-fixed.diff
   git apply --reject --ignore-space-change $srcdir/st-hidecursor-0.8.3-fixed.diff
+  git apply --reject --ignore-space-change $srcdir/st-xft-fix.diff
   cp $srcdir/config.h config.h
   cp $srcdir/st.desktop st.desktop
 }
